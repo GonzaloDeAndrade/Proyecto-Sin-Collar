@@ -1,15 +1,13 @@
-
-
 .grid-main{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 10rem 20rem 65rem 15rem;
+    grid-template-rows: 15rem 110rem 70rem 15rem;
     grid-template-areas:  "nav nav nav"
-    "header header aside"
-    "main main aside"
-    "footer footer footer";
+                          "header header header "
+                         "main main aside"
+                         "footer footer footer";
     gap:1rem;
-    height: 110rem;;
+    height: 210rem;;
 }
 .nav{
     grid-area: nav;
