@@ -8,7 +8,11 @@ export const routes: Routes = [
         component:HomeComponent
     },
     {
-        path:'hp-admin',
+        path:'admin',
         component:MenuAdminComponent
+    },
+    {
+        path:'**',
+        component:HomeComponent
     }
 ];
