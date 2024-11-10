@@ -1,0 +1,42 @@
+.principal{
+    background-color: chocolate;
+    padding: 5rem 0;
+}
+.grid-footer{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-items: center;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+}
+.logo img{
+    width: 30%;
+}
+.enlaces ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.enlaces ul li a{
+    text-decoration: none;
+    color: brown;
+    font-size: 1.6rem;
+    padding: 1rem 0;
+    display: inline-block;
+
+}
+.redes .fa-brands
+{
+    color: rgb(27, 94, 94);
+}
+.fa-brands{
+    font-size:  3rem;
+}
+.redes{
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+}
