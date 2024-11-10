@@ -1,11 +1,12 @@
 <nav class="navbar">
-    <div class="left">
-      <button class="main-btn">Principal</button>
-    </div>
-    <div class="right">
-
-      <button class="nav-btn">Iniciar Sesión</button>
-      <button class="nav-btn">Mascotas</button>
-      <button class="nav-btn">Menú</button>
-    </div>
-  </nav>
+  <div class="logo">
+    <span>SinCollar</span>
+  </div>
+  <div class="menu">
+    <span (click)="toggleMenu()">Menu [ + ]</span>
+    <ul *ngIf="menuOpen" class="dropdown">
+      <li><a routerLink="/login">Iniciar Sesión</a></li>
+      <li><a routerLink="/pets">Mascotas</a></li>
+    </ul>
+  </div>
+</nav>

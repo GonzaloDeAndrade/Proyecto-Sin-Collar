@@ -1,4 +1,4 @@
- /* Estilos del navbar */
+ /* Estilos del navbar
   .navbar {
     display: flex;
     justify-content: space-between;
@@ -13,7 +13,7 @@
     z-index: 1000;
   }
   /* Seccion izquierda: icono + botón principal */
-  .left {
+  /* .left {
     display: flex;
     align-items: center;
   }
@@ -37,11 +37,11 @@
   .main-btn:hover {
     background-color: #e59b00;
   }
-  
+   */
   /* Seccion derecha: botones de navegacion */
-  .right {
+  /* .right {
     display: flex;
-    gap: 20px; /* Espacio entre botones */
+    gap: 20px; /* Espacio entre botones 
   }
   
   .nav-btn {
@@ -58,4 +58,59 @@
   .nav-btn:hover {
     background-color: #f7c200;
     color: #333;
-  }
+  } */
+
+  /* Estilos generales para el navbar */
+.navbar {
+  background-color: #4B3A32; /* Marrón oscuro */
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo span {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+/* Menú desplegable */
+.menu {
+  position: relative;
+  cursor: pointer;
+}
+
+.menu span {
+  font-size: 1.5em;
+  color: #FFFFFF;
+}
+
+.dropdown {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background-color: #4B3A32; /* Mismo color que el fondo del navbar */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #333;
+  width: 150px;
+}
+
+.dropdown li {
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.dropdown li a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.dropdown li:hover {
+  background-color: #5c4739; /* Un tono un poco más claro para hover */
+}
