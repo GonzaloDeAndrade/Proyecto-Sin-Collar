@@ -68,13 +68,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 60px;
 }
 
 /* Logo */
-.logo span {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #FFFFFF;
+.logo img {
+  height: 120px; /* Ajusta el tamaño del logo */
+  vertical-align: middle;
 }
 
 /* Menú desplegable */
