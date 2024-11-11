@@ -1,1 +1,25 @@
-<p>add-mascota works!</p>
+<section>
+<form [formGroup]="formulario" (ngSubmit)="addMascota()">
+    <label for="">Id: </label>
+    <input 
+    type="text"
+     formControlName="id"
+      >
+      @if (formulario.controls['id'].getError('required')) 
+      {
+        <div>
+          Campo requerido
+        </div>
+      }
+      
+      <label for="">Tarea: </label>
+      <input 
+      type="text"
+       formControlName="tarea"
+        >
+        <div>
+          Campo requerido
+        </div>
+    <button >Agregar</button>
+  </form>
+</section>
