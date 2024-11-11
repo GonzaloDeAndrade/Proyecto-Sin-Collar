@@ -1,7 +1,7 @@
 .grid-main{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto 110rem 70rem 15rem;
+    grid-template-rows: auto auto auto auto;
     grid-template-areas:  "nav nav nav"
                           "header header header "
                          "main main aside"
