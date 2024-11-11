@@ -1,1 +1,27 @@
-<p>usuario works!</p>
+<h2>Seleccione su rol</h2>
+
+<form [formGroup]="usuarioForm" (ngSubmit)="agregarUsuario()">
+  <label>
+    <input type="radio" formControlName="rol" value="adoptivo" />
+    Soy un Usuario que Carga Adopciones
+  </label>
+  <label>
+    <input type="radio" formControlName="rol" value="adoptante" />
+    Soy un Usuario que Adopta
+  </label>
+
+  <div *ngIf="usuarioForm.get('rol')?.invalid && usuarioForm.get('rol')?.touched" class="error">
+    Por favor, seleccione un rol antes de continuar.
+  </div>
+  <div>
+    <label for="nombre">Nombre:</label>
+    <input id="nombre" formControlName="nombre" />
+  </div>
+
+  <div>
+    <label for="apellido">Apellido:</label>
+    <input id="apellido" formControlName="apellido" />
+  </div>
+
+  <button type="submit" [disabled]="usuarioForm.invalid">Continuar</button>
+</form>

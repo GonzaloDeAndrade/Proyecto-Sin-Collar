@@ -4,6 +4,7 @@ import { MenuAdminComponent } from './admin/components/menu-admin/menu-admin.com
 import { MascotaPagesComponent } from './shared/mascota/pages/mascota-pages/mascota-pages.component';
 import { SolicitudesAdopcionComponent } from './shared/mascota/pages/solicitudes-adopcion/solicitudes-adopcion.component';
 import { ListarMascotasComponent } from './shared/mascota/components/listar-mascotas/listar-mascotas.component';
+import { UsuarioComponent } from './usuario/usuario.component';
 
 export const routes: Routes = [
     {
@@ -25,6 +26,10 @@ export const routes: Routes = [
     {
         path:'**',
         component:HomeComponent
+    },
+    {
+        path:'login',
+        component:UsuarioComponent
     }
    
 ];

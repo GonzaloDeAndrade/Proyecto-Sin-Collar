@@ -4,5 +4,6 @@ export const environment = {
     urlBaseRechazadasSA: 'http://localhost:3000/mascotas/SA_rechazadas',
     urlBaseStandBySM: 'http://localhost:3000/mascotas/SM_stand_by',
     urlBaseAceptadasSM: 'http://localhost:3000/mascotas/SM_aceptadas',
-    urlBaseRechazadasSM: 'http://localhost:3000/mascotas/SM_rechazadas'
+    urlBaseRechazadasSM: 'http://localhost:3000/mascotas/SM_rechazadas',
+    urlUsuario:'http://localhost:3000/usuarios'
 };
