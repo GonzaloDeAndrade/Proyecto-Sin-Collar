@@ -7,11 +7,13 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ApiResponse } from '../../Interface/apiResponse.interface';
+import { NavComponent } from "../../../../web/components/nav/nav.component";
+import { FooterComponent } from '../../../../web/components/footer/footer.component';
 
 @Component({
   selector: 'app-add-mascota',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, NavComponent,FooterComponent],
   templateUrl: './add-mascota.component.html',
   styleUrl: './add-mascota.component.css'
 })

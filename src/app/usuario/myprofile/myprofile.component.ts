@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UsuarioServicioService } from '../service/usuario-servicio.service';
 import { inject } from '@angular/core';
 import { MascotaService } from '../../shared/mascota/service/mascota.service';
@@ -10,7 +10,7 @@ import { solicitudMascota } from '../../shared/mascota/Interface/solicitudMascot
   templateUrl: './myprofile.component.html',
   styleUrl: './myprofile.component.css'
 })
-export class MyProfileComponent {
+export class MyProfileComponent implements OnInit{
   userData: any;
   mascotas: solicitudMascota[] = [];
   userService = inject(UsuarioServicioService);
