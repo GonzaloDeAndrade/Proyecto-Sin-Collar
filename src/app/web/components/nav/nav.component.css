@@ -68,12 +68,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
+  height: 70px;
+  z-index: 5;
+  position: relative;
+  border-bottom: 1px solid #FFFFFF;
 }
 
 /* Logo */
 .logo img {
-  height: 120px; /* Ajusta el tamaño del logo */
+  height: 150px;
+  width: 160px;
+  margin-top: 8px; /* Ajusta el tamaño del logo */
   vertical-align: middle;
 }
 
@@ -82,6 +87,8 @@
   position: relative;
   cursor: pointer;
 }
+
+
 
 .menu span {
   font-size: 1.5em;
