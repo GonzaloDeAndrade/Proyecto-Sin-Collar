@@ -5,6 +5,7 @@ import { MascotaPagesComponent } from './shared/mascota/pages/mascota-pages/masc
 import { SolicitudesAdopcionComponent } from './shared/mascota/pages/solicitudes-adopcion/solicitudes-adopcion.component';
 import { ListarMascotasComponent } from './shared/mascota/components/listar-mascotas/listar-mascotas.component';
 import { UsuarioComponent } from './usuario/usuario.component';
+import { SolicitudesMascotaComponent } from './shared/mascota/pages/solicitudes-mascota/solicitudes-mascota.component';
 
 export const routes: Routes = [
     {
@@ -17,7 +18,7 @@ export const routes: Routes = [
     },
     {
         path:'admin/sm',
-        component:MascotaPagesComponent
+        component:SolicitudesMascotaComponent
     },
     {
         path:'admin/sa',

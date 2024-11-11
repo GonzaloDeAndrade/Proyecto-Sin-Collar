@@ -20,6 +20,10 @@ export class MascotaService {
   {
     return this.http.get<solicitudMascota[]>(this.urlBaseAceptadasSM)
   }
+  getMascotasAdmin():Observable<solicitudMascota[]>
+  {
+    return this.http.get<solicitudMascota[]>(this.urlBaseStandBySM)
+  }
   getMascotaByIdUser(id:string|null):Observable<solicitudMascota>
   {
   return this.http.get<solicitudMascota>(`${this.urlBaseAceptadasSM}/${id}`);
@@ -28,13 +32,17 @@ export class MascotaService {
   {
     return this.http.post<solicitudMascota>(`${this.urlBaseStandBySM}`,mascota)
   }
-  putMascotasAdmin(mascota:solicitudMascota, id:string|null):Observable<solicitudMascota>
+  putMascotasAceptadaAdmin(mascota:solicitudMascota, id:string|null):Observable<solicitudMascota>
   {
     return this.http.put<solicitudMascota>(`${this.urlBaseAceptadasSM}/${id}`,mascota)
   }
-  deleteMascotaByIdAdmin(id:string):Observable<void>
+  putMascotasRechazadaAdmin(mascota:solicitudMascota, id:string|null):Observable<solicitudMascota>
   {
-    return this.http.delete<void>(`${this.urlBaseAceptadasSM}/${id}`);
+    return this.http.put<solicitudMascota>(`${this.urlBaseRechazadasSM}/${id}`,mascota)
+  }
+  deleteMascotaByIStandBydAdmin(id:string):Observable<void>
+  {
+    return this.http.delete<void>(`${this.urlBaseStandBySM}/${id}`);
   }
   getSolicitudesMascotasAdmin():Observable<solicitudMascota[]>
   {

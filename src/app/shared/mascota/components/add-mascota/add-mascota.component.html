@@ -70,11 +70,11 @@
       <label for="tamaño">Tamaño</label>
       <input 
         type="number"
-        formControlName="tamaño"
+        formControlName="tamanio"
         id="tamaño"
         placeholder="Ingrese el tamaño de la mascota"
       />
-      <div *ngIf="formulario.controls['tamaño'].hasError('required') && formulario.controls['tamaño'].touched" class="error-message">
+      <div *ngIf="formulario.controls['tamanio'].hasError('required') && formulario.controls['tamanio'].touched" class="error-message">
         El tamaño es requerido
       </div>
     </div>

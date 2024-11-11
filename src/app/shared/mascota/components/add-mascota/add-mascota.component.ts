@@ -25,7 +25,7 @@ export class AddMascotaComponent {
       raza:['',[Validators.required, Validators.minLength(3)]],
       edad:[0,[Validators.required]],
       sexo:['',[Validators.required]],
-      tamaño:[0,[Validators.required]],
+      tamanio:[0,[Validators.required]],
       color:['',[Validators.required]]
     }
   )

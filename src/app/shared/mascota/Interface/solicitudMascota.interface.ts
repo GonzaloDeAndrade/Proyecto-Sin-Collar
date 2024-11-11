@@ -4,7 +4,7 @@ export interface solicitudMascota{
     raza:string,
     edad:number,
     sexo:string,
-    tamaño: number,
+    tamanio: number,
     color:string,
     resultado?:boolean
 }

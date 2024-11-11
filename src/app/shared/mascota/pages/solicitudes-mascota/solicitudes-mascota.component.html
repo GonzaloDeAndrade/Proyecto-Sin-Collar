@@ -1,1 +1,41 @@
-<p>solicitudes-mascota works!</p>
+<section class="mascotas-lista">
+    <h2>Lista de solicitudes de Mascotas</h2>
+    
+    <!-- Tabla para mostrar las mascotas -->
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Raza</th>
+          <th>Edad</th>
+          <th>Sexo</th>
+          <th>Tamaño</th>
+          <th>Color</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let mascota of listaMascotas">
+          <td>{{ mascota.id }}</td>
+          <td>{{ mascota.nombre }}</td>
+          <td>{{ mascota.raza }}</td>
+          <td>{{ mascota.edad }}</td>
+          <td>{{ mascota.sexo }}</td>
+          <td>{{ mascota.tamanio}}</td>
+          <td>{{ mascota.color }}</td>
+          <td>
+            <!-- Botón de aceptar -->
+            <button (click)="aceptarMascota(mascota)">Aceptar</button>
+            <!-- Botón de rechazar -->
+            <button (click)="rechazarMascota(mascota)">Rechazar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <!-- Mensaje cuando no hay mascotas -->
+    <div *ngIf="listaMascotas.length === 0">
+      <p>No hay mascotas registradas.</p>
+    </div>
+  </section>

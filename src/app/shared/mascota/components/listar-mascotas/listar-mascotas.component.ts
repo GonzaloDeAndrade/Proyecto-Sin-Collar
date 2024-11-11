@@ -44,7 +44,7 @@ export class ListarMascotasComponent implements OnInit{
   }
   delete(id:string)
   {
-    this.ms.deleteMascotaByIdAdmin(id).subscribe(
+    this.ms.deleteMascotaByIStandBydAdmin(id).subscribe(
       {
         next:() =>{
           console.log('actualizado');
