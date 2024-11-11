@@ -7,7 +7,7 @@ HttpClient
   providedIn: 'root'
 })
 export class UsuarioServicioService {
-
+  private rol: string | null = null;
     http= inject(HttpClient);
     url = 'http://localhost:3000/usuarios';
     private usuario: cargaUsuario | null = null;
@@ -24,6 +24,13 @@ export class UsuarioServicioService {
      // Obtiene el nombre completo del usuario conectado
   getNombreCompleto(): string {
     return this.usuario ? `${this.usuario.nombre} ${this.usuario.apellido}` : '';
+  }
+  setRol(rol: string) {
+    this.rol = rol;
+  }
+
+  getRol(): string | null {
+    return this.rol;
   }
   
 }

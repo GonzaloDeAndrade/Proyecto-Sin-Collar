@@ -41,7 +41,8 @@ export class UsuarioComponent {
     }
     agregarUsuarioDB(usuario:cargaUsuario) {
 
-      const rolSeleccionado = this.usuarioForm.get('rol')?.value;
+      const rolSeleccionado = this.usuarioForm.get('rol')?.value??'';
+      this.usuarioService.setRol(rolSeleccionado);
       this.usuarioService.setUsuario(usuario).subscribe
       (
         {
@@ -49,9 +50,9 @@ export class UsuarioComponent {
             console.log('Tarea agregada correctamente', tarea);
             alert ('Tarea guardada');
             if (rolSeleccionado === 'adoptivo') {
-              this.router.navigate(['/usuario/carga-adopcion']);
+              this.router.navigate(['/home']);
             } else if (rolSeleccionado === 'adoptante') {
-              this.router.navigate(['/usuario/adopta']);
+              this.router.navigate(['/home']);
             }
           },
           error: (e: Error ) =>
