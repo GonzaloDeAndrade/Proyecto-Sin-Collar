@@ -2,6 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { MascotaService } from '../../service/mascota.service';
 import { solicitudMascota } from '../../Interface/solicitudMascota.interface';
+import Notiflix from 'notiflix';
+import { cargaUsuario } from '../../Interface/cargaUsuario.interface';
+import { UsuarioServicioService } from '../../../../usuario/service/usuario-servicio.service';
+import { environment } from '../../../../../environments/environment.development';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-solicitudes-mascota',
@@ -14,8 +19,12 @@ export class SolicitudesMascotaComponent implements OnInit{
   ngOnInit(): void {
     this.listarMascotas();
     }
+    private usuario: cargaUsuario | null = null;
   ms = inject(MascotaService)
+  us = inject(UsuarioServicioService)
+  http = inject(HttpClient)
   listaMascotas: solicitudMascota[] = []
+  urlBaseEnvio = environment.urlBaseEnvio
   listarMascotas(){
     this.ms.getMascotasAdmin().subscribe(
      {
@@ -35,7 +44,7 @@ export class SolicitudesMascotaComponent implements OnInit{
     {
       next:()=>
       {
-        alert(`${mascota.nombre} fue aceptad@!`)
+        
       },
       error:(e:Error)=>{
         console.log(e.message);
@@ -46,15 +55,42 @@ export class SolicitudesMascotaComponent implements OnInit{
     {
       next:()=>
         {
-          window.location.reload()
+         //
         },
         error:(e:Error)=>{
           console.log(e.message);
         }
     }
+   
   );
+  this.enviarCorreoMA(mascota.id_Usuario)
+  // window.location.reload()
 
  }
+ enviarCorreoMA(id_Usuario:string)
+  {
+    Notiflix.Loading.standard('Cargando...');
+    this.us.getUsuarioByIdUser(id_Usuario).subscribe(
+      {
+        next:(userById: cargaUsuario)=>{
+          this.usuario = userById;
+          console.log(this.usuario);
+        },
+        error:(e:Error) => { 
+          console.log(e.message);
+        }
+      }
+    );
+     this.http.post(this.urlBaseEnvio, {email:this.usuario?.email,asunto:'Mascota Adoptada',mensaje:'Su mascota ha sido adoptada'}).subscribe({
+      next:()=>{
+       Notiflix.Loading.remove();
+      },
+      error:(e:Error) => { 
+        console.log(e.message);
+      }
+    })
+    
+  }
  rechazarMascota(mascota:solicitudMascota)
  {
   mascota.resultado= false;
@@ -80,5 +116,6 @@ export class SolicitudesMascotaComponent implements OnInit{
         }
     }
   );
+  this.ms.enviarCorreoMR(mascota.id_Usuario)
  }
 }

@@ -1,20 +1,50 @@
 {
   "mascotas": [],
+  "envio": [
+    {
+      "id": "1018",
+      "asunto": "Mascota Adoptada",
+      "mensaje": "Su mascota ha sido adoptada"
+    },
+    {
+      "id": "1153",
+      "email": "canevelo0o@gmail.com",
+      "asunto": "Mascota Adoptada",
+      "mensaje": "Su mascota ha sido adoptada"
+    },
+    {
+      "id": "1c7d",
+      "asunto": "Mascota Adoptada",
+      "mensaje": "Su mascota ha sido adoptada"
+    },
+    {
+      "id": "9a97",
+      "email": "canevelo0o@gmail.com",
+      "asunto": "Mascota Adoptada",
+      "mensaje": "Su mascota ha sido adoptada"
+    },
+    {
+      "id": "5639",
+      "email": "canevelo0o@gmail.com",
+      "asunto": "Mascota Adoptada",
+      "mensaje": "Su mascota ha sido adoptada"
+    },
+    {
+      "id": "3f05",
+      "email": "canevelo0o@gmail.com",
+      "asunto": "Mascota Adoptada",
+      "mensaje": "Su mascota ha sido adoptada"
+    },
+    {
+      "id": "59e8",
+      "asunto": "Mascota Adoptada",
+      "mensaje": "Su mascota ha sido adoptada"
+    }
+  ],
   "SA_stand_by": [],
   "SA_aceptadas": [],
   "SA_rechazadas": [],
-  "SM_stand_by": [
-    {
-      "id": "1",
-      "nombre": "apolo",
-      "raza": "border",
-      "edad": 2,
-      "sexo": "mascu",
-      "tamanio": 1,
-      "color": "rojo",
-      "resultado": true
-    }
-  ],
+  "SM_stand_by": [],
   "SM_aceptadas": [
     {
       "id": "1",
@@ -48,6 +78,222 @@
       "color": "rojo",
       "resultado": true,
       "imagen": ""
+    },
+    {
+      "id": "4",
+      "id_Usuario": "78ac",
+      "nombre": "piter",
+      "raza": "dogo",
+      "edad": 1,
+      "sexo": "mascu",
+      "tamanio": 2,
+      "color": "negro",
+      "imagen": "sin",
+      "resultado": true
+    },
+    {
+      "id": "2",
+      "id_Usuario": "78ac",
+      "nombre": "Andrés Canevello ",
+      "raza": "border",
+      "edad": 2,
+      "sexo": "masculino",
+      "tamanio": 0,
+      "color": "negro",
+      "imagen": "sin",
+      "resultado": true
+    },
+    {
+      "id": "1",
+      "id_Usuario": "78ac",
+      "nombre": "Andrés Canevello ",
+      "raza": "border",
+      "edad": 2,
+      "sexo": "masculino",
+      "tamanio": 0,
+      "color": "negro",
+      "imagen": "sin",
+      "resultado": true
+    },
+    {
+      "id": "2",
+      "id_Usuario": "78ac",
+      "nombre": "Andrés Canevello ",
+      "raza": "border",
+      "edad": 0,
+      "sexo": "masculino",
+      "tamanio": 0,
+      "color": "red",
+      "imagen": "sin",
+      "resultado": true
+    },
+    {
+      "id": "1",
+      "id_Usuario": "78ac",
+      "nombre": "Andrés Canevello ",
+      "raza": "border",
+      "edad": 2,
+      "sexo": "masculino",
+      "tamanio": 0,
+      "color": "negro",
+      "imagen": "sin",
+      "resultado": true
+    },
+    {
+      "id": "2",
+      "id_Usuario": "78ac",
+      "nombre": "Andrés Canevello ",
+      "raza": "border",
+      "edad": 0,
+      "sexo": "masculino",
+      "tamanio": 0,
+      "color": "red",
+      "imagen": "sin",
+      "resultado": true
+    },
+    {
+      "id": "41",
+      "id_Usuario": "78ac",
+      "nombre": "Andrés Canevello ",
+      "raza": "border",
+      "edad": 0,
+      "sexo": "masculino",
+      "tamanio": 0,
+      "color": "red",
+      "imagen": "sin",
+      "resultado": true
+    },
+    {
+      "id": "41",
+      "id_Usuario": "78ac",
+      "nombre": "Andrés Canevello ",
+      "raza": "border",
+      "edad": 0,
+      "sexo": "masculino",
+      "tamanio": 0,
+      "color": "red",
+      "imagen": "sin",
+      "resultado": true
+    },
+    {
+      "id": "41",
+      "id_Usuario": "78ac",
+      "nombre": "Andrés Canevello ",
+      "raza": "border",
+      "edad": 0,
+      "sexo": "masculino",
+      "tamanio": 0,
+      "color": "red",
+      "imagen": "sin",
+      "resultado": true
+    },
+    {
+      "id": "1231",
+      "id_Usuario": "78ac",
+      "nombre": "apolo",
+      "raza": "border",
+      "edad": 0,
+      "sexo": "masculino",
+      "tamanio": 0,
+      "color": "rojo",
+      "imagen": "sin",
+      "resultado": true
+    },
+    {
+      "id": "1231",
+      "id_Usuario": "78ac",
+      "nombre": "apolo",
+      "raza": "border",
+      "edad": 0,
+      "sexo": "masculino",
+      "tamanio": 0,
+      "color": "rojo",
+      "imagen": "sin",
+      "resultado": true
+    },
+    {
+      "id": "1231",
+      "id_Usuario": "78ac",
+      "nombre": "apolo",
+      "raza": "border",
+      "edad": 0,
+      "sexo": "masculino",
+      "tamanio": 0,
+      "color": "rojo",
+      "imagen": "sin",
+      "resultado": true
+    },
+    {
+      "id": "1231",
+      "id_Usuario": "78ac",
+      "nombre": "apolo",
+      "raza": "border",
+      "edad": 0,
+      "sexo": "masculino",
+      "tamanio": 0,
+      "color": "rojo",
+      "imagen": "sin",
+      "resultado": true
+    },
+    {
+      "id": "1231",
+      "id_Usuario": "78ac",
+      "nombre": "apolo",
+      "raza": "border",
+      "edad": 0,
+      "sexo": "masculino",
+      "tamanio": 0,
+      "color": "rojo",
+      "imagen": "sin",
+      "resultado": true
+    },
+    {
+      "id": "1231",
+      "id_Usuario": "78ac",
+      "nombre": "apolo",
+      "raza": "border",
+      "edad": 0,
+      "sexo": "masculino",
+      "tamanio": 0,
+      "color": "rojo",
+      "imagen": "sin",
+      "resultado": true
+    },
+    {
+      "id": "1231",
+      "id_Usuario": "78ac",
+      "nombre": "apolo",
+      "raza": "border",
+      "edad": 0,
+      "sexo": "masculino",
+      "tamanio": 0,
+      "color": "rojo",
+      "imagen": "sin",
+      "resultado": true
+    },
+    {
+      "id": "1231",
+      "id_Usuario": "78ac",
+      "nombre": "apolo",
+      "raza": "border",
+      "edad": 0,
+      "sexo": "masculino",
+      "tamanio": 0,
+      "color": "rojo",
+      "imagen": "sin",
+      "resultado": true
+    },
+    {
+      "id": "1231",
+      "id_Usuario": "78ac",
+      "nombre": "apolo",
+      "raza": "border",
+      "edad": 0,
+      "sexo": "masculino",
+      "tamanio": 0,
+      "color": "rojo",
+      "imagen": "sin",
+      "resultado": true
     }
   ],
   "SM_rechazadas": [
@@ -72,7 +318,6 @@
       "resultado": false
     }
   ],
-<<<<<<< Updated upstream
   "usuarios": [
     {
       "id": "c73a",
@@ -192,10 +437,13 @@
       "nombre": "Gonza",
       "apellido": "de Andrade",
       "email": "as"
+    },
+    {
+      "id": "78ac",
+      "rol": "adoptivo",
+      "nombre": "Andrés Canevello ",
+      "apellido": "canevello",
+      "email": "canevelo0o@gmail.com"
     }
   ]
-=======
-  "usuarios": [],
-  "envio":[]
->>>>>>> Stashed changes
 }
