@@ -1,42 +1,53 @@
-.principal{
-    background-color: chocolate;
-    padding: 5rem 0;
-}
-.grid-footer{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: center;
-    justify-items: center;
-}
-.logo{
-    display: flex;
-    justify-content: center;
-}
-.logo img{
-    width: 30%;
-}
-.enlaces ul{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.enlaces ul li a{
-    text-decoration: none;
-    color: brown;
-    font-size: 1.6rem;
-    padding: 1rem 0;
-    display: inline-block;
 
-}
-.redes .fa-brands
-{
-    color: rgb(27, 94, 94);
-}
-.fa-brands{
-    font-size:  3rem;
-}
-.redes{
+
+.footer {
+ 
+    background-color: #f9f6f1;
+   
+
+    color: #fff;
+    padding: 10px 20px;
     display: flex;
-    justify-content: space-evenly;
-    width: 50%;
+    justify-content: space-between;
+    align-items: start;
+    height: 100px;
+    overflow: hidden;
+    z-index: 5;
+    position: relative;
+    border-top: 1px solid rgb(223, 221, 221);
+}
+.footer-logo,
+.footer-contact,
+.footer-address {
+  padding: 10px;
+}
+
+.footer-logo img {
+    width: 100%; /* Escala el logo a todo el ancho del contenedor */
+
+ /* Limita el tamaño máximo del logo */
+    height: auto; /* Mantiene la proporción */
+ 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    max-height: 100px; /* Ajusta el tamaño del logo si es necesario */
+    position: relative;
+    top: -30px; /* Ajusta este valor para mover el logo hacia arriba */
+    display: block;
+  /* Mantiene la proporción de la imagen */
+  }
+.footer-contact p,
+.footer-address p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: #333;
+}
+.footer-address
+{
+    font-size: auto;
+    position: relative;
+    display: block;
+    max-height: 50px;
+    max-width: 300px;
 }
