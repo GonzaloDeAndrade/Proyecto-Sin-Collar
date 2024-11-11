@@ -4,7 +4,9 @@ import { Observable } from 'rxjs';
 import { solicitudMascota } from '../Interface/solicitudMascota.interface';
 import { environment } from '../../../../environments/environment.development';
 import { HttpClient } from '@angular/common/http';
-
+import { UsuarioServicioService } from '../../../usuario/service/usuario-servicio.service';
+import {cargaUsuario} from '../Interface/cargaUsuario.interface';
+import Notiflix from 'notiflix';
 
 
 @Injectable({
@@ -12,7 +14,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MascotaService {
 
+  us = inject(UsuarioServicioService)
   http = inject(HttpClient)
+  private usuario: cargaUsuario | null = null;
+  urlBaseEnvio = environment.urlBaseEnvio
    urlBaseAceptadasSM = environment.urlBaseAceptadasSM;
    urlBaseStandBySM = environment.urlBaseStandBySM;
    urlBaseRechazadasSM = environment.urlBaseRechazadasSM;
@@ -63,6 +68,97 @@ export class MascotaService {
   {
   return this.http.get<solicitudMascota>(`${this.urlBaseAceptadasSM}/${id}`);
   }
-
+  enviarCorreoMA(id_Usuario:string)
+  {
+    Notiflix.Loading.standard('Cargando...');
+    this.us.getUsuarioByIdUser(id_Usuario).subscribe(
+      {
+        next:(userById: cargaUsuario)=>{
+          this.usuario = userById;
+        },
+        error:(e:Error) => { 
+          console.log(e.message);
+        }
+      }
+    );
+     this.http.post(this.urlBaseEnvio, {email:this.usuario?.email,asunto:'Mascota Adoptada',mensaje:'Su mascota ha sido adoptada'}).subscribe({
+      next:()=>{
+       Notiflix.Loading.remove();
+      },
+      error:(e:Error) => { 
+        console.log(e.message);
+      }
+    })
+    
+  }
+  enviarCorreoMR(id_Usuario:string)
+  {
+    Notiflix.Loading.standard('Cargando...');
+    this.us.getUsuarioByIdUser(id_Usuario).subscribe(
+      {
+        next:(userById: cargaUsuario)=>{
+          this.usuario = userById;
+        },
+        error:(e:Error) => { 
+          console.log(e.message);
+        }
+      }
+    );
+    this.http.post(this.urlBaseEnvio, {email:this.usuario?.email,asunto:'Mascota Rechazada',mensaje:'Su mascota ha sido rechazada'}).subscribe({
+      next:()=>{
+       Notiflix.Loading.remove();
+      },
+      error:(e:Error) => { 
+        console.log(e.message);
+      }
+    })
+    
+  }
+  enviarCorreoSR(id_Usuario:string)
+  {
+    Notiflix.Loading.standard('Cargando...');
+    this.us.getUsuarioByIdUser(id_Usuario).subscribe(
+      {
+        next:(userById: cargaUsuario)=>{
+          this.usuario = userById;
+        },
+        error:(e:Error) => { 
+          console.log(e.message);
+        }
+      }
+    );
+    this.http.post(this.urlBaseEnvio, {email:this.usuario?.email,asunto:'Solicitud Rechazada',mensaje:'Su mascota ha sido rechazada'}).subscribe({
+      next:()=>{
+       Notiflix.Loading.remove();
+      },
+      error:(e:Error) => { 
+        console.log(e.message);
+      }
+    })
+    
+  }
+  enviarCorreoSA(id_Usuario:string)
+  {
+    Notiflix.Loading.standard('Cargando...');
+    this.us.getUsuarioByIdUser(id_Usuario).subscribe(
+      {
+        next:(userById: cargaUsuario)=>{
+          this.usuario = userById;
+        },
+        error:(e:Error) => { 
+          console.log(e.message);
+        }
+      }
+    );
+    this.http.post(this.urlBaseEnvio, {email:this.usuario?.email,asunto:'Solicitud Aceptada',mensaje:'Su mascota ha sido aceptada'}).subscribe({
+      next:()=>{
+       Notiflix.Loading.remove();
+      },
+      error:(e:Error) => { 
+        console.log(e.message);
+      }
+    })
+    
+  }
 
 }

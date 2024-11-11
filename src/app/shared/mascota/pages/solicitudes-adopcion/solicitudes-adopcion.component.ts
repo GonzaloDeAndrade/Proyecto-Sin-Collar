@@ -54,7 +54,7 @@ export class SolicitudesAdopcionComponent implements OnInit {
         }
     }
   );
-
+  this.ms.enviarCorreoSA(mascota.id_Usuario)
  }
  rechazarAdopcion(mascota:solicitudMascota)
  {
@@ -81,6 +81,7 @@ export class SolicitudesAdopcionComponent implements OnInit {
         }
     }
   );
+  this.ms.enviarCorreoSR(mascota.id_Usuario)
  }
 
 }

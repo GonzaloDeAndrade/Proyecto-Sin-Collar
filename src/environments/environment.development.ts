@@ -1,4 +1,5 @@
 export const environment = {
+    urlBaseEnvio:'http://localhost:3000/envio',
     urlBaseMascotas:'http://localhost:3000/mascotas',
     urlBaseStandBySA: 'http://localhost:3000/SA_stand_by',
     urlBaseAceptadasSA: 'http://localhost:3000/SA_aceptadas',

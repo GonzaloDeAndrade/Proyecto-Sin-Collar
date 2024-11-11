@@ -22,7 +22,10 @@ export class UsuarioServicioService {
     getUsuario(): Observable<cargaUsuario[]> {
       return this.http.get<cargaUsuario[]>(`${this.url}`);
     }
-  
+    getUsuarioByIdUser(id:string|null):Observable<cargaUsuario>
+  {
+  return this.http.get<cargaUsuario>(`${this.url}/${id}`);
+  }
      // Obtiene el nombre completo del usuario conectado
   getNombreCompleto(): string {
     return this.usuario ? `${this.usuario.nombre} ${this.usuario.apellido}` : '';

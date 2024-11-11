@@ -72,6 +72,7 @@
       "resultado": false
     }
   ],
+<<<<<<< Updated upstream
   "usuarios": [
     {
       "id": "c73a",
@@ -193,4 +194,8 @@
       "email": "as"
     }
   ]
+=======
+  "usuarios": [],
+  "envio":[]
+>>>>>>> Stashed changes
 }
