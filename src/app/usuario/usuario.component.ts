@@ -7,7 +7,8 @@ import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioServicioService } from './service/usuario-servicio.service';
 import { CommonModule } from '@angular/common';
-
+import { Injectable } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-usuario',
   standalone: true,
@@ -18,7 +19,7 @@ import { CommonModule } from '@angular/common';
 export class UsuarioComponent {
   rol: string | null = null; // Inicialmente sin rol seleccionado
 
-
+ 
   mensajeError: string | null = null;
     router = inject(Router);
     usuarioService = inject(UsuarioServicioService);
@@ -42,21 +43,8 @@ export class UsuarioComponent {
     }
     agregarUsuarioDB(usuario:cargaUsuario) {
 
-     
-      
-        const rolSeleccionado = this.usuarioForm.get('rol')?.value??'';
-    
-        if (rolSeleccionado) {
-          this.usuarioService.setRol(rolSeleccionado); // Guardar el rol en el servicio
-          // Actualizar el nav (si estás usando la solución de BehaviorSubject en el servicio)
-          this.router.navigate(['/home']); // Redirige al home
-        }
-      
-    
-  
-    
-    
-      console.log(rolSeleccionado);
+      const rolSeleccionado = this.usuarioForm.get('rol')?.value??'';
+      this.usuarioService.setRol(rolSeleccionado);
       // console.log('Redirigiendo a /home');
       const email = this.usuarioForm.get('email')?.value??'';
       this.usuarioService.verificarUsuarioExistente(email).subscribe(existe => {
@@ -69,14 +57,17 @@ export class UsuarioComponent {
           this.usuarioService.setUsuario(usuario).subscribe
           (
             {
-             next : (tarea:cargaUsuario) => {
-                console.log('Tarea agregada correctamente', tarea);
+             next : (usuario:cargaUsuario) => {
+                console.log('Tarea agregada correctamente', usuario);
                 alert ('Tarea guardada');
                 if (rolSeleccionado === 'adoptivo') {
+                  
+                  console.log(this.usuarioService.getNombreCompleto());
                   console.log('Redirigiendo a /home');
+                  
                   this.router.navigate(['/home']);
                 } else if (rolSeleccionado === 'adoptante') {
-                  console.log("ASDSDAD");
+                  console.log(this.usuarioService.getNombreCompleto());
                   this.router.navigate(['/home']);
                 }
               },
@@ -88,8 +79,7 @@ export class UsuarioComponent {
             }
           );
         }
-      
+     
 });
-
 }
 }
