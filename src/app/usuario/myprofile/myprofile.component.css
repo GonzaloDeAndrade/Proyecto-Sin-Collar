@@ -5,8 +5,9 @@
     align-items: center;
     height: 100vh;
     background: linear-gradient(to right, #4e4e4e, #2f2f2f);
-    color: #fff;
+    color:white;
 }
+
 
 /* Estilo de la tarjeta de perfil */
 .profile-card {
@@ -51,4 +52,31 @@
 
 .edit-button:hover {
     background-color: #ffcc00;
+}
+.mascotas-container {
+    margin-top: 2rem;
+}
+
+.mascota-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.mascota-item {
+    background-color: #444;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    color: #fff;
+}
+
+.mascota-imagen {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
 }

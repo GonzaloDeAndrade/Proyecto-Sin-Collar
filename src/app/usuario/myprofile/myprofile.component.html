@@ -9,4 +9,20 @@
         </div>
         <button class="edit-button">Editar Perfil</button>
     </div>
+    <div class="mascotas-container">
+        <h3>Mis Mascotas</h3>
+        <div *ngIf="mascotas.length > 0; else noMascotas">
+            <ul class="mascota-list">
+                <li *ngFor="let mascota of mascotas" class="mascota-item">
+                    <img [src]="mascota.imagen" alt="{{ mascota.nombre }}" class="mascota-imagen">
+                    <p><strong>Nombre:</strong> {{ mascota.nombre }}</p>
+                    <p><strong>Edad:</strong> {{ mascota.edad }}</p>
+                    <p><strong>Raza:</strong> {{ mascota.raza }}</p>
+                </li>
+            </ul>
+        </div>
+        <ng-template #noMascotas>
+            <p>No tienes mascotas registradas.</p>
+        </ng-template>
+    </div>
 </div>
