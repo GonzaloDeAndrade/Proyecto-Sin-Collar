@@ -1,6 +1,7 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, Output } from '@angular/core';
 import { MascotaService } from '../../service/mascota.service';
 import { solicitudMascota } from '../../Interface/solicitudMascota.interface';
+
 
 @Component({
   selector: 'app-listar-mascotas',
@@ -9,37 +10,39 @@ import { solicitudMascota } from '../../Interface/solicitudMascota.interface';
   templateUrl: './listar-mascotas.component.html',
   styleUrl: './listar-mascotas.component.css'
 })
-export class ListarMascotasComponent implements OnInit{
+export class ListarMascotasComponent /*implements OnInit*/{
 
   
+
   ms = inject(MascotaService)
 
-ngOnInit(): void {
-  this.listarMascotas();
-}
-
-  listaMascotas: solicitudMascota[] = []
+  urlBase = "http://localhost:4200/admin/sm";
   
-  agregarLista(mascota: solicitudMascota)
-  {
-    this.listaMascotas.push(mascota)
-  }
-  listarMascotas(){
-     this.ms.getMascotas().subscribe(
-      {
-        next:(mascotas:solicitudMascota[])=>
-        {
-        this.listaMascotas = mascotas;
-        },
-        error:(e:Error)=>{
-          console.log(e.message);
-        }
-      }
-    )
-  }
+  // /*ngOnInit(): void {
+  // this.listarMascotas();
+  // }*/
+   listaMascotas: solicitudMascota[] = []
+  
+  // agregarLista(mascota: solicitudMascota)
+  // {
+  //   this.listaMascotas.push(mascota)
+  // }
+  // listarMascotas(){
+  //    this.ms.getMascotas(this.urlBase).subscribe(
+  //     {
+  //       next:(mascotas:solicitudMascota[])=>
+  //       {
+  //       this.listaMascotas = mascotas;
+  //       },
+  //       error:(e:Error)=>{
+  //         console.log(e.message);
+  //       }
+  //     }
+  //   )
+  // }
   delete(id:string)
   {
-    this.ms.deleteMascotaById(id).subscribe(
+    this.ms.deleteMascotaById(id,this.urlBase).subscribe(
       {
         next:() =>{
           console.log('actualizado');

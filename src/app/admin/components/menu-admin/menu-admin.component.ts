@@ -10,5 +10,5 @@ import { UpdateMascotaPagesComponent } from '../../../shared/mascota/pages/updat
   styleUrl: './menu-admin.component.css'
 })
 export class MenuAdminComponent {
-
+      
 }

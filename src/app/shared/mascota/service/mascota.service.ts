@@ -4,34 +4,35 @@ import { Observable } from 'rxjs';
 import { solicitudMascota } from '../Interface/solicitudMascota.interface';
 import { environment } from '../../../../environments/environment.development';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class MascotaService {
 
   http = inject(HttpClient)
-  urlBase = environment.urlBaseAceptadasSM
+  urlBaseAceptadasSM = environment.urlBaseAceptadasSA;
+  getMascotas(urlBase:string):Observable<solicitudMascota[]>
+  {
+    return this.http.get<solicitudMascota[]>(urlBase)
+  }
+  
+  getMascotaById(id:string|null,urlBase:string):Observable<solicitudMascota>
+  {
+  return this.http.get<solicitudMascota>(`${urlBase}/${id}`);
+  }
+  postMascotas(mascota:solicitudMascota,urlBase:string):Observable<solicitudMascota>
+  {
+    return this.http.post<solicitudMascota>(`${urlBase}`,mascota)
+  }
 
-
-  getMascotas():Observable<solicitudMascota[]>
+  putMascotas(mascota:solicitudMascota, id:string|null,urlBase:string):Observable<solicitudMascota>
   {
-    return this.http.get<solicitudMascota[]>(this.urlBase)
+    return this.http.put<solicitudMascota>(`${urlBase}/${id}`,mascota)
   }
-  getMascotaById(id:string|null):Observable<solicitudMascota>
+  deleteMascotaById(id:string,urlBase:string):Observable<void>
   {
-  return this.http.get<solicitudMascota>(`${this.urlBase}/${id}`);
-  }
-  postMascotas(mascota:solicitudMascota):Observable<solicitudMascota>
-  {
-    return this.http.post<solicitudMascota>(`${this.urlBase}`,mascota)
+    return this.http.delete<void>(`${urlBase}/${id}`);
   }
 
-  putMascotas(mascota:solicitudMascota, id:string|null):Observable<solicitudMascota>
-  {
-    return this.http.put<solicitudMascota>(`${this.urlBase}/${id}`,mascota)
-  }
-  deleteMascotaById(id:string):Observable<void>
-  {
-    return this.http.delete<void>(`${this.urlBase}/${id}`);
-  }
 }

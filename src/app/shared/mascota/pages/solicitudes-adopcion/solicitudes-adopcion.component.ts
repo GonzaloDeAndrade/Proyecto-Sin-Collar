@@ -3,15 +3,13 @@ import { ListarMascotasComponent } from '../../components/listar-mascotas/listar
 import { environment } from '../../../../../environments/environment.development';
 
 @Component({
-  selector: 'app-mascota-pages',
+  selector: 'app-solicitudes-adopcion',
   standalone: true,
   imports: [ListarMascotasComponent],
-  templateUrl: './mascota-pages.component.html',
-  styleUrl: './mascota-pages.component.css'
+  templateUrl: './solicitudes-adopcion.component.html',
+  styleUrl: './solicitudes-adopcion.component.css'
 })
-export class MascotaPagesComponent {
-
-  urlBase = environment.urlBaseAceptadasSM;
-  
+export class SolicitudesAdopcionComponent {
+  urlBase = environment.urlBaseAceptadasSA
 
 }

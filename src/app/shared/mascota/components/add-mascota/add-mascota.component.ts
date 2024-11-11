@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MascotaService } from '../../service/mascota.service';
 import { solicitudMascota } from '../../Interface/solicitudMascota.interface';
+import { environment } from '../../../../../environments/environment.development';
 
 @Component({
   selector: 'app-add-mascota',
@@ -14,7 +15,7 @@ export class AddMascotaComponent {
 
   fb = inject(FormBuilder)
   ms = inject(MascotaService)
-
+  urlBase = environment.urlBaseStandBySM
   formulario = this.fb.nonNullable.group(
     {
       id: ['',[Validators.required] ], 
@@ -37,7 +38,7 @@ export class AddMascotaComponent {
 
   addMascotaDB(mascota:solicitudMascota)
   {
-    this.ms.postMascotas(mascota).subscribe(
+    this.ms.postMascotas(mascota,this.urlBase).subscribe(
       {
         next: (mascota:solicitudMascota) => {
           console.log(mascota);
