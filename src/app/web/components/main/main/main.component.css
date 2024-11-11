@@ -1,5 +1,6 @@
 main{
     background-color: #ffefe8;
+    
 }
 .main-content {
     font-family: 'Roboto', sans-serif;
@@ -10,6 +11,7 @@ main{
     text-align: left; /* Alinea el texto a la izquierda */
     font-weight: 100;
     margin-left: 40px;
+   
    
   }
   

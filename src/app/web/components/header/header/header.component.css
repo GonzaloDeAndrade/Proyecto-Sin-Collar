@@ -6,6 +6,7 @@
     width: 100%;
     min-height: 60vh; /* Ajusta la altura según el diseño */
     overflow: hidden; /* Esto limita el fondo al contenedor */
+    border-bottom: solid 2px black;
   }
   
 .header-background {
@@ -18,6 +19,7 @@
     background-size: cover;
     background-position: center;
     z-index: 1; /* Envía esta capa detrás del contenido */
+    
   }
   
   /* Capa de filtro gris/azul oscuro */
@@ -44,6 +46,7 @@
     z-index: 3; /* Asegura que el contenido esté sobre las capas de fondo */
     font-family: 'Roboto', sans-serif;
     padding-bottom:300px ;
+    
     
   }
   .header-content h1,

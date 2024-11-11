@@ -17,3 +17,8 @@ body{/*margin 0 al margen de la configuracion*/
     padding: 0;
     box-sizing: border-box;
   }
+  *,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
