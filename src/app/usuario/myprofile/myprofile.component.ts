@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UsuarioServicioService } from '../service/usuario-servicio.service';
 import { inject } from '@angular/core';
 @Component({
@@ -8,7 +8,7 @@ import { inject } from '@angular/core';
   templateUrl: './myprofile.component.html',
   styleUrl: './myprofile.component.css'
 })
-export class MyProfileComponent {
+export class MyProfileComponent implements OnInit{
   userData: any;
 userService = inject(UsuarioServicioService);
 

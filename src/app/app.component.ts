@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from "./web/components/footer/footer.component";
 import { NavComponent } from './web/components/nav/nav.component';
 import { UsuarioServicioService } from './usuario/service/usuario-servicio.service';
+import { MyProfileComponent } from './usuario/myprofile/myprofile.component';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ import { UsuarioServicioService } from './usuario/service/usuario-servicio.servi
   imports: [RouterOutlet,
     HomeComponent,
     MenuAdminComponent,
-    CommonModule, FooterComponent,NavComponent],
+    CommonModule, FooterComponent,NavComponent,MyProfileComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -40,18 +40,22 @@ export const routes: Routes = [
         path:'agregar-mascota',
         component:AddMascotaComponent
     },
+    { path: 'adopta',
+        component: UsuarioadoptaComponent 
+    },
+        { path: 'carga-adopcion', 
+            component: UsuariocargaadopcionComponent 
+        }
+         ,
+         {
+                path:'profile',
+                component: MyProfileComponent
+        }
+       ,
     {
         path:'**',
         component:HomeComponent
-    },
-    { path: 'adopta',
-    component: UsuarioadoptaComponent },
-    { path: 'carga-adopcion', 
-        component: UsuariocargaadopcionComponent },
-        {
-            path:'profile',
-            component: MyProfileComponent
-        }
+    }
    
    
 ];
