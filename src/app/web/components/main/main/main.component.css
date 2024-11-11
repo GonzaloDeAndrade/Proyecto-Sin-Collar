@@ -1,0 +1,35 @@
+.main-content {
+    font-family: 'Roboto', sans-serif;
+    color: #4B3A32;
+    max-width: 600px; /* Limita el ancho máximo del contenido */
+    /* Centra el contenido horizontalmente */
+    padding: 20px; /* Añade algo de padding alrededor */
+    text-align: left; /* Alinea el texto a la izquierda */
+  }
+  
+  .main-content h2 {
+    font-size: 4rem;
+    margin-bottom: 6rem;
+  }
+  
+  .main-content p {
+    font-size: 2rem;
+    line-height: 1.6;
+    margin-bottom: 6rem;
+  }
+  
+  .info-button {
+    background-color: #4B3A32;
+    color: white;
+    border: none;
+    padding: 20px 30px;
+    font-size: 2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 3rem;
+  }
+  
+  .info-button:hover {
+    background-color: #3a2b25;
+  }

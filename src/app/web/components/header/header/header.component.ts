@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-
+  scrollToMain() {
+    document.getElementById('main')?.scrollIntoView({ behavior: 'smooth' });
+  }
 }

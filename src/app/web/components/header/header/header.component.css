@@ -1,0 +1,87 @@
+/* Estilo general del header */
+/* Capa de fondo con desenfoque */
+
+.header-container {
+    position: relative;
+    width: 100%;
+    min-height: 60vh; /* Ajusta la altura según el diseño */
+    overflow: hidden; /* Esto limita el fondo al contenedor */
+  }
+  
+.header-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/fondoperro.jpeg'); /* Ruta de la imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    z-index: 1; /* Envía esta capa detrás del contenido */
+  }
+  
+  /* Capa de filtro gris/azul oscuro */
+  .header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(20, 20, 20, 0.5); /* Filtro gris oscuro semi-transparente */
+    z-index: 2; /* Coloca esta capa sobre el fondo pero detrás del texto */
+  }
+  
+  /* Contenido del header */
+  .header-content {
+    height: 100vh ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    text-align: center;
+    position: relative;
+    z-index: 3; /* Asegura que el contenido esté sobre las capas de fondo */
+    font-family: 'Roboto', sans-serif;
+    padding-bottom:300px ;
+    
+  }
+  .header-content h1,
+.header-content p,
+.header-content button {
+  margin: 0; /* Asegúrate de que no haya márgenes innecesarios */
+}
+  .header-content h1, .header-content p {
+  /* Fondo negro semi-transparente */
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 120;
+  }
+  /* Estilo del texto */
+  .header-content p {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  .header-content h1 {
+    font-size: 6rem;
+    margin: 10px 0;
+  }
+  
+  /* Estilo del botón */
+  .header-content button {
+    background: transparent;
+    border: 1px solid #FFFFFF;
+    border-radius: 20px;
+    color: #FFFFFF;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    
+  }
+  
+  .header-content button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
