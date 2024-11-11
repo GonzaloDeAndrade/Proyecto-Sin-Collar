@@ -1,14 +1,16 @@
 <nav class="navbar">
+  
   <div class="logo">
     <img src="assets/logosincollar.png" alt="SinCollar Logo" />
   </div>
+  <li><button *ngIf="rol === 'adoptante'" routerLink="/adopta">Adoptar Mascota</button></li>
+  <li><button *ngIf="rol === 'adoptivo'" routerLink="/carga-adopcion">Cargar Mascota</button></li>
   <div class="menu">
     <span (click)="toggleMenu()">Menu [ + ]</span>
     <ul *ngIf="menuOpen" class="dropdown">
       <li><a routerLink="/login">Iniciar Sesión</a></li>
       <li><a routerLink="/profile">Mi Perfil</a></li>
-      <li><a routerLink="/pets">Mascotas</a></li>
-     
+      <li><a routerLink="/pets">Mascotas</a></li>  
     </ul>
   </div>
 </nav>
