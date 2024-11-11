@@ -2,6 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { cargaUsuario } from '../../shared/mascota/Interface/cargaUsuario.interface';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs';
 HttpClient
 @Injectable({
   providedIn: 'root'
@@ -32,5 +33,10 @@ export class UsuarioServicioService {
   getRol(): string | null {
     return this.rol;
   }
-  
+  verificarUsuarioExistente(email: string): Observable<boolean> {
+    return this.http.get<cargaUsuario[]>(`${this.url}?email=${email}`).pipe(
+      map((usuarios: cargaUsuario[])=> usuarios.length > 0) // Devuelve true si hay un usuario con ese email
+    );
+  }
+
 }

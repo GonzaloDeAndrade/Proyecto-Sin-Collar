@@ -3,12 +3,20 @@
   <div class="logo">
     <img src="assets/logosincollar.png" alt="SinCollar Logo" />
   </div>
+  <ul class ="botones">
   <li><button *ngIf="rol === 'adoptante'" routerLink="/adopta">Adoptar Mascota</button></li>
   <li><button *ngIf="rol === 'adoptivo'" routerLink="/carga-adopcion">Cargar Mascota</button></li>
+  <li *ngIf="rol!=null"class="nombreCompleto" routerLink="/profile">
+    <span class="status-icon">🟢</span>
+    <span>{{ usuarioService.getNombreCompleto() }}</span>
+    
+  </li>
+</ul>
   <div class="menu">
     <span (click)="toggleMenu()">Menu [ + ]</span>
     <ul *ngIf="menuOpen" class="dropdown">
-      <li><a routerLink="/login">Iniciar Sesión</a></li>
+      <li *ngIf="rol === null"><a routerLink="/login">Registrarse</a></li>
+      <li *ngIf="rol === 'adoptante'||rol === 'adoptivo'"><a routerLink="/login">Sesion iniciada</a></li>
       <li><a routerLink="/profile">Mi Perfil</a></li>
       <li><a routerLink="/ruta-mascotas">Mascotas</a></li>  
     </ul>

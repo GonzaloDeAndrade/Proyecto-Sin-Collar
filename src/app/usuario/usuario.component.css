@@ -1,0 +1,89 @@
+/* Estilos generales del formulario */
+form {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f9e6e1; /* Fondo suave en tono pastel */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Estilos para el título */
+  h2 {
+    font-size: 1.8rem;
+    color: #3d2e2e; /* Color marrón oscuro */
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  /* Estilos de los labels */
+  label {
+    display: block;
+    margin-bottom: 1rem;
+    color: #3d2e2e;
+    font-size: 1rem;
+  }
+  
+  /* Estilos de los radio inputs */
+  input[type="radio"] {
+    
+    margin-right: 0.5rem;
+    accent-color: #8c5e3a; /* Marrón de acento para los botones de opción */
+  }
+  
+  /* Estilos de los campos de texto */
+  input[type="text"],
+  input[type="email"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #d1c4b1;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #3d2e2e;
+    background-color: #fff;
+    box-sizing: border-box;
+    margin-top: 0.5rem;
+  }
+  
+  /* Cambios de color cuando el campo está en foco */
+  input[type="text"]:focus,
+  input[type="email"]:focus {
+    outline: none;
+    border-color: #8c5e3a;
+    box-shadow: 0px 0px 5px rgba(140, 94, 58, 0.3);
+  }
+  
+  /* Estilos del botón */
+  button[type="submit"] {
+    
+     outline: none;
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #8c5e3a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+    
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #a0724d;
+  }
+  
+  button[type="submit"]:disabled {
+    background-color: #d1c4b1;
+    cursor: not-allowed;
+  }
+  
+  /* Estilos del mensaje de error */
+  .error {
+    color: #d9534f; /* Rojo suave para el mensaje de error */
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+  

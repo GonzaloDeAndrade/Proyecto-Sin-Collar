@@ -21,5 +21,12 @@
     <label for="apellido">Apellido:</label>
     <input id="apellido" formControlName="apellido" />
   </div>
+  <div>
+    <label for="email">Email:</label>
+    <input id="email"type="email" formControlName="email" />
+  </div>
   <button type="submit" [disabled]="usuarioForm.invalid" >Continuar</button>
+  <div *ngIf="mensajeError" class="error">
+    {{ mensajeError }}
+  </div>
 </form>

@@ -1,6 +1,6 @@
 export interface cargaUsuario{
     nombre:string,
-    id:number,
+    id?:number,
     apellido: string,
     telefono?:string,
     contraseña?:string,
