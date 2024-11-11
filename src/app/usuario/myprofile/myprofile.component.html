@@ -1,4 +1,12 @@
-<h2>Mi Perfil</h2>
-<p>Nombre: {{ userData.nombre }}</p>
-<p>Apellido: {{ userData.apellido }}</p>
-<p>Email: {{ userData.email }}</p>
+<div class="profile-container">
+    <div class="profile-card">
+        <h2>Mi Perfil</h2>
+        <div class="profile-info">
+            <p><strong>Nombre:</strong> {{ userData.nombre }}</p>
+            <p><strong>Apellido:</strong> {{ userData.Apellido }}</p>
+            <p><strong>Email:</strong> {{ userData.email }}</p>
+            <!-- Agrega otros campos aquí -->
+        </div>
+        <button class="edit-button">Editar Perfil</button>
+    </div>
+</div>
