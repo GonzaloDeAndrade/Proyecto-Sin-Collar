@@ -42,8 +42,21 @@ export class UsuarioComponent {
     }
     agregarUsuarioDB(usuario:cargaUsuario) {
 
-      const rolSeleccionado = this.usuarioForm.get('rol')?.value??'';
-      this.usuarioService.setRol(rolSeleccionado);
+     
+      
+        const rolSeleccionado = this.usuarioForm.get('rol')?.value??'';
+    
+        if (rolSeleccionado) {
+          this.usuarioService.setRol(rolSeleccionado); // Guardar el rol en el servicio
+          // Actualizar el nav (si estás usando la solución de BehaviorSubject en el servicio)
+          this.router.navigate(['/home']); // Redirige al home
+        }
+      
+    
+  
+    
+    
+      console.log(rolSeleccionado);
       // console.log('Redirigiendo a /home');
       const email = this.usuarioForm.get('email')?.value??'';
       this.usuarioService.verificarUsuarioExistente(email).subscribe(existe => {
@@ -63,6 +76,7 @@ export class UsuarioComponent {
                   console.log('Redirigiendo a /home');
                   this.router.navigate(['/home']);
                 } else if (rolSeleccionado === 'adoptante') {
+                  console.log("ASDSDAD");
                   this.router.navigate(['/home']);
                 }
               },

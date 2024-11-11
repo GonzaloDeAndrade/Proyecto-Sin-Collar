@@ -25,7 +25,7 @@
       "tamanio": 1,
       "color": "rojo",
       "resultado": true,
-      "imagen":""
+      "imagen": ""
     },
     {
       "id": "1",
@@ -36,7 +36,7 @@
       "tamanio": 1,
       "color": "rojo",
       "resultado": true,
-      "imagen":""
+      "imagen": ""
     },
     {
       "id": "1",
@@ -47,7 +47,7 @@
       "tamanio": 1,
       "color": "rojo",
       "resultado": true,
-      "imagen":""
+      "imagen": ""
     }
   ],
   "SM_rechazadas": [
@@ -72,5 +72,125 @@
       "resultado": false
     }
   ],
-  "usuarios": []
+  "usuarios": [
+    {
+      "id": "c73a",
+      "rol": "adoptante",
+      "nombre": "Gonza",
+      "apellido": "de Andrade",
+      "email": "gonzadeandrade1@gmail.com"
+    },
+    {
+      "id": "a9d6",
+      "rol": "adoptante",
+      "nombre": "Gonza",
+      "apellido": "de Andrade",
+      "email": "andrescanenvello@gmail.com"
+    },
+    {
+      "id": "9502",
+      "rol": "adoptante",
+      "nombre": "Gonza",
+      "apellido": "de Andrade",
+      "email": "gonzadeandrades1@gmail.com"
+    },
+    {
+      "id": "19ac",
+      "rol": "adoptante",
+      "nombre": "Gonza",
+      "apellido": "de Andrade",
+      "email": "gonzadeandrad1231@gmail.com"
+    },
+    {
+      "id": "7297",
+      "rol": "adoptante",
+      "nombre": "Gonza",
+      "apellido": "de Andrade",
+      "email": "gonziuchiha@hotmail.com"
+    },
+    {
+      "id": "58fe",
+      "rol": "adoptivo",
+      "nombre": "Gonza",
+      "apellido": "de Andrade",
+      "email": "gonzadeandrad1231231@gmail.com"
+    },
+    {
+      "id": "c635",
+      "rol": "adoptivo",
+      "nombre": "Gonza",
+      "apellido": "de Andrade",
+      "email": "gonzadeandrad1231231324122131@gmail.com"
+    },
+    {
+      "id": "2d90",
+      "rol": "adoptante",
+      "nombre": "Gonza",
+      "apellido": "de Andrade",
+      "email": "gonziuchi1231232112ha@hotmail.com"
+    },
+    {
+      "id": "5ea7",
+      "rol": "adoptante",
+      "nombre": "Gonza",
+      "apellido": "de Andrade",
+      "email": "gonziuchihhfvjfjha@hotmail.com"
+    },
+    {
+      "id": "4c76",
+      "rol": "adoptante",
+      "nombre": "Gonza",
+      "apellido": "de Andrade",
+      "email": "gonziuchihjfgja@hotmail.com"
+    },
+    {
+      "id": "354e",
+      "rol": "adoptante",
+      "nombre": "Gonza",
+      "apellido": "de Andrade",
+      "email": "gonzadea5653ndrad1231@gmail.com"
+    },
+    {
+      "id": "eae1",
+      "rol": "adoptante",
+      "nombre": "Gonza",
+      "apellido": "de Andrade",
+      "email": "gonzadeandradeasdasdsdasdas1@gmail.com"
+    },
+    {
+      "id": "7bba",
+      "rol": "adoptante",
+      "nombre": "Gonza",
+      "apellido": "de Andrade",
+      "email": "zxdca<xfgvadsgeat3qq"
+    },
+    {
+      "id": "141c",
+      "rol": "adoptante",
+      "nombre": "Gonza",
+      "apellido": "de Andrade",
+      "email": "gonzadeandradtgfdagse1@gmail.com"
+    },
+    {
+      "id": "ccec",
+      "rol": "adoptivo",
+      "nombre": "Gonza",
+      "apellido": "de Andrade",
+      "email": "gonziuchihdfzdaa@hotmail.com"
+    },
+    {
+      "id": "2a83",
+      "rol": "adoptante",
+      "nombre": "asd",
+      "apellido": "asdas",
+      "email": "gonziuchassdasaddasadsiha@hotmail.com"
+    },
+    {
+      "id": "ad18",
+      "rol": "adoptante",
+      "nombre": "Gonza",
+      "apellido": "de Andrade",
+      "email": "as"
+    }
+  ]
 }

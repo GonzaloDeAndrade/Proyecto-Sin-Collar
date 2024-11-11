@@ -25,7 +25,7 @@
     <label for="email">Email:</label>
     <input id="email"type="email" formControlName="email" />
   </div>
-  <button type="submit" [disabled]="usuarioForm.invalid" >Continuar</button>
+  <button type="submit" [disabled]="usuarioForm.invalid" routerLink="/home" >Continuar</button>
   <div *ngIf="mensajeError" class="error">
     {{ mensajeError }}
   </div>

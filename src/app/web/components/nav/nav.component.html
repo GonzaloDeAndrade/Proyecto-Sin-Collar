@@ -19,6 +19,7 @@
       <li *ngIf="rol === 'adoptante'||rol === 'adoptivo'"><a routerLink="/login">Sesion iniciada</a></li>
       <li><a routerLink="/profile">Mi Perfil</a></li>
       <li><a routerLink="/ruta-mascotas">Mascotas</a></li>  
+      <li><button (click)="onCerrarSesion()">Cerrar Sesión</button></li>
     </ul>
   </div>
 </nav>

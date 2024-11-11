@@ -12,6 +12,7 @@ export class UsuarioServicioService {
     http= inject(HttpClient);
     url = 'http://localhost:3000/usuarios';
     private usuario: cargaUsuario | null = null;
+    
   
     setUsuario(usuario: cargaUsuario):Observable<cargaUsuario> {
       this.usuario = usuario;
@@ -27,16 +28,20 @@ export class UsuarioServicioService {
     return this.usuario ? `${this.usuario.nombre} ${this.usuario.apellido}` : '';
   }
   setRol(rol: string) {
-    this.rol = rol;
-  }
+    localStorage.setItem('rol', rol);
+}
 
-  getRol(): string | null {
-    return this.rol;
-  }
+getRol(): string | null {
+    return localStorage.getItem('rol');
+}
   verificarUsuarioExistente(email: string): Observable<boolean> {
     return this.http.get<cargaUsuario[]>(`${this.url}?email=${email}`).pipe(
       map((usuarios: cargaUsuario[])=> usuarios.length > 0) // Devuelve true si hay un usuario con ese email
     );
   }
+  cerrarSesion() {
+    localStorage.removeItem('rol');
+  
+}
 
 }
