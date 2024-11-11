@@ -1,21 +1,28 @@
+main{
+    background-color: #ffefe8;
+}
 .main-content {
     font-family: 'Roboto', sans-serif;
     color: #4B3A32;
     max-width: 600px; /* Limita el ancho máximo del contenido */
     /* Centra el contenido horizontalmente */
-    padding: 20px; /* Añade algo de padding alrededor */
+    padding: 50px; /* Añade algo de padding alrededor */
     text-align: left; /* Alinea el texto a la izquierda */
+    font-weight: 100;
+    margin-left: 40px;
+   
   }
   
   .main-content h2 {
     font-size: 4rem;
-    margin-bottom: 6rem;
+    margin-bottom: 5rem;
+    font-weight: 70;
   }
   
   .main-content p {
     font-size: 2rem;
     line-height: 1.6;
-    margin-bottom: 6rem;
+    margin-bottom: 5rem;
   }
   
   .info-button {
@@ -24,10 +31,10 @@
     border: none;
     padding: 20px 30px;
     font-size: 2rem;
-    border-radius: 20px;
+    border-radius: 40px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 3rem;
+    margin-top: 2rem;
   }
   
   .info-button:hover {
