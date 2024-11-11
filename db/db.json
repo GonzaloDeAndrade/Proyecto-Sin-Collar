@@ -1,10 +1,20 @@
 {
-    "mascotas":[],
-    "SA_stand_by":[],
-    "SA_aceptadas":[],
-    "SA_rechazadas":[],
-    "SM_stand_by":[],
-    "SM_aceptadas":[],
-    "SM_rechazadas":[],
-    "usuarios":[]
+  "mascotas": [],
+  "SA_stand_by": [],
+  "SA_aceptadas": [],
+  "SA_rechazadas": [],
+  "SM_stand_by": [
+    {
+      "id": "2",
+      "nombre": "Apolo",
+      "raza": "border",
+      "edad": 1,
+      "sexo": "masculino",
+      "tamaño": 2,
+      "color": "rojo"
+    }
+  ],
+  "SM_aceptadas": [],
+  "SM_rechazadas": [],
+  "usuarios": []
 }
