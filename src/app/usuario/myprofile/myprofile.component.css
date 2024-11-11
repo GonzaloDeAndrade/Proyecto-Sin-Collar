@@ -1,0 +1,54 @@
+/* Estilo general del contenedor */
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #4e4e4e, #2f2f2f);
+    color: #fff;
+}
+
+/* Estilo de la tarjeta de perfil */
+.profile-card {
+    background-color: #333;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Título del perfil */
+.profile-card h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #ffd700;
+}
+
+/* Información de perfil */
+.profile-info p {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+.profile-info strong {
+    color: #ffd700;
+}
+
+/* Botón de editar */
+.edit-button {
+    margin-top: 1.5rem;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    color: #333;
+    background-color: #ffd700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+    background-color: #ffcc00;
+}
