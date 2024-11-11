@@ -24,7 +24,7 @@ export class ListarMascotasComponent implements OnInit{
   ngOnInit(): void {
     this.obtenerMascotas(); 
   }
-
+  private mascota: solicitudMascota | null = null;
 
   obtenerMascotas(): void {
     this.ms.getMascotasUser().subscribe(
@@ -52,6 +52,21 @@ export class ListarMascotasComponent implements OnInit{
     }
   }
 
+  solicitarAdopcion()
+  {
+    this.mascota = this.obtenerMascotaActual()
+    this.ms.postSolicitudAdopcionUser(this.mascota).subscribe({
+      next:() =>{
+        alert('Solicitud enviada')
+      },
+      error:(e:Error)=>{
+        e.message
+      }
+    })
+      
+   
+  }
+  
 
   obtenerMascotaActual(): solicitudMascota | null {
     return this.listaMascotas[this.contador] || null;

@@ -3,11 +3,16 @@ import { ListarMascotasComponent } from '../../components/listar-mascotas/listar
 import { environment } from '../../../../../environments/environment.development';
 import { solicitudMascota } from '../../Interface/solicitudMascota.interface';
 import { MascotaService } from '../../service/mascota.service';
+import Notiflix from 'notiflix';
+import { UsuarioServicioService } from '../../../../usuario/service/usuario-servicio.service';
+import { cargaUsuario } from '../../Interface/cargaUsuario.interface';
+import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-solicitudes-adopcion',
   standalone: true,
-  imports: [ListarMascotasComponent],
+  imports: [ListarMascotasComponent,CommonModule],
   templateUrl: './solicitudes-adopcion.component.html',
   styleUrl: './solicitudes-adopcion.component.css'
 })
@@ -16,9 +21,13 @@ export class SolicitudesAdopcionComponent implements OnInit {
     this.listarMascotas();
     }
   ms = inject(MascotaService)
+  us = inject(UsuarioServicioService)
+  private usuario: cargaUsuario | null = null;
+  http = inject(HttpClient)
+  urlBaseEnvio = environment.urlBaseEnvio
   listaMascotas: solicitudMascota[] = []
   listarMascotas(){
-    this.ms.getMascotasAdmin().subscribe(
+    this.ms.getSolicitudesAdopcionAdmin().subscribe(
      {
        next:(mascotas:solicitudMascota[])=>
        {
@@ -43,7 +52,7 @@ export class SolicitudesAdopcionComponent implements OnInit {
       }
     }
   )
-  this.ms.deleteMascotaByIStandBydAdmin(mascota.id).subscribe(
+  this.ms.deleteAdopcionByIStandBydAdmin(mascota.id).subscribe(
     {
       next:()=>
         {
@@ -54,7 +63,7 @@ export class SolicitudesAdopcionComponent implements OnInit {
         }
     }
   );
-  this.ms.enviarCorreoSA(mascota.id_Usuario)
+  this.enviarCorreoSA(mascota.id_Usuario)
  }
  rechazarAdopcion(mascota:solicitudMascota)
  {
@@ -70,7 +79,7 @@ export class SolicitudesAdopcionComponent implements OnInit {
       }
     }
   )
-  this.ms.deleteMascotaByIStandBydAdmin(mascota.id).subscribe(
+  this.ms.deleteAdopcionByIStandBydAdmin(mascota.id).subscribe(
     {
       next:()=>
         {
@@ -81,7 +90,53 @@ export class SolicitudesAdopcionComponent implements OnInit {
         }
     }
   );
-  this.ms.enviarCorreoSR(mascota.id_Usuario)
+  this.enviarCorreoSR(mascota.id_Usuario)
  }
+ enviarCorreoSR(id_Usuario:string)
+  {
+    Notiflix.Loading.standard('Cargando...');
+    this.us.getUsuarioByIdUser(id_Usuario).subscribe(
+      {
+        next:(userById: cargaUsuario)=>{
+          this.usuario = userById;
+        },
+        error:(e:Error) => { 
+          console.log(e.message);
+        }
+      }
+    );
+    this.http.post(this.urlBaseEnvio, {email:this.usuario?.email,asunto:'Solicitud Rechazada',mensaje:'Su mascota ha sido rechazada'}).subscribe({
+      next:()=>{
+       Notiflix.Loading.remove();
+      },
+      error:(e:Error) => { 
+        console.log(e.message);
+      }
+    })
+    
+  }
+  enviarCorreoSA(id_Usuario:string)
+  {
+    Notiflix.Loading.standard('Cargando...');
+    this.us.getUsuarioByIdUser(id_Usuario).subscribe(
+      {
+        next:(userById: cargaUsuario)=>{
+          this.usuario = userById;
+        },
+        error:(e:Error) => { 
+          console.log(e.message);
+        }
+      }
+    );
+    this.http.post(this.urlBaseEnvio, {email:this.usuario?.email,asunto:'Solicitud Aceptada',mensaje:'Su mascota ha sido aceptada'}).subscribe({
+      next:()=>{
+       Notiflix.Loading.remove();
+      },
+      error:(e:Error) => { 
+        console.log(e.message);
+      }
+    })
+    
+  }
 
 }

@@ -116,6 +116,29 @@ export class SolicitudesMascotaComponent implements OnInit{
         }
     }
   );
-  this.ms.enviarCorreoMR(mascota.id_Usuario)
+  this.enviarCorreoMR(mascota.id_Usuario)
+ }
+ enviarCorreoMR(id_Usuario:string)
+ {
+   Notiflix.Loading.standard('Cargando...');
+   this.us.getUsuarioByIdUser(id_Usuario).subscribe(
+     {
+       next:(userById: cargaUsuario)=>{
+         this.usuario = userById;
+       },
+       error:(e:Error) => { 
+         console.log(e.message);
+       }
+     }
+   );
+   this.http.post(this.urlBaseEnvio, {email:this.usuario?.email,asunto:'Mascota Rechazada',mensaje:'Su mascota ha sido rechazada'}).subscribe({
+     next:()=>{
+      Notiflix.Loading.remove();
+     },
+     error:(e:Error) => { 
+       console.log(e.message);
+     }
+   })
+   
  }
 }

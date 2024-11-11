@@ -16,9 +16,10 @@
         <button (click)="anteriorMascota()" [disabled]="contador === 0">Anterior</button>
         <button (click)="siguienteMascota()" [disabled]="contador === listaMascotas.length - 1">Siguiente</button>
       </div>
-      
+     
     </div>
     <a href="http://localhost:4200/agregar-mascota">Agregar Mascota</a>
+    <a href="" (click)="solicitarAdopcion()">Solicitar adopcion</a>
     <div *ngIf="listaMascotas.length === 0">
       <p>No hay mascotas registradas.</p>
     </div>

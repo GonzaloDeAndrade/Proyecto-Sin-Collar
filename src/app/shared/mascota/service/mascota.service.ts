@@ -16,12 +16,14 @@ export class MascotaService {
 
   us = inject(UsuarioServicioService)
   http = inject(HttpClient)
-  private usuario: cargaUsuario | null = null;
+ 
   urlBaseEnvio = environment.urlBaseEnvio
    urlBaseAceptadasSM = environment.urlBaseAceptadasSM;
    urlBaseStandBySM = environment.urlBaseStandBySM;
+
    urlBaseRechazadasSM = environment.urlBaseRechazadasSM;
    urlBaseRechazadasSA = environment.urlBaseRechazadasSA
+   urlBaseStandBySA = environment.urlBaseStandBySA
    urlBaseAceptadasSA = environment.urlBaseAceptadasSA
   getMascotasUser():Observable<solicitudMascota[]>
   {
@@ -31,6 +33,10 @@ export class MascotaService {
   {
     return this.http.get<solicitudMascota[]>(this.urlBaseStandBySM)
   }
+  getSolicitudesAdopcionAdmin():Observable<solicitudMascota[]>
+  {
+    return this.http.get<solicitudMascota[]>(this.urlBaseStandBySA)
+  }
   getMascotaByIdUser(id:string|null):Observable<solicitudMascota>
   {
   return this.http.get<solicitudMascota>(`${this.urlBaseAceptadasSM}/${id}`);
@@ -39,19 +45,23 @@ export class MascotaService {
   {
     return this.http.post<solicitudMascota>(`${this.urlBaseStandBySM}`,mascota)
   }
+  postSolicitudAdopcionUser(mascota:solicitudMascota|null):Observable<solicitudMascota>
+  {
+    return this.http.post<solicitudMascota>(`${this.urlBaseStandBySA}`,mascota)
+  }
   postSolicitudMascotaAceptadaAdmin(mascota:solicitudMascota,):Observable<solicitudMascota>
   {
     return this.http.post<solicitudMascota>(`${this.urlBaseAceptadasSM}`,mascota)
   }
-  postSolicitudMascotaRechazadaAdmin(mascota:solicitudMascota,):Observable<solicitudMascota>
+  postSolicitudMascotaRechazadaAdmin(mascota:solicitudMascota):Observable<solicitudMascota>
   {
     return this.http.post<solicitudMascota>(`${this.urlBaseRechazadasSM}`,mascota)
   }
-  postSolicitudAdopcionAceptadaAdmin(mascota:solicitudMascota,):Observable<solicitudMascota>
+  postSolicitudAdopcionAceptadaAdmin(mascota:solicitudMascota):Observable<solicitudMascota>
   {
     return this.http.post<solicitudMascota>(`${this.urlBaseAceptadasSA}`,mascota)
   }
-  postSolicitudAdopcionRechazadaAdmin(mascota:solicitudMascota,):Observable<solicitudMascota>
+  postSolicitudAdopcionRechazadaAdmin(mascota:solicitudMascota):Observable<solicitudMascota>
   {
     return this.http.post<solicitudMascota>(`${this.urlBaseRechazadasSA}`,mascota)
   }
@@ -59,6 +69,10 @@ export class MascotaService {
   deleteMascotaByIStandBydAdmin(id:string):Observable<void>
   {
     return this.http.delete<void>(`${this.urlBaseStandBySM}/${id}`);
+  }
+  deleteAdopcionByIStandBydAdmin(id:string):Observable<void>
+  {
+    return this.http.delete<void>(`${this.urlBaseStandBySA}/${id}`);
   }
   getSolicitudesMascotasAdmin():Observable<solicitudMascota[]>
   {
@@ -68,97 +82,8 @@ export class MascotaService {
   {
   return this.http.get<solicitudMascota>(`${this.urlBaseAceptadasSM}/${id}`);
   }
-  enviarCorreoMA(id_Usuario:string)
-  {
-    Notiflix.Loading.standard('Cargando...');
-    this.us.getUsuarioByIdUser(id_Usuario).subscribe(
-      {
-        next:(userById: cargaUsuario)=>{
-          this.usuario = userById;
-        },
-        error:(e:Error) => { 
-          console.log(e.message);
-        }
-      }
-    );
-     this.http.post(this.urlBaseEnvio, {email:this.usuario?.email,asunto:'Mascota Adoptada',mensaje:'Su mascota ha sido adoptada'}).subscribe({
-      next:()=>{
-       Notiflix.Loading.remove();
-      },
-      error:(e:Error) => { 
-        console.log(e.message);
-      }
-    })
-    
-  }
-  enviarCorreoMR(id_Usuario:string)
-  {
-    Notiflix.Loading.standard('Cargando...');
-    this.us.getUsuarioByIdUser(id_Usuario).subscribe(
-      {
-        next:(userById: cargaUsuario)=>{
-          this.usuario = userById;
-        },
-        error:(e:Error) => { 
-          console.log(e.message);
-        }
-      }
-    );
-    this.http.post(this.urlBaseEnvio, {email:this.usuario?.email,asunto:'Mascota Rechazada',mensaje:'Su mascota ha sido rechazada'}).subscribe({
-      next:()=>{
-       Notiflix.Loading.remove();
-      },
-      error:(e:Error) => { 
-        console.log(e.message);
-      }
-    })
-    
-  }
-  enviarCorreoSR(id_Usuario:string)
-  {
-    Notiflix.Loading.standard('Cargando...');
-    this.us.getUsuarioByIdUser(id_Usuario).subscribe(
-      {
-        next:(userById: cargaUsuario)=>{
-          this.usuario = userById;
-        },
-        error:(e:Error) => { 
-          console.log(e.message);
-        }
-      }
-    );
-    this.http.post(this.urlBaseEnvio, {email:this.usuario?.email,asunto:'Solicitud Rechazada',mensaje:'Su mascota ha sido rechazada'}).subscribe({
-      next:()=>{
-       Notiflix.Loading.remove();
-      },
-      error:(e:Error) => { 
-        console.log(e.message);
-      }
-    })
-    
-  }
-  enviarCorreoSA(id_Usuario:string)
-  {
-    Notiflix.Loading.standard('Cargando...');
-    this.us.getUsuarioByIdUser(id_Usuario).subscribe(
-      {
-        next:(userById: cargaUsuario)=>{
-          this.usuario = userById;
-        },
-        error:(e:Error) => { 
-          console.log(e.message);
-        }
-      }
-    );
-    this.http.post(this.urlBaseEnvio, {email:this.usuario?.email,asunto:'Solicitud Aceptada',mensaje:'Su mascota ha sido aceptada'}).subscribe({
-      next:()=>{
-       Notiflix.Loading.remove();
-      },
-      error:(e:Error) => { 
-        console.log(e.message);
-      }
-    })
-    
-  }
+  
+ 
+  
 
 }
