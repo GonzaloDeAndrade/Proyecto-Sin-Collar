@@ -1,7 +1,6 @@
 <section class="mascotas-lista">
     <h2>Lista de solicitudes de Mascotas</h2>
-    
-    <!-- Tabla para mostrar las mascotas -->
+  
     <table>
       <thead>
         <tr>
@@ -13,6 +12,7 @@
           <th>Tamaño</th>
           <th>Color</th>
           <th>Acciones</th>
+          <th>Id usuario</th>
         </tr>
       </thead>
       <tbody>
@@ -25,16 +25,14 @@
           <td>{{ mascota.tamanio}}</td>
           <td>{{ mascota.color }}</td>
           <td>
-            <!-- Botón de aceptar -->
+
             <button (click)="aceptarMascota(mascota)">Aceptar</button>
-            <!-- Botón de rechazar -->
             <button (click)="rechazarMascota(mascota)">Rechazar</button>
           </td>
+          <td>{{mascota.id_Usuario}}</td>
         </tr>
       </tbody>
     </table>
-    
-    <!-- Mensaje cuando no hay mascotas -->
     <div *ngIf="listaMascotas.length === 0">
       <p>No hay mascotas registradas.</p>
     </div>
