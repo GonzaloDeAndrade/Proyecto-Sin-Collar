@@ -3,57 +3,56 @@ import { Component, inject, OnInit } from '@angular/core';
 import { solicitudMascota } from '../../Interface/solicitudMascota.interface';
 import { MascotaService } from '../../service/mascota.service';
 import { AddMascotaComponent } from "../add-mascota/add-mascota.component";
-import { CommonModule } from '@angular/common';
-import { NavComponent } from "../../../../web/components/nav/nav.component";
-import { FooterComponent } from "../../../../web/components/footer/footer.component";
+
+
+
+
 
 @Component({
   selector: 'app-listar-mascotas',
   standalone: true,
-  imports: [AddMascotaComponent, CommonModule, NavComponent, FooterComponent],
+  imports: [AddMascotaComponent],
   templateUrl: './listar-mascotas.component.html',
   styleUrl: './listar-mascotas.component.css'
 })
 export class ListarMascotasComponent implements OnInit{
 
-  listaMascotas: solicitudMascota[] = [];
-  contador: number = 0; 
 
   ms = inject(MascotaService)
 
   ngOnInit(): void {
-    this.obtenerMascotas(); 
+  this.listarMascotas();
   }
-
-
-  obtenerMascotas(): void {
-    this.ms.getMascotasUser().subscribe(
-      (mascotas: solicitudMascota[]) => {
+   listaMascotas: solicitudMascota[] = []
+  
+  agregarLista(mascota: solicitudMascota)
+  {
+    this.listaMascotas.push(mascota)
+  }
+  listarMascotas(){
+     this.ms.getMascotasUser().subscribe(
+      {
+        next:(mascotas:solicitudMascota[])=>
+        {
         this.listaMascotas = mascotas;
-        if (this.listaMascotas.length > 0) {
-          this.contador = 0; 
+        },
+        error:(e:Error)=>{
+          console.log(e.message);
         }
-      },
-      error => {
-        console.error('Error al obtener las mascotas', error);
       }
-    );
+    )
   }
-
-  siguienteMascota(): void {
-    if (this.contador < this.listaMascotas.length - 1) {
-      this.contador++;
-    }
-  }
-
-  anteriorMascota(): void {
-    if (this.contador > 0) {
-      this.contador--;
-    }
-  }
-
-
-  obtenerMascotaActual(): solicitudMascota | null {
-    return this.listaMascotas[this.contador] || null;
+  delete(id:string)
+  {
+    this.ms.deleteMascotaByIStandBydAdmin(id).subscribe(
+      {
+        next:() =>{
+          console.log('actualizado');
+        },
+        error:(e:Error)=>{
+          console.log(e.message);
+        }
+      }
+    )
   }
 }

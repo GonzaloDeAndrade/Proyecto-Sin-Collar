@@ -1,39 +1,5 @@
-<section class="mascotas-lista">
-    <h2>Lista de solicitudes de Adopcion de Mascota</h2>
-  
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th>Raza</th>
-          <th>Edad</th>
-          <th>Sexo</th>
-          <th>Tamaño</th>
-          <th>Color</th>
-          <th>Acciones</th>
-          <th>Id usuario</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let mascota of listaMascotas">
-          <td>{{ mascota.id }}</td>
-          <td>{{ mascota.nombre }}</td>
-          <td>{{ mascota.raza }}</td>
-          <td>{{ mascota.edad }}</td>
-          <td>{{ mascota.sexo }}</td>
-          <td>{{ mascota.tamanio}}</td>
-          <td>{{ mascota.color }}</td>
-          <td>
 
-            <button (click)="aceptarAdopcion(mascota)">Aceptar</button>
-            <button (click)="rechazarAdopcion(mascota)">Rechazar</button>
-          </td>
-          <td>{{mascota.id_Usuario}}</td>
-        </tr>
-      </tbody>
-    </table>
-    <div *ngIf="listaMascotas.length === 0">
-      <p>No hay mascotas registradas.</p>
-    </div>
-  </section>
+<main>
+    <h2> Solicitudes Adopcion</h2>
+    <app-listar-mascotas/>
+</main>

@@ -31,7 +31,7 @@ export class SolicitudesMascotaComponent implements OnInit{
  }
  aceptarMascota(mascota:solicitudMascota){
   mascota.resultado= true;
-  this.ms.postSolicitudMascotaAceptadaAdmin(mascota).subscribe(
+  this.ms.putMascotasAceptadaAdmin(mascota,mascota.id).subscribe(
     {
       next:()=>
       {
@@ -46,19 +46,19 @@ export class SolicitudesMascotaComponent implements OnInit{
     {
       next:()=>
         {
-          window.location.reload()
+          //no hago nada
         },
         error:(e:Error)=>{
           console.log(e.message);
         }
     }
   );
-
+    
  }
  rechazarMascota(mascota:solicitudMascota)
  {
   mascota.resultado= false;
-  this.ms.postSolicitudMascotaRechazadaAdmin(mascota).subscribe(
+  this.ms.putMascotasRechazadaAdmin(mascota,mascota.id).subscribe(
     {
       next:()=>
       {
@@ -73,7 +73,7 @@ export class SolicitudesMascotaComponent implements OnInit{
     {
       next:()=>
         {
-          window.location.reload()
+          //no hago nada
         },
         error:(e:Error)=>{
           console.log(e.message);

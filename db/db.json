@@ -3,74 +3,8 @@
   "SA_stand_by": [],
   "SA_aceptadas": [],
   "SA_rechazadas": [],
-  "SM_stand_by": [
-    {
-      "id": "1",
-      "nombre": "apolo",
-      "raza": "border",
-      "edad": 2,
-      "sexo": "mascu",
-      "tamanio": 1,
-      "color": "rojo",
-      "resultado": true
-    }
-  ],
-  "SM_aceptadas": [
-    {
-      "id": "1",
-      "nombre": "apolo",
-      "raza": "border",
-      "edad": 2,
-      "sexo": "mascu",
-      "tamanio": 1,
-      "color": "rojo",
-      "resultado": true,
-      "imagen":""
-    },
-    {
-      "id": "1",
-      "nombre": "apolo",
-      "raza": "border",
-      "edad": 2,
-      "sexo": "mascu",
-      "tamanio": 1,
-      "color": "rojo",
-      "resultado": true,
-      "imagen":""
-    },
-    {
-      "id": "1",
-      "nombre": "apolo",
-      "raza": "border",
-      "edad": 2,
-      "sexo": "mascu",
-      "tamanio": 1,
-      "color": "rojo",
-      "resultado": true,
-      "imagen":""
-    }
-  ],
-  "SM_rechazadas": [
-    {
-      "id": "1",
-      "nombre": "apolo",
-      "raza": "border",
-      "edad": 2,
-      "sexo": "mascu",
-      "tamanio": 1,
-      "color": "rojo",
-      "resultado": false
-    },
-    {
-      "id": "1",
-      "nombre": "apolo",
-      "raza": "border",
-      "edad": 2,
-      "sexo": "mascu",
-      "tamanio": 1,
-      "color": "rojo",
-      "resultado": false
-    }
-  ],
+  "SM_stand_by": [],
+  "SM_aceptadas": [],
+  "SM_rechazadas": [],
   "usuarios": []
 }

@@ -26,18 +26,6 @@
         El nombre de la mascota es requerido
       </div>
     </div>
-    <div class="form-field">
-      <label for="nombre">ID USUARIO</label>
-      <input 
-        type="text"
-        formControlName="id_Usuario"
-        id="id_Usuario"
-        placeholder="Ingrese ID usuario"
-      />
-      <div *ngIf="formulario.controls['id_Usuario'].hasError('required') && formulario.controls['id_Usuario'].touched" class="error-message">
-        El ID de usuario es requerido
-      </div>
-    </div>
 
     <div class="form-field">
       <label for="raza">Raza</label>
@@ -104,18 +92,6 @@
       </div>
     </div>
 
-    <div class="form-field">
-      <label for="imagen">Imagen</label>
-      <input 
-        type="text"
-        formControlName="imagen"
-        id="imagen"
-        placeholder="Imagen de la mascota"
-      />
-      <div *ngIf="formulario.controls['imagen'].hasError('required') && formulario.controls['imagen'].touched" class="error-message">
-        La imagen es requerido
-      </div>
-    </div>
     <button type="submit" [disabled]="formulario.invalid" class="submit-btn">Agregar</button>
   </form>
 </section>

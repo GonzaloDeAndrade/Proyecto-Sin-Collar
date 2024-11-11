@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './web/components/home/home.component';
 import { MenuAdminComponent } from './admin/components/menu-admin/menu-admin.component';
+import { ListarMascotasComponent } from './shared/mascota/components/listar-mascotas/listar-mascotas.component';
+import { MascotaPagesComponent } from './shared/mascota/pages/mascota-pages/mascota-pages.component';
 import { CommonModule } from '@angular/common';
-import { FooterComponent } from "./web/components/footer/footer.component";
-import { NavComponent } from './web/components/nav/nav.component';
 
 @Component({
   selector: 'app-root',
@@ -12,16 +12,11 @@ import { NavComponent } from './web/components/nav/nav.component';
   imports: [RouterOutlet,
     HomeComponent,
     MenuAdminComponent,
-    CommonModule, FooterComponent,NavComponent],
+    CommonModule
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'sin-collar';
-  constructor(private router: Router) {}
-
-  mostrarNavFooter(): boolean {
-    return this.router.url.includes('/admin') !== true ;
-  }
 }
-

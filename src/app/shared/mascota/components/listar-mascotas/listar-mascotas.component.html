@@ -1,25 +1,15 @@
+<app-add-mascota (emitirMascota)="agregarLista($event)"/>
+<section>
+    <h2>Lista de Mascotas</h2>
+<ul>
+    @for (mascota of listaMascotas; track $index) 
+    {
+        <li>
+            ID: {{mascota.id}} - nombre: {{mascota.nombre}}
+            <a href="http://localhost:4200/tareas" (click)="delete(mascota.id)">Eliminar</a>
+            <a href="">Actualizar</a>
+        </li>
+    }
+</ul>
 
-<section class="mascotas-container">
-  
-    <div *ngIf="listaMascotas.length > 0">
-      
-      <div class="mascota">
-        <img [src]="obtenerMascotaActual()?.imagen" alt="Imagen de {{ obtenerMascotaActual()?.nombre }}" class="mascota-img" />
-        <h3>{{ obtenerMascotaActual()?.nombre }}</h3>
-        <p><strong>Raza:</strong> {{ obtenerMascotaActual()?.raza }}</p>
-        <p><strong>Edad:</strong> {{ obtenerMascotaActual()?.edad }} años</p>
-        <p><strong>Tamaño:</strong> {{ obtenerMascotaActual()?.tamanio }}</p>
-        <p><strong>Color:</strong> {{ obtenerMascotaActual()?.color }}</p>
-      </div>
-  
-      <div class="navigation-buttons">
-        <button (click)="anteriorMascota()" [disabled]="contador === 0">Anterior</button>
-        <button (click)="siguienteMascota()" [disabled]="contador === listaMascotas.length - 1">Siguiente</button>
-      </div>
-      
-    </div>
-    <a href="http://localhost:4200/agregar-mascota">Agregar Mascota</a>
-    <div *ngIf="listaMascotas.length === 0">
-      <p>No hay mascotas registradas.</p>
-    </div>
-  </section>
+</section>
