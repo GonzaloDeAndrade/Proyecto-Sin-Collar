@@ -1,0 +1,25 @@
+<section>
+<form [formGroup]="formulario" (ngSubmit)="addMascota()">
+    <label for="">Id: </label>
+    <input 
+    type="text"
+     formControlName="id"
+      >
+      @if (formulario.controls['id'].getError('required')) 
+      {
+        <div>
+          Campo requerido
+        </div>
+      }
+      
+      <label for="">Nombre Mascota: </label>
+      <input 
+      type="text"
+       formControlName="nombre"
+        >
+        <div>
+          Campo requerido
+        </div>
+    <button >Agregar</button>
+  </form>
+</section>

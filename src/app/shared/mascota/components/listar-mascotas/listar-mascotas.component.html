@@ -1,0 +1,14 @@
+<section>
+    <h2>Lista de Tareas</h2>
+<ul>
+    @for (mascota of listaMascotas; track $index) 
+    {
+        <li>
+            ID: {{mascota.id}} - nombre: {{mascota.nombre}}
+            <a href="http://localhost:4200/tareas" (click)="delete(mascota.id)">Eliminar</a>
+            <a href="">Actualizar</a>
+        </li>
+    }
+</ul>
+
+</section>
