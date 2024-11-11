@@ -1,13 +1,14 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MascotaService } from '../../service/mascota.service';
 import { solicitudMascota } from '../../Interface/solicitudMascota.interface';
 import { environment } from '../../../../../environments/environment.development';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-add-mascota',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,CommonModule],
   templateUrl: './add-mascota.component.html',
   styleUrl: './add-mascota.component.css'
 })
@@ -28,6 +29,10 @@ export class AddMascotaComponent {
       color:['',[Validators.required]]
     }
   )
+  
+  @Output()
+  emitirMascota : EventEmitter<solicitudMascota> = new EventEmitter();
+
   addMascota()
   {
     if(this.formulario.invalid) return;
@@ -35,11 +40,12 @@ export class AddMascotaComponent {
     const mascota = this.formulario.getRawValue()
 
     this.addMascotaDB(mascota);
+    this.emitirMascota.emit(mascota);
   }
 
   addMascotaDB(mascota:solicitudMascota)
   {
-    this.ms.postMascotas(mascota,this.urlBase).subscribe(
+    this.ms.postSolicitudMascotasUser(mascota).subscribe(
       {
         next: (mascota:solicitudMascota) => {
           console.log(mascota);
