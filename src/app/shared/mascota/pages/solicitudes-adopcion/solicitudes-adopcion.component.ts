@@ -10,6 +10,6 @@ import { environment } from '../../../../../environments/environment.development
   styleUrl: './solicitudes-adopcion.component.css'
 })
 export class SolicitudesAdopcionComponent {
-  urlBase = environment.urlBaseAceptadasSA
+
 
 }

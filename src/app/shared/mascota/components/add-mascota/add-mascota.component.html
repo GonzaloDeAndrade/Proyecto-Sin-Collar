@@ -1,25 +1,97 @@
-<section>
-<form [formGroup]="formulario" (ngSubmit)="addMascota()">
-    <label for="">Id: </label>
-    <input 
-    type="text"
-     formControlName="id"
-      >
-      @if (formulario.controls['id'].getError('required')) 
-      {
-        <div>
-          Campo requerido
-        </div>
-      }
-      
-      <label for="">Nombre Mascota: </label>
+<section class="form-container">
+  <form [formGroup]="formulario" (ngSubmit)="addMascota()">
+    
+    <div class="form-field">
+      <label for="id">Id</label>
       <input 
-      type="text"
-       formControlName="nombre"
-        >
-        <div>
-          Campo requerido
-        </div>
-    <button >Agregar</button>
+        type="text"
+        formControlName="id"
+        id="id"
+        placeholder="Ingrese el ID de la mascota"
+      />
+      <div *ngIf="formulario.controls['id'].hasError('required') && formulario.controls['id'].touched" class="error-message">
+        El campo ID es requerido
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label for="nombre">Nombre Mascota</label>
+      <input 
+        type="text"
+        formControlName="nombre"
+        id="nombre"
+        placeholder="Ingrese el nombre de la mascota"
+      />
+      <div *ngIf="formulario.controls['nombre'].hasError('required') && formulario.controls['nombre'].touched" class="error-message">
+        El nombre de la mascota es requerido
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label for="raza">Raza</label>
+      <input 
+        type="text"
+        formControlName="raza"
+        id="raza"
+        placeholder="Ingrese la raza de la mascota"
+      />
+      <div *ngIf="formulario.controls['raza'].hasError('required') && formulario.controls['raza'].touched" class="error-message">
+        La raza es requerida
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label for="edad">Edad</label>
+      <input 
+        type="number"
+        formControlName="edad"
+        id="edad"
+        placeholder="Ingrese la edad de la mascota"
+      />
+      <div *ngIf="formulario.controls['edad'].hasError('required') && formulario.controls['edad'].touched" class="error-message">
+        La edad es requerida
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label for="sexo">Sexo</label>
+      <input 
+        type="text"
+        formControlName="sexo"
+        id="sexo"
+        placeholder="Ingrese el sexo de la mascota"
+      />
+      <div *ngIf="formulario.controls['sexo'].hasError('required') && formulario.controls['sexo'].touched" class="error-message">
+        El sexo es requerido
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label for="tamaño">Tamaño</label>
+      <input 
+        type="number"
+        formControlName="tamaño"
+        id="tamaño"
+        placeholder="Ingrese el tamaño de la mascota"
+      />
+      <div *ngIf="formulario.controls['tamaño'].hasError('required') && formulario.controls['tamaño'].touched" class="error-message">
+        El tamaño es requerido
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label for="color">Color</label>
+      <input 
+        type="text"
+        formControlName="color"
+        id="color"
+        placeholder="Ingrese el color de la mascota"
+      />
+      <div *ngIf="formulario.controls['color'].hasError('required') && formulario.controls['color'].touched" class="error-message">
+        El color es requerido
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="formulario.invalid" class="submit-btn">Agregar</button>
   </form>
 </section>

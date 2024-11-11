@@ -1,8 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { solicitudMascota } from '../Interface/solicitudMascota.interface';
 import { environment } from '../../../../environments/environment.development';
+import { HttpClient } from '@angular/common/http';
+
 
 
 @Injectable({
@@ -11,28 +13,37 @@ import { environment } from '../../../../environments/environment.development';
 export class MascotaService {
 
   http = inject(HttpClient)
-  urlBaseAceptadasSM = environment.urlBaseAceptadasSA;
-  getMascotas(urlBase:string):Observable<solicitudMascota[]>
+   urlBaseAceptadasSM = environment.urlBaseAceptadasSM;
+   urlBaseStandBySM = environment.urlBaseStandBySM;
+   urlBaseRechazadasSM = environment.urlBaseRechazadasSM;
+  getMascotasUser():Observable<solicitudMascota[]>
   {
-    return this.http.get<solicitudMascota[]>(urlBase)
+    return this.http.get<solicitudMascota[]>(this.urlBaseAceptadasSM)
   }
-  
-  getMascotaById(id:string|null,urlBase:string):Observable<solicitudMascota>
+  getMascotaByIdUser(id:string|null):Observable<solicitudMascota>
   {
-  return this.http.get<solicitudMascota>(`${urlBase}/${id}`);
+  return this.http.get<solicitudMascota>(`${this.urlBaseAceptadasSM}/${id}`);
   }
-  postMascotas(mascota:solicitudMascota,urlBase:string):Observable<solicitudMascota>
+  postSolicitudMascotasUser(mascota:solicitudMascota,):Observable<solicitudMascota>
   {
-    return this.http.post<solicitudMascota>(`${urlBase}`,mascota)
+    return this.http.post<solicitudMascota>(`${this.urlBaseStandBySM}`,mascota)
+  }
+  putMascotasAdmin(mascota:solicitudMascota, id:string|null):Observable<solicitudMascota>
+  {
+    return this.http.put<solicitudMascota>(`${this.urlBaseAceptadasSM}/${id}`,mascota)
+  }
+  deleteMascotaByIdAdmin(id:string):Observable<void>
+  {
+    return this.http.delete<void>(`${this.urlBaseAceptadasSM}/${id}`);
+  }
+  getSolicitudesMascotasAdmin():Observable<solicitudMascota[]>
+  {
+    return this.http.get<solicitudMascota[]>(this.urlBaseAceptadasSM)
+  }
+  getSolicitudMascotaByIdAdmin(id:string|null):Observable<solicitudMascota>
+  {
+  return this.http.get<solicitudMascota>(`${this.urlBaseAceptadasSM}/${id}`);
   }
 
-  putMascotas(mascota:solicitudMascota, id:string|null,urlBase:string):Observable<solicitudMascota>
-  {
-    return this.http.put<solicitudMascota>(`${urlBase}/${id}`,mascota)
-  }
-  deleteMascotaById(id:string,urlBase:string):Observable<void>
-  {
-    return this.http.delete<void>(`${urlBase}/${id}`);
-  }
 
 }
