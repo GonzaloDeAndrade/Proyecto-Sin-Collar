@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MascotaService } from '../../service/mascota.service';
-import { Mascota } from '../../Interface/mascota.interface';
+import { solicitudMascota } from '../../Interface/solicitudMascota.interface';
 
 @Component({
   selector: 'app-add-mascota',
@@ -15,8 +15,6 @@ export class AddMascotaComponent {
   fb = inject(FormBuilder)
   ms = inject(MascotaService)
 
-
-
   formulario = this.fb.nonNullable.group(
     {
       id: ['',[Validators.required] ], 
@@ -26,29 +24,27 @@ export class AddMascotaComponent {
       sexo:['',[Validators.required]],
       tamaño:[0,[Validators.required]],
       color:['',[Validators.required]]
-
     }
   )
-
   addMascota()
   {
     if(this.formulario.invalid) return;
 
     const mascota = this.formulario.getRawValue()
 
-    this.addTareaDB(mascota);
+    this.addMascotaDB(mascota);
   }
 
-  addTareaDB(tarea:Mascota)
+  addMascotaDB(mascota:solicitudMascota)
   {
-    this.ms.postTareas(tarea).subscribe(
+    this.ms.postMascotas(mascota).subscribe(
       {
-        next: (tarea:Tarea) => {
-          console.log(tarea);
-          alert('tarea guardada.');
+        next: (mascota:solicitudMascota) => {
+          console.log(mascota);
+          alert('mascota guardada.');
         },
         error:(error:Error)=>{ 
-          console.log(error.message); //el msje de error se pued manejar cn librerias mas bonitas
+          console.log(error.message);
         }
       }
     )

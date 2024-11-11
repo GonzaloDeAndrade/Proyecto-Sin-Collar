@@ -1,3 +1,23 @@
 {
-    
+    "mascotas":{
+        "SA_stand_by":[{
+
+            }],
+            "SA_aceptadas":[{
+        
+            }],
+            "SA_rechazadas":[{
+        
+            }],
+           "SM_stand_by":[{
+        
+            }],
+            "SM_aceptadas":[{
+        
+            }],
+            "SM_rechazadas":[{
+        
+            }]
+    }
+   
 }
