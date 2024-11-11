@@ -4,6 +4,9 @@ import { MascotaService } from '../../service/mascota.service';
 import { solicitudMascota } from '../../Interface/solicitudMascota.interface';
 import { environment } from '../../../../../environments/environment.development';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { ApiResponse } from '../../Interface/apiResponse.interface';
 
 @Component({
   selector: 'app-add-mascota',
@@ -17,6 +20,7 @@ export class AddMascotaComponent {
   fb = inject(FormBuilder)
   
   ms = inject(MascotaService)
+  http = inject(HttpClient)
   urlBase = environment.urlBaseStandBySM
   formulario = this.fb.nonNullable.group(
     {
@@ -35,15 +39,28 @@ export class AddMascotaComponent {
   @Output()
   emitirMascota : EventEmitter<solicitudMascota> = new EventEmitter();
 
-  addMascota()
-  {
-    if(this.formulario.invalid) return;
-
-    const mascota = this.formulario.getRawValue()
-
-    this.addMascotaDB(mascota);
-    this.emitirMascota.emit(mascota);
+  obtenerImagenApi(): Observable<ApiResponse> {
+    return this.http.get<ApiResponse>('https://dog.ceo/api/breeds/image/random');
   }
+  addMascota() {
+    if (this.formulario.invalid) return;
+  
+    const mascota = this.formulario.getRawValue();
+    
+    this.obtenerImagenApi().subscribe({
+      next: (response: ApiResponse) => {
+        mascota.imagen = response.message;
+        this.addMascotaDB(mascota);
+        this.emitirMascota.emit(mascota);
+      },
+      error: (e: Error) => {
+        console.error(e.message);
+      }
+    });
+  
+
+  }
+ 
 
   addMascotaDB(mascota:solicitudMascota)
   {
@@ -59,6 +76,6 @@ export class AddMascotaComponent {
       }
     )
   }
-  
+
 
 }

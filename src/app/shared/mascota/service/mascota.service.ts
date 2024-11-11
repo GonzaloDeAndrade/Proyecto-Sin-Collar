@@ -84,6 +84,9 @@ export class MascotaService {
   }
   
  
-  
+  getMascotasApi():Observable<string>
+  {
+    return this.http.get<string>('https://dog.ceo/api/breeds/image/random');
+  }
 
 }

@@ -25,7 +25,7 @@ export class ListarMascotasComponent implements OnInit{
     this.obtenerMascotas(); 
   }
   private mascota: solicitudMascota | null = null;
-
+  imagen = '';
   obtenerMascotas(): void {
     this.ms.getMascotasUser().subscribe(
       (mascotas: solicitudMascota[]) => {
@@ -67,7 +67,7 @@ export class ListarMascotasComponent implements OnInit{
    
   }
   
-
+ 
   obtenerMascotaActual(): solicitudMascota | null {
     return this.listaMascotas[this.contador] || null;
   }
