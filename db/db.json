@@ -130,11 +130,75 @@
       "email": "as"
     },
     {
+<<<<<<< Updated upstream
       "id": "3749",
       "rol": "adoptivo",
       "nombre": "andres",
       "apellido": "cane",
       "email": "canevelo0o@hotmail.com"
+=======
+      "id": "87bf",
+      "rol": "adoptante",
+      "nombre": "Gonza",
+      "apellido": "de Andrade",
+      "email": "gonzadeandradsssss1231@gmail.com"
+    },
+    {
+      "id": "0413",
+      "rol": "adoptante",
+      "nombre": "Gonza",
+      "apellido": "de Andrade",
+      "email": "gonzadeandra213de1@gmail.com"
+    },
+    {
+      "id": "8e70",
+      "rol": "adoptante",
+      "nombre": "Gonza",
+      "apellido": "de Andrade",
+      "email": "asdasdsa"
+    },
+    {
+      "id": "a788",
+      "rol": "adoptante",
+      "nombre": "Gonza",
+      "apellido": "de Andrade",
+      "email": "gonzadeandrade1asdsa@gmail.com"
+    },
+    {
+      "id": "f022",
+      "rol": "adoptante",
+      "nombre": "Gonza",
+      "apellido": "de Andrade",
+      "email": "gonzadeandrade1vxgsf@gmail.com"
+    },
+    {
+      "id": "d8c1",
+      "rol": "adoptante",
+      "nombre": "Gonza",
+      "apellido": "de Andrade",
+      "email": "gonzadeandradesrdfeag1@gmail.com"
+    },
+    {
+      "id": "ccd1",
+      "rol": "adoptivo",
+      "nombre": "wasdas",
+      "apellido": "asdasdas",
+      "email": "gonzadeandradasdasdaas1231@gmail.com"
+    },
+    {
+      "id": "a6b9",
+      "rol": "adoptivo",
+      "nombre": "aSAD",
+      "apellido": "WSA",
+      "email": "gonzadeandASDASrade1@gmail.com"
+    },
+    {
+      "id": "fcdd",
+      "rol": "adoptante",
+      "nombre": "Gonza",
+      "apellido": "de Andrade",
+      "email": "gonzadeandrad1fdfg231@gmail.com"
+>>>>>>> Stashed changes
     }
   ]
 }

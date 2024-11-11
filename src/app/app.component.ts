@@ -22,10 +22,6 @@ export class AppComponent {
   title = 'sin-collar';
   constructor(private router: Router) {}
 
-  mostrarNavFooter(): boolean {
-    console.log(this.usuarioService.getRol());
-    
-    return (this.router.url.includes('/admin') !== true) ;
-  }
+
 }
 

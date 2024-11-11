@@ -9,10 +9,12 @@ import { UsuarioServicioService } from './service/usuario-servicio.service';
 import { CommonModule } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { NavComponent } from '../web/components/nav/nav.component';
+import { FooterComponent } from "../web/components/footer/footer.component";
 @Component({
   selector: 'app-usuario',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, NavComponent, FooterComponent],
   templateUrl: './usuario.component.html',
   styleUrl: './usuario.component.css'
 })

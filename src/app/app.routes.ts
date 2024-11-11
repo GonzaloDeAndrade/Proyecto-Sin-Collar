@@ -9,6 +9,7 @@ import { SolicitudesMascotaComponent } from './shared/mascota/pages/solicitudes-
 import { UsuarioadoptaComponent } from './usuario/usuarioadopta/usuarioadopta.component';
 import { UsuariocargaadopcionComponent } from './usuario/usuariocargaadopcion/usuariocargaadopcion.component';
 import { AddMascotaComponent } from './shared/mascota/components/add-mascota/add-mascota.component';
+import { MyProfileComponent } from './usuario/myprofile/myprofile.component';
 
 export const routes: Routes = [
     {
@@ -46,7 +47,11 @@ export const routes: Routes = [
     { path: 'adopta',
     component: UsuarioadoptaComponent },
     { path: 'carga-adopcion', 
-        component: UsuariocargaadopcionComponent }
+        component: UsuariocargaadopcionComponent },
+        {
+            path:'profile',
+            component: MyProfileComponent
+        }
    
    
 ];

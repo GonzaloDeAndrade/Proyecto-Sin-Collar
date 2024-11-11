@@ -1,13 +1,13 @@
 <nav class="navbar">
 
   <div class="logo">
-    <img src="assets/logosincollar.png" alt="SinCollar Logo" />
+    <img src="assets/logosincollar.png" routerLink ="/home" alt="SinCollar Logo" />
   </div>
   <ul class ="botones">
   <li><button *ngIf="rol === 'adoptante'" routerLink="/adopta">Adoptar Mascota</button></li>
   <li><button *ngIf="rol === 'adoptivo'" routerLink="/carga-adopcion">Cargar Mascota</button></li>
-  <li *ngIf="rol!=null"class="nombreCompleto" routerLink="/profile">
-    <span class="status-icon">🟢</span>
+  <li *ngIf="rol === 'adoptante'||rol === 'adoptivo'"class="nombreCompleto" routerLink="/profile">
+    <span *ngIf="rol!=null||rol !=''" class="status-icon"  >🟢</span>
     <span >{{ usuarioService.getNombreCompleto() }}</span>
     
   </li>
@@ -19,7 +19,7 @@
       <li *ngIf="rol === 'adoptante'||rol === 'adoptivo'"><a routerLink="/login">Sesion iniciada</a></li>
       <li><a routerLink="/profile">Mi Perfil</a></li>
       <li><a routerLink="/ruta-mascotas">Mascotas</a></li>  
-      <li><button (click)="onCerrarSesion()">Cerrar Sesión</button></li>
+      <li><button (click)="onCerrarSesion()" routerLink="/login">Cerrar Sesión</button></li>
     </ul>
   </div>
 </nav>

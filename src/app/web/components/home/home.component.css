@@ -2,17 +2,18 @@
     display: grid;
     grid-template-columns: repeat(3, 1.5fr);
     grid-template-rows: auto 1fr auto auto;
-    grid-template-areas:  "nav nav nav"
+    grid-template-areas:  "navbar navbar navbar"
                           "header header header "
                          "main main aside"
                          "footer footer footer";
    
     gap: 0; 
-    min-height: 100vh
+    min-height: 100vh;
+    min-width: 100vh;
    
 }
-.nav{
-    grid-area: nav;
+.navbar{
+    grid-area: navbar;
 }
 .header{
     grid-area:header;

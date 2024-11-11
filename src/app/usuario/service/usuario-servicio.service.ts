@@ -44,7 +44,7 @@ export class UsuarioServicioService {
     );
   }
   cerrarSesion() {
-    localStorage.removeItem('rol');
+    this.setRol("");
     this.usuarioActualizado.emit();
   
 }
