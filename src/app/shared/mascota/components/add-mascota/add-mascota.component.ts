@@ -20,13 +20,15 @@ export class AddMascotaComponent {
   urlBase = environment.urlBaseStandBySM
   formulario = this.fb.nonNullable.group(
     {
-      id: ['',[Validators.required] ], 
+      id: ['',[Validators.required] ],
+      id_Usuario:[''], 
       nombre:['',[Validators.required, Validators.minLength(3)]],
       raza:['',[Validators.required, Validators.minLength(3)]],
       edad:[0,[Validators.required]],
       sexo:['',[Validators.required]],
       tamanio:[0,[Validators.required]],
-      color:['',[Validators.required]]
+      color:['',[Validators.required]],
+      imagen:['']
     }
   )
   

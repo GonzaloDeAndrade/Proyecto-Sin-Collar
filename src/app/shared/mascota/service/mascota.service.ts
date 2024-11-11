@@ -16,6 +16,8 @@ export class MascotaService {
    urlBaseAceptadasSM = environment.urlBaseAceptadasSM;
    urlBaseStandBySM = environment.urlBaseStandBySM;
    urlBaseRechazadasSM = environment.urlBaseRechazadasSM;
+   urlBaseRechazadasSA = environment.urlBaseRechazadasSA
+   urlBaseAceptadasSA = environment.urlBaseAceptadasSA
   getMascotasUser():Observable<solicitudMascota[]>
   {
     return this.http.get<solicitudMascota[]>(this.urlBaseAceptadasSM)
@@ -32,14 +34,23 @@ export class MascotaService {
   {
     return this.http.post<solicitudMascota>(`${this.urlBaseStandBySM}`,mascota)
   }
-  putMascotasAceptadaAdmin(mascota:solicitudMascota, id:string|null):Observable<solicitudMascota>
+  postSolicitudMascotaAceptadaAdmin(mascota:solicitudMascota,):Observable<solicitudMascota>
   {
-    return this.http.put<solicitudMascota>(`${this.urlBaseAceptadasSM}/${id}`,mascota)
+    return this.http.post<solicitudMascota>(`${this.urlBaseAceptadasSM}`,mascota)
   }
-  putMascotasRechazadaAdmin(mascota:solicitudMascota, id:string|null):Observable<solicitudMascota>
+  postSolicitudMascotaRechazadaAdmin(mascota:solicitudMascota,):Observable<solicitudMascota>
   {
-    return this.http.put<solicitudMascota>(`${this.urlBaseRechazadasSM}/${id}`,mascota)
+    return this.http.post<solicitudMascota>(`${this.urlBaseRechazadasSM}`,mascota)
   }
+  postSolicitudAdopcionAceptadaAdmin(mascota:solicitudMascota,):Observable<solicitudMascota>
+  {
+    return this.http.post<solicitudMascota>(`${this.urlBaseAceptadasSA}`,mascota)
+  }
+  postSolicitudAdopcionRechazadaAdmin(mascota:solicitudMascota,):Observable<solicitudMascota>
+  {
+    return this.http.post<solicitudMascota>(`${this.urlBaseRechazadasSA}`,mascota)
+  }
+ 
   deleteMascotaByIStandBydAdmin(id:string):Observable<void>
   {
     return this.http.delete<void>(`${this.urlBaseStandBySM}/${id}`);

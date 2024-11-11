@@ -1,0 +1,37 @@
+.mascotas-container {
+  max-width: 100rem; 
+  margin: 0 auto;
+  text-align: center;
+  padding: 15rem; 
+}
+
+  .mascota {
+    margin-bottom: 20px;
+  }
+  
+  .mascota-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .navigation-buttons button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+a{
+  background-color: brown;
+  color: beige;
+  font-size: 1.5rem;
+  padding: 0.5rem 1.5rem;
+  width: 35%;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  margin-top: 3rem;
+  text-align: center;
+
+}
