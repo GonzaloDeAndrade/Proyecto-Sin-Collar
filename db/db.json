@@ -1,13 +1,33 @@
 {
   "mascotas": [],
   "envio": [
-    
+    {
+      "id": "4cc5",
+      "asunto": "Mascota Adoptada",
+      "mensaje": "Su mascota ha sido adoptada"
+    },
+    {
+      "id": "7ea6",
+      "asunto": "Solicitud Aceptada",
+      "mensaje": "Su mascota ha sido aceptada"
+    },
+    {
+      "id": "ae72",
+      "asunto": "Mascota Adoptada",
+      "mensaje": "Su mascota ha sido adoptada"
+    },
+    {
+      "id": "76d8",
+      "asunto": "Solicitud Aceptada",
+      "mensaje": "Su mascota ha sido aceptada"
+    },
+    {
+      "id": "9472",
+      "asunto": "Solicitud Aceptada",
+      "mensaje": "Su mascota ha sido aceptada"
+    }
   ],
-  "SA_stand_by": [],
-  "SM_stand_by":[],
-  "SA_aceptadas": [],
-  "SA_rechazadas": [],
-  "SM_aceptadas": [
+  "SA_stand_by": [
     {
       "id": "1",
       "id_Usuario": "",
@@ -18,6 +38,120 @@
       "tamanio": 22,
       "color": "blanco",
       "imagen": "https://images.dog.ceo/breeds/leonberg/n02111129_4725.jpg",
+      "resultado": true
+    },
+    {
+      "id": "1",
+      "id_Usuario": "",
+      "nombre": "apolo",
+      "raza": "pitbull",
+      "edad": 1,
+      "sexo": "masculino",
+      "tamanio": 22,
+      "color": "blanco",
+      "imagen": "https://images.dog.ceo/breeds/leonberg/n02111129_4725.jpg",
+      "resultado": true
+    },
+    {
+      "id": "1",
+      "id_Usuario": "",
+      "nombre": "apolo",
+      "raza": "pitbull",
+      "edad": 1,
+      "sexo": "masculino",
+      "tamanio": 22,
+      "color": "blanco",
+      "imagen": "https://images.dog.ceo/breeds/leonberg/n02111129_4725.jpg",
+      "resultado": true
+    },
+    {
+      "id": "1",
+      "id_Usuario": "",
+      "nombre": "apolo",
+      "raza": "pitbull",
+      "edad": 1,
+      "sexo": "masculino",
+      "tamanio": 22,
+      "color": "blanco",
+      "imagen": "https://images.dog.ceo/breeds/leonberg/n02111129_4725.jpg",
+      "resultado": true
+    },
+    {
+      "id": "1",
+      "id_Usuario": "",
+      "nombre": "apolo",
+      "raza": "pitbull",
+      "edad": 1,
+      "sexo": "masculino",
+      "tamanio": 22,
+      "color": "blanco",
+      "imagen": "https://images.dog.ceo/breeds/leonberg/n02111129_4725.jpg",
+      "resultado": true
+    }
+  ],
+  "SM_stand_by": [],
+  "SA_aceptadas": [
+    {
+      "id": "1",
+      "id_Usuario": "",
+      "nombre": "apolo",
+      "raza": "pitbull",
+      "edad": 1,
+      "sexo": "masculino",
+      "tamanio": 22,
+      "color": "blanco",
+      "imagen": "https://images.dog.ceo/breeds/leonberg/n02111129_4725.jpg",
+      "resultado": true
+    },
+    {
+      "id": "1",
+      "id_Usuario": "",
+      "nombre": "apolo",
+      "raza": "pitbull",
+      "edad": 1,
+      "sexo": "masculino",
+      "tamanio": 22,
+      "color": "blanco",
+      "imagen": "https://images.dog.ceo/breeds/leonberg/n02111129_4725.jpg",
+      "resultado": true
+    },
+    {
+      "id": "h,mb",
+      "id_Usuario": "vnmmnv",
+      "nombre": "nvm",
+      "raza": "vnm",
+      "edad": 0,
+      "sexo": "mnv",
+      "tamanio": 0,
+      "color": "asd",
+      "imagen": "https://images.dog.ceo/breeds/basenji/n02110806_3966.jpg",
+      "resultado": true
+    }
+  ],
+  "SA_rechazadas": [],
+  "SM_aceptadas": [
+    {
+      "id": "1",
+      "id_Usuario": "5df2",
+      "nombre": "apolo",
+      "raza": "pitbull",
+      "edad": 1,
+      "sexo": "masculino",
+      "tamanio": 22,
+      "color": "blanco",
+      "imagen": "https://images.dog.ceo/breeds/leonberg/n02111129_4725.jpg",
+      "resultado": true
+    },
+    {
+      "id": "h,mb",
+      "id_Usuario": "vnmmnv",
+      "nombre": "nvm",
+      "raza": "vnm",
+      "edad": 0,
+      "sexo": "mnv",
+      "tamanio": 0,
+      "color": "asd",
+      "imagen": "https://images.dog.ceo/breeds/basenji/n02110806_3966.jpg",
       "resultado": true
     }
   ],
@@ -148,69 +282,69 @@
       "nombre": "andres",
       "apellido": "cane",
       "email": "canevelo0o@hotmail.com"
-=======
-      "id": "87bf",
-      "rol": "adoptante",
-      "nombre": "Gonza",
-      "apellido": "de Andrade",
-      "email": "gonzadeandradsssss1231@gmail.com"
     },
     {
-      "id": "0413",
-      "rol": "adoptante",
-      "nombre": "Gonza",
-      "apellido": "de Andrade",
-      "email": "gonzadeandra213de1@gmail.com"
-    },
-    {
-      "id": "8e70",
-      "rol": "adoptante",
-      "nombre": "Gonza",
-      "apellido": "de Andrade",
-      "email": "asdasdsa"
-    },
-    {
-      "id": "a788",
-      "rol": "adoptante",
-      "nombre": "Gonza",
-      "apellido": "de Andrade",
-      "email": "gonzadeandrade1asdsa@gmail.com"
-    },
-    {
-      "id": "f022",
-      "rol": "adoptante",
-      "nombre": "Gonza",
-      "apellido": "de Andrade",
-      "email": "gonzadeandrade1vxgsf@gmail.com"
-    },
-    {
-      "id": "d8c1",
-      "rol": "adoptante",
-      "nombre": "Gonza",
-      "apellido": "de Andrade",
-      "email": "gonzadeandradesrdfeag1@gmail.com"
-    },
-    {
-      "id": "ccd1",
+      "id": "c545",
       "rol": "adoptivo",
-      "nombre": "wasdas",
-      "apellido": "asdasdas",
-      "email": "gonzadeandradasdasdaas1231@gmail.com"
+      "nombre": "Andrés Canevello ",
+      "apellido": "cabe",
+      "email": "canevelo0o123@hotmail.com"
     },
     {
-      "id": "a6b9",
-      "rol": "adoptivo",
-      "nombre": "aSAD",
-      "apellido": "WSA",
-      "email": "gonzadeandASDASrade1@gmail.com"
-    },
-    {
-      "id": "fcdd",
+      "id": "d206",
       "rol": "adoptante",
-      "nombre": "Gonza",
-      "apellido": "de Andrade",
-      "email": "gonzadeandrad1fdfg231@gmail.com"
->>>>>>> Stashed changes
+      "nombre": "fausto",
+      "apellido": "benzito",
+      "email": "faustitto@gmailcito.com"
+    },
+    {
+      "id": "1142",
+      "rol": "adoptivo",
+      "nombre": "faustito",
+      "apellido": "benzito",
+      "email": "caneveloasdas20o@hotmail.com"
+    },
+    {
+      "id": "22e2",
+      "rol": "adoptante",
+      "nombre": "asd",
+      "apellido": "awd",
+      "email": "canevelo0o@gmail.com"
+    },
+    {
+      "id": "f8eb",
+      "rol": "adoptante",
+      "nombre": "andru",
+      "apellido": "cane",
+      "email": "cane@gmail.com"
+    },
+    {
+      "id": "8cf6",
+      "rol": "adoptante",
+      "nombre": "v ",
+      "apellido": "cb",
+      "email": "cbx"
+    },
+    {
+      "id": "5df2",
+      "rol": "adoptante",
+      "nombre": "andru",
+      "apellido": "cane",
+      "email": "cane@hotmail.com"
+    },
+    {
+      "id": "e0f8",
+      "rol": "adoptante",
+      "nombre": "andreds",
+      "apellido": "cane",
+      "email": "canevelo0o123123@hotmail.com"
+    },
+    {
+      "id": "555b",
+      "rol": "adoptivo",
+      "nombre": "fausto",
+      "apellido": "benzo",
+      "email": "test@gmail.com"
     }
   ]
 }

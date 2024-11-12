@@ -6,11 +6,12 @@ import { AddMascotaComponent } from "../add-mascota/add-mascota.component";
 import { CommonModule } from '@angular/common';
 import { NavComponent } from "../../../../web/components/nav/nav.component";
 import { FooterComponent } from "../../../../web/components/footer/footer.component";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-listar-mascotas',
   standalone: true,
-  imports: [AddMascotaComponent, CommonModule, NavComponent, FooterComponent],
+  imports: [AddMascotaComponent, CommonModule, NavComponent, FooterComponent,RouterLink],
   templateUrl: './listar-mascotas.component.html',
   styleUrl: './listar-mascotas.component.css'
 })
