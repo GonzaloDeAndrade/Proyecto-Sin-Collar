@@ -1,0 +1,17 @@
+<app-nav></app-nav>
+<fieldset class="formulario-login">
+  <legend>Iniciar Sesion</legend>
+  <form [formGroup]="formulario">
+    <div class="campo">
+      <label for="user">Username: </label>
+      <input type="text" id="email" formControlName="email">
+    </div>
+    <div class="campo">
+      <label for="password">Password: </label>
+      <input type="password" id="contrasñea" formControlName="contraseña">
+    </div>
+    <div class="campo">
+      <input type="submit" value="Enviar" (click)="iniciarSession()">
+    </div>
+  </form>
+</fieldset>
