@@ -23,6 +23,9 @@ export class UsuarioComponent {
 
  
   mensajeError: string | null = null;
+  mostrarContrasena = false;
+
+    
     router = inject(Router);
     usuarioService = inject(UsuarioServicioService);
     fb= inject(FormBuilder)
@@ -31,7 +34,8 @@ export class UsuarioComponent {
         rol: ['', Validators.required],
         nombre: ['', Validators.required],
         apellido: ['', Validators.required],
-        email:['',Validators.required]
+        email:['',Validators.required],
+        contraseña:['',Validators.required]
        
       }
     )
@@ -60,17 +64,18 @@ export class UsuarioComponent {
           (
             {
              next : (usuario:cargaUsuario) => {
-                console.log('Tarea agregada correctamente', usuario);
-                alert ('Tarea guardada');
+                console.log('Usuario Registrado', usuario);
+                alert ('Usuario registrado');
+                this.router.navigate(['/login']);
                 if (rolSeleccionado === 'adoptivo') {
                   
                   console.log(this.usuarioService.getNombreCompleto());
                   console.log('Redirigiendo a /home');
-                  
-                  this.router.navigate(['/home']);
+                 
+                 
                 } else if (rolSeleccionado === 'adoptante') {
                   console.log(this.usuarioService.getNombreCompleto());
-                  this.router.navigate(['/home']);
+                  
                 }
               },
               
@@ -83,5 +88,8 @@ export class UsuarioComponent {
         }
      
 });
+}
+togglePasswordVisibility() {
+  this.mostrarContrasena = !this.mostrarContrasena;
 }
 }

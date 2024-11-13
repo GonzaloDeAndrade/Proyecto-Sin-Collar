@@ -26,7 +26,14 @@
     <label for="email">Email:</label>
     <input id="email"type="email" formControlName="email" />
   </div>
-  <button type="submit" [disabled]="usuarioForm.invalid" routerLink="/home" >Continuar</button>
+  <div>
+    <label for ="contraseña">Contraseña:</label>
+    <input id="contraseña" [type]="mostrarContrasena ? '' : 'password'" formControlName="contraseña"/>
+    <button type="button" (click)="togglePasswordVisibility()">
+        {{ mostrarContrasena ? 'Ocultar' : 'Mostrar' }}
+    </button>
+  </div>
+  <button type="submit" [disabled]="usuarioForm.invalid" routerLink="/login">Continuar</button>
   <div *ngIf="mensajeError" class="error">
     {{ mensajeError }}
   </div>
