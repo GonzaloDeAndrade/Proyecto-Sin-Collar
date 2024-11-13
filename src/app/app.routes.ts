@@ -10,6 +10,8 @@ import { UsuarioadoptaComponent } from './usuario/usuarioadopta/usuarioadopta.co
 import { UsuariocargaadopcionComponent } from './usuario/usuariocargaadopcion/usuariocargaadopcion.component';
 import { AddMascotaComponent } from './shared/mascota/components/add-mascota/add-mascota.component';
 import { MyProfileComponent } from './usuario/myprofile/myprofile.component';
+import { LoginComponent } from './usuario/login/login.component';
+import { LoginGuard } from './guards/login.guard';
 
 export const routes: Routes = [
     {
@@ -29,9 +31,12 @@ export const routes: Routes = [
         component:SolicitudesAdopcionComponent
     },
     {
-        path:'login',
+        path:'register',
         component:UsuarioComponent
     },
+    {
+        path:'login', component: LoginComponent, canActivate:[LoginGuard]
+      },
     {
         path:'ruta-mascotas',
         component:MascotaPagesComponent

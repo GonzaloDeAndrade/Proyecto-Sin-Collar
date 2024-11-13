@@ -3,7 +3,7 @@ export interface cargaUsuario{
     id?:number,
     apellido: string,
     telefono?:string,
-    contraseña?:string,
+    contraseña:string,
     direccion?:string,
     email?: string,
     dni?:string,
