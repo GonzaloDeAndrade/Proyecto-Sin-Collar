@@ -18,10 +18,16 @@ export class NavComponent {
   rol: string | null = null;
   router: any;
   menuOpen = false;
+  estaAutenticado: boolean = false;
 
   ngOnInit(): void {
     this.actualizarUsuario();
-
+    this.usuarioService.checkStatusAutenticacion().subscribe(
+      (autenticado) => {
+        // autenticado es el valor booleano emitido por el observable
+        this.estaAutenticado = autenticado;
+      });
+    console.log("lookthis",this.estaAutenticado);
     // Escucha el evento `usuarioActualizado` para actualizar el navbar
     this.usuarioSubscription = this.usuarioService.usuarioActualizado.subscribe(() => {
       this.actualizarUsuario();
@@ -41,7 +47,8 @@ export class NavComponent {
     }
     onCerrarSesion()
     {
-      this.usuarioService.cerrarSesion();
+      this.usuarioService.logout();
       this.router.navigate(['/login']);
     }
+    
 }
