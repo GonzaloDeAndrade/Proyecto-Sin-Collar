@@ -42,6 +42,7 @@ export class UsuarioServicioService {
       if (!token) {
         return of(false)
       }
+      asd
       return this.http.get<cargaUsuario>(`${this.url}/${token}`)
         .pipe(
           tap(u => this.usuario = u),
