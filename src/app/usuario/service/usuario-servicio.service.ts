@@ -5,11 +5,14 @@ import { Observable,tap,of,catchError } from 'rxjs';
 import { map } from 'rxjs';
 import { EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioServicioService {
   private rol: string | null = null;
+  private userKey = "user";
+  private autenticado = new BehaviorSubject<boolean>(false);
     http= inject(HttpClient);
     url = 'http://localhost:3000/usuarios';
     private usuario: cargaUsuario | undefined = undefined;
@@ -30,7 +33,8 @@ export class UsuarioServicioService {
           if (u.contraseña === contraseña && u.email === email) {
             this.usuario = u;
             console.log("Exitoso");
-            localStorage.setItem('token', u.id!.toString())
+            localStorage.setItem('token', u.id!.toString());
+            localStorage.setItem('rol', u.rol!.toString());
             this.router.navigate(['/home'])
           }
         });
@@ -39,17 +43,21 @@ export class UsuarioServicioService {
   
     checkStatusAutenticacion(): Observable<boolean> {
       const token = localStorage.getItem('token')
+      console.log("TOKEN"+token);
       if (!token) {
+        this.autenticado.next(false);
         return of(false)
       }
       return this.http.get<cargaUsuario>(`${this.url}/${token}`)
         .pipe(
-          tap(u => this.usuario = u),
+          tap(u => {this.usuario = u,  this.autenticado.next(true); }),
           map(u => !!u),
           catchError(err => of(false))
         )
     }
-  
+    getAuthStatus(): Observable<boolean> {
+      return this.autenticado.asObservable();
+    }
     logout() {
       this.usuario = undefined;
       localStorage.clear()
@@ -67,7 +75,7 @@ export class UsuarioServicioService {
       return this.usuario?.id;
     }
 
-    getUsuarioByIdUser(id:string|undefined):Observable<cargaUsuario>
+    getUsuarioByIdUser(id:string|undefined|null):Observable<cargaUsuario>
   {
   return this.http.get<cargaUsuario>(`${this.url}/${id}`);
   }
@@ -77,15 +85,27 @@ export class UsuarioServicioService {
     }
     setRol(rol: string) {
       this.rol = rol;
+      localStorage.setItem('rol', rol);
     }
 
     getRol(): string | null {
-      return this.rol;
+      const newrol=localStorage.getItem('rol');
+
+      return newrol;
     }
   verificarUsuarioExistente(email: string): Observable<boolean> {
     return this.http.get<cargaUsuario[]>(`${this.url}?email=${email}`).pipe(
       map((usuarios: cargaUsuario[])=> usuarios.length > 0) // Devuelve true si hay un usuario con ese email
     );
   }
+  saveUser(user: cargaUsuario): void {
+    localStorage.setItem(this.userKey, JSON.stringify(user)); // Guarda el usuario en localStorage
+  }
+  getUserLocal(): cargaUsuario {
+    const user = localStorage.getItem(this.userKey);
+    return user ? JSON.parse(user) : null;
+  }
+
+
 
 }

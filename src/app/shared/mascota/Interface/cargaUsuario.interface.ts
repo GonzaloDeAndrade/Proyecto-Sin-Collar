@@ -9,5 +9,6 @@ export interface cargaUsuario{
     dni?:string,
     trabajo?:string,
     estadocivil?:string,
-    imagen?:string
+    imagen?:string,
+    rol?:string
 }

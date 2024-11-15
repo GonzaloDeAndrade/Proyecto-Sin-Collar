@@ -22,7 +22,16 @@ export class AppComponent {
   usuarioService = inject(UsuarioServicioService);
   title = 'sin-collar';
   constructor(private router: Router) {}
-
+  ngOnInit(): void {
+   
+    const user = this.usuarioService.getUserLocal();
+    if (user) {
+      console.log('Usuario restaurado:', user);
+      // Puedes cargar configuraciones adicionales si es necesario
+    } else {
+      console.log('No hay usuario conectado.');
+    }
+  }
 
 }
 

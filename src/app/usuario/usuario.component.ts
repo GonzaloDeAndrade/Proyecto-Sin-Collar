@@ -11,6 +11,7 @@ import { Injectable } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { NavComponent } from '../web/components/nav/nav.component';
 import { FooterComponent } from "../web/components/footer/footer.component";
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-usuario',
   standalone: true,
@@ -24,11 +25,11 @@ export class UsuarioComponent {
  
   mensajeError: string | null = null;
   mostrarContrasena = false;
-
     
     router = inject(Router);
     usuarioService = inject(UsuarioServicioService);
-    fb= inject(FormBuilder)
+    fb= inject(FormBuilder);
+    estaAutenticado:Observable<boolean> = this.usuarioService.getAuthStatus();
     usuarioForm = this.fb.nonNullable.group(
       {
         rol: ['', Validators.required],

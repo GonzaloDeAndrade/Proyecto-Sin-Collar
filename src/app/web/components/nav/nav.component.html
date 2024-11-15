@@ -4,7 +4,7 @@
     <img src="assets/logosincollar.png" routerLink ="/home" alt="SinCollar Logo" />
   </div>
   
- <div *ngIf="estaAutenticado">
+ <div *ngIf="autenticado$ | async">
   <ul class ="botones">
   <li><button *ngIf="rol === 'adoptante'" routerLink="/ruta-mascotas">Adoptar Mascota</button></li>
   <li><button *ngIf="rol === 'adoptivo'" routerLink="/carga-adopcion">Cargar Mascota</button></li>
