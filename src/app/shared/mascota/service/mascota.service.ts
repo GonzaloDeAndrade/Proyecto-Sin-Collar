@@ -72,7 +72,7 @@ export class MascotaService {
     return this.http.post<solicitudMascota>(`${this.urlBaseRechazadasSA}`,mascota)
   }
  
-  deleteMascotaByIStandBydAdmin(id:string):Observable<void>
+  deleteMascotaByIStandBydAdmin(id:string|any):Observable<void>
   {
     return this.http.delete<void>(`${this.urlBaseStandBySM}/${id}`);
   }

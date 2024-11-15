@@ -1,19 +1,6 @@
 <app-nav/>
 <section class="form-container">
   <form [formGroup]="formulario" (ngSubmit)="addMascota()">
-    
-    <div class="form-field">
-      <label for="id">Id</label>
-      <input 
-        type="text"
-        formControlName="id"
-        id="id"
-        placeholder="Ingrese el ID de la mascota"
-      />
-      <div *ngIf="formulario.controls['id'].hasError('required') && formulario.controls['id'].touched" class="error-message">
-        El campo ID es requerido
-      </div>
-    </div>
 
     <div class="form-field">
       <label for="nombre">Nombre Mascota</label>
@@ -27,18 +14,6 @@
         El nombre de la mascota es requerido
       </div>
     </div>
-    <div class="form-field">
-      <label for="nombre">ID USUARIO</label>
-      <input 
-        type="text"
-        formControlName="id_Usuario"
-        id="id_Usuario"
-        placeholder="Ingrese ID usuario"
-      />
-      <div *ngIf="formulario.controls['id_Usuario'].hasError('required') && formulario.controls['id_Usuario'].touched" class="error-message">
-        El ID de usuario es requerido
-      </div>
-    </div>
 
     <div class="form-field">
       <label for="raza">Raza</label>
@@ -47,7 +22,11 @@
         formControlName="raza"
         id="raza"
         placeholder="Ingrese la raza de la mascota"
+        list="razasList" 
       />
+      <datalist id="razasList">
+        <option *ngFor="let raza of razas" [value]="raza"></option>
+      </datalist>
       <div *ngIf="formulario.controls['raza'].hasError('required') && formulario.controls['raza'].touched" class="error-message">
         La raza es requerida
       </div>
@@ -55,25 +34,26 @@
 
     <div class="form-field">
       <label for="edad">Edad</label>
-      <input 
-        type="number"
-        formControlName="edad"
-        id="edad"
-        placeholder="Ingrese la edad de la mascota"
-      />
+      <select formControlName="edad" id="edad">
+        <option *ngFor="let edad of edades" [value]="edad">{{edad}}</option>
+      </select>
       <div *ngIf="formulario.controls['edad'].hasError('required') && formulario.controls['edad'].touched" class="error-message">
         La edad es requerida
       </div>
     </div>
 
+
     <div class="form-field">
       <label for="sexo">Sexo</label>
-      <input 
-        type="text"
+      <select 
         formControlName="sexo"
         id="sexo"
-        placeholder="Ingrese el sexo de la mascota"
-      />
+        required
+      >
+        <option value="">Seleccione el sexo</option>
+        <option value="Macho">Macho</option>
+        <option value="Hembra">Hembra</option>
+      </select>
       <div *ngIf="formulario.controls['sexo'].hasError('required') && formulario.controls['sexo'].touched" class="error-message">
         El sexo es requerido
       </div>
@@ -81,12 +61,11 @@
 
     <div class="form-field">
       <label for="tamaño">Tamaño</label>
-      <input 
-        type="number"
-        formControlName="tamanio"
-        id="tamaño"
-        placeholder="Ingrese el tamaño de la mascota"
-      />
+      <select formControlName="tamanio" id="tamaño">
+        <option value="pequeño">Pequeño</option>
+        <option value="mediano">Mediano</option>
+        <option value="grande">Grande</option>
+      </select>
       <div *ngIf="formulario.controls['tamanio'].hasError('required') && formulario.controls['tamanio'].touched" class="error-message">
         El tamaño es requerido
       </div>
@@ -94,12 +73,16 @@
 
     <div class="form-field">
       <label for="color">Color</label>
-      <input 
-        type="text"
-        formControlName="color"
-        id="color"
-        placeholder="Ingrese el color de la mascota"
-      />
+      <select formControlName="color" id="color">
+        <option value="blanco">Blanco</option>
+        <option value="negro">Negro</option>
+        <option value="marrón">Marrón</option>
+        <option value="gris">Gris</option>
+        <option value="amarillo">Amarillo</option>
+        <option value="naranja">Naranja</option>
+        <option value="rojo">Rojo</option>
+        <option value="azul">Azul</option>
+      </select>
       <div *ngIf="formulario.controls['color'].hasError('required') && formulario.controls['color'].touched" class="error-message">
         El color es requerido
       </div>
@@ -107,16 +90,16 @@
 
     <div class="form-field">
       <label for="imagen">Imagen</label>
-      <input 
-        type="text"
-        formControlName="imagen"
-        id="imagen"
-        placeholder="Imagen de la mascota"
-      />
-      <div *ngIf="formulario.controls['imagen'].hasError('required') && formulario.controls['imagen'].touched" class="error-message">
-        La imagen es requerido
+      
+
+      <button type="button" (click)="obtenerImagenApi()">Generar Imagen</button>
+
+      <div *ngIf="imgGenerada">
+        <img [src]="imgGenerada.message" alt="Imagen generada" width="200" height="200"/>
       </div>
+
     </div>
+
     <button type="submit" [disabled]="formulario.invalid" class="submit-btn">Agregar</button>
   </form>
 </section>

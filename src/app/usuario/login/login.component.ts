@@ -4,12 +4,13 @@ import { FormBuilder,FormGroup,Validators, ReactiveFormsModule } from '@angular/
 import { Router } from '@angular/router';
 import { inject } from '@angular/core';
 import { UsuarioServicioService } from '../service/usuario-servicio.service';
+import { FooterComponent } from "../../web/components/footer/footer.component";
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [NavComponent,ReactiveFormsModule],
+  imports: [NavComponent, ReactiveFormsModule, FooterComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

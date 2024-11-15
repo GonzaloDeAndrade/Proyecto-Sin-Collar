@@ -44,7 +44,7 @@ export class SolicitudesMascotaComponent implements OnInit{
     {
       next:()=>
       {
-        
+
       },
       error:(e:Error)=>{
         console.log(e.message);
@@ -67,9 +67,12 @@ export class SolicitudesMascotaComponent implements OnInit{
   // window.location.reload()
 
  }
- enviarCorreoMA(id_Usuario:string)
+ enviarCorreoMA(id_Usuario:string|null)
   {
     Notiflix.Loading.standard('Cargando...');
+    setTimeout(() => {
+
+    }, 2000);
     this.us.getUsuarioByIdUser(id_Usuario).subscribe(
       {
         next:(userById: cargaUsuario)=>{
@@ -98,6 +101,7 @@ export class SolicitudesMascotaComponent implements OnInit{
     {
       next:()=>
       {
+  
         alert(`${mascota.nombre} fue rechazad@...`)
       },
       error:(e:Error)=>{
@@ -118,9 +122,11 @@ export class SolicitudesMascotaComponent implements OnInit{
   );
   this.enviarCorreoMR(mascota.id_Usuario)
  }
- enviarCorreoMR(id_Usuario:string)
+ enviarCorreoMR(id_Usuario:string|null)
  {
    Notiflix.Loading.standard('Cargando...');
+   setTimeout(() => {
+  }, 2000);
    this.us.getUsuarioByIdUser(id_Usuario).subscribe(
      {
        next:(userById: cargaUsuario)=>{

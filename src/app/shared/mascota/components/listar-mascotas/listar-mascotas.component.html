@@ -1,28 +1,86 @@
-<app-nav/>
+<app-nav></app-nav>
+
+<!-- FILTRO ANIMALES-->
+<h1>Filtrar Mascotas</h1>
+  
+
+<div class="filter-group">
+  <label for="raza">Raza:</label>
+  <input 
+    id="raza" 
+    type="search" 
+    placeholder="Buscar raza..." 
+    [(ngModel)]="razaFilter" 
+    (input)="onRazaChange($event)"
+    list="razasList"  
+  />
+  <datalist id="razasList">
+    <option *ngFor="let raza of razas" [value]="raza">{{raza}}</option>
+  </datalist>
+</div>
+
+
+<div class="filter-group">
+  <label for="edad">Edad:</label>
+  <select id="edad" [(ngModel)]="edadFilter" (change)="onEdadChange($event)">
+    <option value="">Selecciona una Edad</option>
+    <option *ngFor="let edad of edades" [value]="edad">{{edad}}</option>
+  </select>
+</div>
+
+
+<div class="filter-group">
+  <label for="tamaño">Tamaño:</label>
+  <select id="tamaño" [(ngModel)]="tamanoFilter" (change)="onTamanoChange($event)">
+    <option value="">Selecciona un Tamaño</option>
+    <option value="pequeño">Pequeño</option>
+    <option value="mediano">Mediano</option>
+    <option value="grande">Grande</option>
+  </select>
+</div>
+
+
+<div class="filter-group">
+  <label for="color">Color:</label>
+  <select id="color" [(ngModel)]="colorFilter" (change)="onColorChange($event)">
+    <option value="">Selecciona un Color</option>
+    <option value="blanco">Blanco</option>
+    <option value="negro">Negro</option>
+    <option value="marrón">Marrón</option>
+    <option value="gris">Gris</option>
+    <option value="amarillo">Amarillo</option>
+    <option value="beige">Beige</option>
+    <option value="naranja">Naranja</option>
+    <option value="azul">Azul</option>
+  </select>
+</div>
+
+<!-- Fin filtro ANIMALES-->
+
 <section class="mascotas-container">
-  
-    <div *ngIf="listaMascotas.length > 0">
-      
-      <div class="mascota">
-        <img [src]="obtenerMascotaActual()?.imagen" alt="Imagen de {{ obtenerMascotaActual()?.nombre }}" class="mascota-img" />
-        <h3>{{ obtenerMascotaActual()?.nombre }}</h3>
-        <p><strong>Raza:</strong> {{ obtenerMascotaActual()?.raza }}</p>
-        <p><strong>Edad:</strong> {{ obtenerMascotaActual()?.edad }} años</p>
-        <p><strong>Tamaño:</strong> {{ obtenerMascotaActual()?.tamanio }}</p>
-        <p><strong>Color:</strong> {{ obtenerMascotaActual()?.color }}</p>
-      </div>
-  
-      <div class="navigation-buttons">
-        <button (click)="anteriorMascota()" [disabled]="contador === 0">Anterior</button>
-        <button (click)="siguienteMascota()" [disabled]="contador === listaMascotas.length - 1">Siguiente</button>
-      </div>
-     
+
+  <div *ngIf="listaFiltradaMascotas.length > 0">
+    <div class="mascota">
+      <img [src]="obtenerMascotaActual()?.imagen" alt="Imagen de {{ obtenerMascotaActual()?.nombre }}" class="mascota-img" />
+      <h3>{{ obtenerMascotaActual()?.nombre }}</h3>
+      <p><strong>Raza:</strong> {{ obtenerMascotaActual()?.raza }}</p>
+      <p><strong>Edad:</strong> {{ obtenerMascotaActual()?.edad }} años</p>
+      <p><strong>Tamaño:</strong> {{ obtenerMascotaActual()?.tamanio }}</p>
+      <p><strong>Color:</strong> {{ obtenerMascotaActual()?.color }}</p>
     </div>
-    
-    <button class="botonmascota" routerLink="/agregar-mascota" >Agregar Mascota</button>
-    <button class="botonmascota" (click)="solicitarAdopcion()">Solicitar adopcion</button>
-    <div *ngIf="listaMascotas.length === 0">
-      <p class="parrafo">No hay mascotas registradas.</p>
+
+    <div class="navigation-buttons">
+      <button (click)="anteriorMascota()" [disabled]="contador === 0">Anterior</button>
+      <button (click)="siguienteMascota()" [disabled]="contador === listaFiltradaMascotas.length - 1">Siguiente</button>
     </div>
-  </section>
+  </div>
+
+  <div *ngIf="listaFiltradaMascotas.length === 0">
+    <p class="parrafo">No hay mascotas registradas.</p>
+  </div>
+</section>
+
+
+<button class="botonmascota" routerLink="/agregar-mascota">Agregar Mascota</button>
+<button class="botonmascota" (click)="solicitarAdopcion()">Solicitar adopción</button>
 <app-footer/>
