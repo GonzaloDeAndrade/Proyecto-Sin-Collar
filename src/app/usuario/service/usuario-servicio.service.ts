@@ -42,7 +42,6 @@ export class UsuarioServicioService {
       if (!token) {
         return of(false)
       }
-      asd
       return this.http.get<cargaUsuario>(`${this.url}/${token}`)
         .pipe(
           tap(u => this.usuario = u),
@@ -63,8 +62,12 @@ export class UsuarioServicioService {
     getUsuario(): Observable<cargaUsuario[]> {
       return this.http.get<cargaUsuario[]>(`${this.url}`);
     }
-    
-    getUsuarioByIdUser(id:string|null):Observable<cargaUsuario>
+    getUserID(): string|undefined
+    {
+      return this.usuario?.id;
+    }
+
+    getUsuarioByIdUser(id:string|undefined):Observable<cargaUsuario>
   {
   return this.http.get<cargaUsuario>(`${this.url}/${id}`);
   }

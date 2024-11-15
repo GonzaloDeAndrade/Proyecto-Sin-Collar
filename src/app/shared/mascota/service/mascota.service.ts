@@ -49,6 +49,12 @@ export class MascotaService {
   {
     return this.http.post<solicitudMascota>(`${this.urlBaseStandBySA}`,mascota)
   }
+  
+  getSolicitudesAdopcionByUser(): Observable<solicitudMascota[]> {
+    const userId = this.us.getUserID();
+    console.log("getsolicitudesAdopcionByUser"+userId);
+    return this.http.get<solicitudMascota[]>(`${this.urlBaseStandBySA}?id_usuario_adoptante=${userId}`);
+  }
   postSolicitudMascotaAceptadaAdmin(mascota:solicitudMascota,):Observable<solicitudMascota>
   {
     return this.http.post<solicitudMascota>(`${this.urlBaseAceptadasSM}`,mascota)
