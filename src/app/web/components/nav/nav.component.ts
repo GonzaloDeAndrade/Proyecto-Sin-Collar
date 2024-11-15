@@ -51,4 +51,5 @@ export class NavComponent {
       this.router.navigate(['/login']);
     }
     
+    
 }

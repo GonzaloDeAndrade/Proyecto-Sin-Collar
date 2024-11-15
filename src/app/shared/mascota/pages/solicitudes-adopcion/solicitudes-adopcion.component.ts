@@ -92,7 +92,7 @@ export class SolicitudesAdopcionComponent implements OnInit {
   );
   this.enviarCorreoSR(mascota.id_Usuario)
  }
- enviarCorreoSR(id_Usuario:string)
+ enviarCorreoSR(id_Usuario:string|null)
   {
     Notiflix.Loading.standard('Cargando...');
     this.us.getUsuarioByIdUser(id_Usuario).subscribe(
@@ -115,7 +115,7 @@ export class SolicitudesAdopcionComponent implements OnInit {
     })
     
   }
-  enviarCorreoSA(id_Usuario:string)
+  enviarCorreoSA(id_Usuario:string|null)
   {
     Notiflix.Loading.standard('Cargando...');
     this.us.getUsuarioByIdUser(id_Usuario).subscribe(

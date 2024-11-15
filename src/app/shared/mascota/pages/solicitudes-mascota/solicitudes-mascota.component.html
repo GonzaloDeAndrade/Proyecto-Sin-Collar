@@ -11,6 +11,7 @@
           <th>Sexo</th>
           <th>Tamaño</th>
           <th>Color</th>
+          <th>Estado Solicitud</th>
           <th>Acciones</th>
           <th>Id usuario</th>
         </tr>
@@ -24,6 +25,7 @@
           <td>{{ mascota.sexo }}</td>
           <td>{{ mascota.tamanio}}</td>
           <td>{{ mascota.color }}</td>
+          <td>{{mascota.resultado}}</td>
           <td>
 
             <button (click)="aceptarMascota(mascota)">Aceptar</button>

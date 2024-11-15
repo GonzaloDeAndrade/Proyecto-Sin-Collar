@@ -67,7 +67,7 @@ export class UsuarioServicioService {
       return this.usuario?.id;
     }
 
-    getUsuarioByIdUser(id:string|undefined):Observable<cargaUsuario>
+    getUsuarioByIdUser(id:string|undefined|null):Observable<cargaUsuario>
   {
   return this.http.get<cargaUsuario>(`${this.url}/${id}`);
   }
