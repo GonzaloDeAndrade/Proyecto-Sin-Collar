@@ -20,7 +20,12 @@
                     <p><strong>Nombre:</strong> {{ mascota.nombre }}</p>
                     <p><strong>Edad:</strong> {{ mascota.edad }}</p>
                     <p><strong>Raza:</strong> {{ mascota.raza }}</p>
-                    <p><strong>Estado Solicitud:</strong>{{mascota.resultado}}</p>
+                    <div *ngIf="mascota.resultado == true">
+                    <p><strong>Estado Solicitud:</strong>Aceptada</p>
+                    </div>
+                    <div *ngIf="mascota.resultado == false">
+                        <p><strong>Estado Solicitud:</strong>Solicitada</p>
+                        </div>
                 </li>
             </ul>
         </div>

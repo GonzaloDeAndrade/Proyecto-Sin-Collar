@@ -92,7 +92,7 @@ export class SolicitudesAdopcionComponent implements OnInit {
     {
       next:()=>
         {
-          window.location.reload()
+          //window.location.reload()
         },
         error:(e:Error)=>{
           console.log(e.message);

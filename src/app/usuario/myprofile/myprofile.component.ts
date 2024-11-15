@@ -19,7 +19,7 @@ export class MyProfileComponent {
   mascotas: solicitudMascota[] = [];
   userService = inject(UsuarioServicioService);
   mascotaService = inject(MascotaService);
- 
+  rol = localStorage.getItem("rol");
   ngOnInit() {
       // Obtener los datos del usuario
      
@@ -38,17 +38,19 @@ export class MyProfileComponent {
   }
   obtenerMascotas() {
     // Llama al servicio para obtener las mascotas del usuario
+    if(this.rol =='adoptante')
+    {
     if(this.userId)
     {
     console.log("USUARIO ID"+this.userId);
-    this.mascotaService.getSolicitudesAdopcionByUser().subscribe(
-        (mascotas) => {
-          this.mascotas = mascotas.filter(mascota => mascota.id_usuario_adoptante === this.userId);
-        },
-        (error) => {
+    this.mascotaService.getSolicitudesAdopcionByUser().subscribe({
+      next:(mascotas:solicitudMascota[])=>{
+        this.mascotas = mascotas.filter(mascota => mascota.id_usuario_adoptante === this.userId);
+      },
+        error:(error:Error) => {
             console.error("Error al obtener las mascotas:", error);
         }
-    );
+    });
   }
   else
   {
@@ -56,5 +58,39 @@ export class MyProfileComponent {
   }
 }
 
-  
+else
+{
+  if(this.userId)
+    {
+    console.log("USUARIO ID"+this.userId);
+    this.mascotaService.getMascotasUser().subscribe(
+        (mascotas) => {
+          this.mascotas = mascotas.filter(mascota => mascota.id_Usuario === this.userId);
+        },
+        (error) => {
+            console.error("Error al obtener las mascotas:", error);
+        }
+    );
+    this.mascotaService.getMascotasAdmin().subscribe({
+      next:(mascotasList : solicitudMascota[])=>{
+   
+       mascotasList = mascotasList.filter(mascota => mascota.id_Usuario === this.userId)
+       
+       mascotasList.forEach(mascota => {
+        this.mascotas.push(mascota);
+       });
+      },
+      error(e:Error)
+      {
+        console.log("ERROR ANDRU");
+      }
+    })
+  }
+  else
+  {
+    console.log("Esta vacio");
+  }
+
+}
+}  
 }

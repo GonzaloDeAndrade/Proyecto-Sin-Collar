@@ -7,6 +7,7 @@ import { cargaUsuario } from '../../Interface/cargaUsuario.interface';
 import { UsuarioServicioService } from '../../../../usuario/service/usuario-servicio.service';
 import { environment } from '../../../../../environments/environment.development';
 import { HttpClient } from '@angular/common/http';
+import { EmailService } from '../../../../usuario/service/email.service';
 
 @Component({
   selector: 'app-solicitudes-mascota',
@@ -23,6 +24,8 @@ export class SolicitudesMascotaComponent implements OnInit{
   ms = inject(MascotaService)
   us = inject(UsuarioServicioService)
   http = inject(HttpClient)
+  email=localStorage.getItem('emailusuario');
+  emailservice = inject(EmailService);
   listaMascotas: solicitudMascota[] = []
   urlBaseEnvio = environment.urlBaseEnvio
   listarMascotas(){
@@ -44,7 +47,9 @@ export class SolicitudesMascotaComponent implements OnInit{
     {
       next:()=>
       {
-
+        alert(`${mascota.nombre} fue aceptad@!`)
+        console.log(this.email);
+        this.enviarCorreoSA()
       },
       error:(e:Error)=>{
         console.log(e.message);
@@ -63,37 +68,9 @@ export class SolicitudesMascotaComponent implements OnInit{
     }
    
   );
-  this.enviarCorreoMA(mascota.id_Usuario)
   // window.location.reload()
 
  }
- enviarCorreoMA(id_Usuario:string|null)
-  {
-    Notiflix.Loading.standard('Cargando...');
-    setTimeout(() => {
-
-    }, 2000);
-    this.us.getUsuarioByIdUser(id_Usuario).subscribe(
-      {
-        next:(userById: cargaUsuario)=>{
-          this.usuario = userById;
-          console.log(this.usuario);
-        },
-        error:(e:Error) => { 
-          console.log(e.message);
-        }
-      }
-    );
-     this.http.post(this.urlBaseEnvio, {email:this.usuario?.email,asunto:'Mascota Adoptada',mensaje:'Su mascota ha sido adoptada'}).subscribe({
-      next:()=>{
-       Notiflix.Loading.remove();
-      },
-      error:(e:Error) => { 
-        console.log(e.message);
-      }
-    })
-    
-  }
  rechazarMascota(mascota:solicitudMascota)
  {
   mascota.resultado= false;
@@ -103,6 +80,8 @@ export class SolicitudesMascotaComponent implements OnInit{
       {
   
         alert(`${mascota.nombre} fue rechazad@...`)
+        console.log(this.email);
+        this.enviarCorreoSR()
       },
       error:(e:Error)=>{
         console.log(e.message);
@@ -120,31 +99,26 @@ export class SolicitudesMascotaComponent implements OnInit{
         }
     }
   );
-  this.enviarCorreoMR(mascota.id_Usuario)
  }
- enviarCorreoMR(id_Usuario:string|null)
- {
-   Notiflix.Loading.standard('Cargando...');
-   setTimeout(() => {
-  }, 2000);
-   this.us.getUsuarioByIdUser(id_Usuario).subscribe(
-     {
-       next:(userById: cargaUsuario)=>{
-         this.usuario = userById;
-       },
-       error:(e:Error) => { 
-         console.log(e.message);
-       }
-     }
-   );
-   this.http.post(this.urlBaseEnvio, {email:this.usuario?.email,asunto:'Mascota Rechazada',mensaje:'Su mascota ha sido rechazada'}).subscribe({
-     next:()=>{
-      Notiflix.Loading.remove();
-     },
-     error:(e:Error) => { 
-       console.log(e.message);
-     }
-   })
-   
- }
+ enviarCorreoSA():void 
+{
+
+
+    const email = localStorage.getItem('emailusuario');
+    console.log(email);
+    const asunto = 'Solicitud Aceptada';
+    const mensaje = 'Su mascota ha sido aceptada';
+    this.emailservice.enviarCorreo(email!, asunto, mensaje);
+}
+enviarCorreoSR():void 
+{
+
+    const email = localStorage.getItem('emailusuario');
+    console.log(email);
+    const asunto = 'Solicitud Rechazada';
+    const mensaje = 'Su mascota ha sido rechazada';
+    this.emailservice.enviarCorreo(email!, asunto, mensaje);
+}
+
+
 }
