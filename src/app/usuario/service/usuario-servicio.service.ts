@@ -33,6 +33,7 @@ export class UsuarioServicioService {
           if (u.contraseña === contraseña && u.email === email) {
             this.usuario = u;
             console.log("Exitoso");
+            localStorage.setItem('emailusuario',u.email!.toString());
             localStorage.setItem('token', u.id!.toString());
             localStorage.setItem('rol', u.rol!.toString());
             this.router.navigate(['/home'])

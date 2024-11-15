@@ -1,6 +1,7 @@
 /* Estilo general del contenedor */
 .profile-container {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -8,10 +9,14 @@
     color:white;
 }
 
-
+.titulo-adopcion
+{
+    text-align: center;
+    margin-bottom: 5px;
+}
 /* Estilo de la tarjeta de perfil */
 .profile-card {
-    background-color: #333;
+    background-color: #333; 
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -55,14 +60,16 @@
 }
 .mascotas-container {
     margin-top: 2rem;
+    
 }
 
 .mascota-list {
     list-style: none;
     padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    display: flex;
+    /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
     gap: 1rem;
+    flex-direction: row;
 }
 
 .mascota-item {

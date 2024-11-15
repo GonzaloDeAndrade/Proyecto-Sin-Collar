@@ -11,7 +11,8 @@
         <button class="edit-button">Editar Perfil</button>
     </div> -->
     <div class="mascotas-container">
-        <h2>Mis Solicitudes</h2>
+        <h2 class="titulo-adopcion" *ngIf="userService.getRol()=== 'adoptante'" >Mis Solicitudes de Adopcion</h2>
+        <h2 class="titulo-adopcion" *ngIf="userService.getRol()=== 'adoptivo'" >Mis Solicitudes de Alta de Mascota</h2>
         <div *ngIf="mascotas.length > 0; else noMascotas">
             <ul class="mascota-list">
                 <li *ngFor="let mascota of mascotas" class="mascota-item">
