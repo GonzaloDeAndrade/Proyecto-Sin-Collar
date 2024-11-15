@@ -15,29 +15,46 @@ import { CommonModule } from '@angular/common';
 })
 export class MyProfileComponent {
   userData: any;
+  userId!: string|undefined;
   mascotas: solicitudMascota[] = [];
   userService = inject(UsuarioServicioService);
   mascotaService = inject(MascotaService);
+ 
   ngOnInit() {
       // Obtener los datos del usuario
-      this.obtenerMascotas();
-      this.userService.getUsuario().subscribe(data => {
-          this.userData = data;
-      });
+     
+      this.userId=this.userService.getUserID();
+      console.log("USUARIO ID"+this.userId);
+      if (this.userId) {
+        this.obtenerMascotas();
+        this.userService.getUsuarioByIdUser(this.userId).subscribe(data => {
+            this.userData = data;
+        });
+    } else {
+        console.warn("userId es undefined o null, no se pueden obtener las mascotas.");
+    }
       // Obtener las solicitudes de mascota del usuario
      
   }
   obtenerMascotas() {
     // Llama al servicio para obtener las mascotas del usuario
-    this.mascotaService.getMascotasUser().subscribe(
+    if(this.userId)
+    {
+    console.log("USUARIO ID"+this.userId);
+    this.mascotaService.getSolicitudesAdopcionByUser().subscribe(
         (mascotas) => {
-            this.mascotas = mascotas;
+          this.mascotas = mascotas.filter(mascota => mascota.id_usuario_adoptante === this.userId);
         },
         (error) => {
             console.error("Error al obtener las mascotas:", error);
         }
     );
   }
+  else
+  {
+    console.log("Esta vacio");
+  }
+}
 
   
 }

@@ -7,6 +7,8 @@ import { CommonModule } from '@angular/common';
 import { NavComponent } from "../../../../web/components/nav/nav.component";
 import { FooterComponent } from "../../../../web/components/footer/footer.component";
 import { RouterLink } from '@angular/router';
+import { UsuarioServicioService } from '../../../../usuario/service/usuario-servicio.service';
+import { MyProfileComponent } from '../../../../usuario/myprofile/myprofile.component';
 
 @Component({
   selector: 'app-listar-mascotas',
@@ -21,7 +23,7 @@ export class ListarMascotasComponent implements OnInit{
   contador: number = 0; 
 
   ms = inject(MascotaService)
-
+  us = inject(UsuarioServicioService);
   ngOnInit(): void {
     this.obtenerMascotas(); 
   }
@@ -54,11 +56,29 @@ export class ListarMascotasComponent implements OnInit{
   }
 
   solicitarAdopcion()
-  {
-    this.mascota = this.obtenerMascotaActual()
-    this.ms.postSolicitudAdopcionUser(this.mascota).subscribe({
+  { 
+
+    this.mascota = this.obtenerMascotaActual();
+    const id_usuario_adoptante:string|undefined= this.us.getUserID();
+    const solicitudAdopcion: solicitudMascota=
+    {   id: this.mascota!.id, // Valor predeterminado si falta
+      id_Usuario: this.mascota!.id_Usuario || 'default-user',
+      id_usuario_adoptante: this.us.getUserID() || 'default-adopter',
+      nombre: this.mascota!.nombre || 'Nombre no especificado',
+      raza: this.mascota!.raza || 'Raza desconocida',
+      edad: this.mascota!.edad || 0, // Valor predeterminado
+      sexo: this.mascota!.sexo || 'Desconocido',
+      tamanio: this.mascota!.tamanio || 0, // Valor predeterminado
+      color: this.mascota!.color || 'Color desconocido',
+      resultado: this.mascota!.resultado || false, // Valor predeterminado
+      imagen: this.mascota!.imagen || '' 
+    } // Obtener el ID del usuario autenticado
+    
+    this.ms.postSolicitudAdopcionUser(solicitudAdopcion).subscribe({
       next:() =>{
         alert('Solicitud enviada')
+        
+
       },
       error:(e:Error)=>{
         e.message
