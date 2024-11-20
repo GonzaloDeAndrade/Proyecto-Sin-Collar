@@ -1,4 +1,5 @@
 <app-nav></app-nav>
+<div class="bodylogin">
 <fieldset class="formulario-login">
   <legend>Iniciar Sesion</legend>
   <form [formGroup]="formulario">
@@ -8,11 +9,18 @@
     </div>
     <div class="campo">
       <label for="password">Password: </label>
-      <input type="password" id="contrasñea" formControlName="contraseña">
+      <input type="password" id="contraseña" [type]="mostrarContrasena ? 'text' : 'password'" formControlName="contraseña">
+      <button type="button" (click)="togglePasswordVisibility()">
+        {{ mostrarContrasena ? 'Ocultar' : 'Mostrar' }}
+    </button>
     </div>
     <div class="campo">
       <input type="submit" value="Enviar" (click)="iniciarSession()">
     </div>
+    <div class="logo">
+      <img src="/assets/logosincollar.png" alt="Logo animado SIN COLLAR">
+    </div>
   </form>
 </fieldset>
+</div>
 <app-footer/>

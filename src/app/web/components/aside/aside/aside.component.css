@@ -22,7 +22,8 @@
   }
   
   .aside-content img {
-    width: 100%;
+    min-width:400 px;
+    height: 300px;
     border-radius: 10px;
 
   }
@@ -35,6 +36,11 @@
     border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+  }
+  .spansito 
+  {
+    font-size: 20px;
+    margin-bottom: 10px;
   }
   .aside-content h3,img, view-pets-button {
 margin-bottom: 30px;

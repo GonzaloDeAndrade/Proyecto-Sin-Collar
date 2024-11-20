@@ -1,15 +1,16 @@
 <app-nav/>
+<body>
 <div class="profile-container">
-    <!-- <div class="profile-card">
+     <div class="profile-card">
         <h2>Mi Perfil</h2>
         <div class="profile-info">
             <p><strong>Nombre:</strong> {{ userData.nombre }}</p>
-            <p><strong>Apellido:</strong> {{ userData.Apellido }}</p>
-            <p><strong>Email:</strong> {{ userData.email }}</p> -->
+            <p><strong>Apellido:</strong> {{ userData.apellido }}</p>
+            <p><strong>Email:</strong> {{ userData.email }}</p> 
             <!-- Agrega otros campos aquí -->
-        <!-- </div>
-        <button class="edit-button">Editar Perfil</button>
-    </div> -->
+       </div>
+        
+    </div> 
     <div class="mascotas-container">
         <h2 class="titulo-adopcion" *ngIf="userService.getRol()=== 'adoptante'" >Mis Solicitudes de Adopcion</h2>
         <h2 class="titulo-adopcion" *ngIf="userService.getRol()=== 'adoptivo'" >Mis Solicitudes de Alta de Mascota</h2>
@@ -21,10 +22,10 @@
                     <p><strong>Edad:</strong> {{ mascota.edad }}</p>
                     <p><strong>Raza:</strong> {{ mascota.raza }}</p>
                     <div *ngIf="mascota.resultado == true">
-                    <p><strong>Estado Solicitud:</strong>Aceptada</p>
+                    <p class="aceptada"><strong>Estado Solicitud:</strong>Aceptada</p>
                     </div>
                     <div *ngIf="mascota.resultado == false">
-                        <p><strong>Estado Solicitud:</strong>Solicitada</p>
+                        <p class="solicitada"><strong>Estado Solicitud:</strong>Solicitada</p>
                         </div>
                 </li>
             </ul>
@@ -35,4 +36,5 @@
        
     </div>
 </div>
+</body>
 <app-footer/>

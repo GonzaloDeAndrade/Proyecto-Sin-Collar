@@ -1,14 +1,24 @@
 /* Estilos generales */
+.tamañocontainer
+{
+  height: 80vh;
+  display: flex;
+}
 .acerca-de-nosotros-container {
+  
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     padding: 20px;
     border-radius: 8px;
     max-width: 800px;
     margin: 0 auto;
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 30px;
   }
   
   .titulo-acerca-de {
+    
     text-align: center;
     font-size: 2rem;
     color: #2c3e50;

@@ -1,23 +1,22 @@
 .principal{
   background-color: #fff3d3;
   padding: 10px 20px;
-  
+  border-top: 1px solid rgb(255, 255, 255);
+  min-height: 100%;
+ 
 }
 
 .footer {
- 
+  min-height: 100%;
     background-color: #fff3d3;
-   
-
     color: #fff;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: start;
-    height: 100%;
     overflow: hidden;
     z-index: 5;
-    position: relative;
+    flex-shrink: 0;
     border-top: 1px solid rgb(223, 221, 221);
 }
 .footer-logo,

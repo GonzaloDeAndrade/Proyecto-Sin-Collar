@@ -6,6 +6,7 @@ import { map } from 'rxjs';
 import { EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import Swal from 'sweetalert2';
 @Injectable({
   providedIn: 'root'
 })
@@ -29,26 +30,42 @@ export class UsuarioServicioService {
     verificarUserAndPass(email: string, contraseña: string) {
   
       this.getUsuario().subscribe(users => {
-        users.find(u => {
-          if (u.contraseña === contraseña && u.email === email) {
-            this.usuario = u;
+        const usuarioEncontrado= 
+        users.find(u => 
+          u.contraseña === contraseña && u.email === email); 
+          if (usuarioEncontrado){
+            this.usuario = usuarioEncontrado;
             console.log("Exitoso");
-            localStorage.setItem('emailusuario',u.email!.toString());
-            localStorage.setItem('token', u.id!.toString());
-            localStorage.setItem('rol', u.rol!.toString());
+            localStorage.setItem('emailusuario',usuarioEncontrado.email!.toString());
+            localStorage.setItem('token', usuarioEncontrado.id!.toString());
+            localStorage.setItem('rol', usuarioEncontrado.rol!.toString());
+            Swal.fire({
+              title: "Bienvenido "+usuarioEncontrado.nombre,
+              text: "Usted ha iniciado sesión correctamente",
+              icon: "success"
+            });
             this.router.navigate(['/home'])
           }
+          else
+          {
+            Swal.fire({
+              icon: 'error',
+              title: 'Email o contraseña incorrecta',
+              text: 'Por favor ingrese un usuario válido',
+            });
+          }
         });
-      });
-    }
+      };
   
     checkStatusAutenticacion(): Observable<boolean> {
       const token = localStorage.getItem('token')
       console.log("TOKEN"+token);
       if (!token) {
+        
         this.autenticado.next(false);
         return of(false)
       }
+      
       return this.http.get<cargaUsuario>(`${this.url}/${token}`)
         .pipe(
           tap(u => {this.usuario = u,  this.autenticado.next(true); }),

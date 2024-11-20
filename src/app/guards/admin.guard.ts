@@ -16,6 +16,7 @@ export class AdminGuard implements CanActivate {
 
     // Validar si el usuario tiene el email "admin"
     if (email === 'admin') {
+      
       return true;
       
        // Permite el acceso

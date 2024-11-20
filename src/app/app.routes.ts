@@ -15,7 +15,7 @@ import { LoginGuard } from './guards/login.guard';
 import { ListarUsersComponent } from './admin/components/listar-users/listar-users.component';
 import { UpdateUserComponent } from './admin/components/update-user/update-user.component';
 import { AdminGuard } from './guards/admin.guard';
-import
+import { AcercaDeNosotrosComponent } from './web/components/acerca-de-nosotros/acerca-de-nosotros.component';
 
 export const routes: Routes = [
     {

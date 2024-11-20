@@ -1,15 +1,21 @@
 /* Fondo global */
 body {
-  height: 100%;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
-
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 .main-container
 {
-  background: url('https://images.unsplash.com/photo-1517976487492-5750f3195933') no-repeat center center fixed;
+  height: calc(100vh - 3); 
+  display: flex;
+  flex-direction: column;
+  background: url('https://images.unsplash.com/photo-1576707064479-3139e7e8aace?q=80&w=2119&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
   background-size: cover;
-  height: 100%;
+  flex-grow: 1;
   width: 100%;
   overflow: auto;
 
@@ -26,7 +32,7 @@ h1 {
 /* Contenedor del filtro */
 .filter-container {
   margin-top: 20px;
-   background: rgba(255, 255, 255, 0.8);
+   background: rgba(7, 7, 7, 0.685);
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
@@ -42,12 +48,14 @@ h1 {
 .filter-group label {
   display: block;
   font-weight: bold;
+  font-size: 15px;
   margin-bottom: 5px;
-  color: #4a4a4a;
+  color: #ffffff;
 }
 
 .filter-input,
 .filter-select {
+  background-color: rgba(255, 255, 255, 0.89);
   width: 100%;
   padding: 12px;
   border: 2px solid #493d19;
@@ -60,7 +68,7 @@ h1 {
 .filter-select:focus {
   outline: none;
   border-color: #4b3e33;
-  box-shadow: 0 0 10px rgba(56, 142, 60, 0.5);
+  box-shadow: 0 0 10px rgba(255, 179, 66, 0.5);
 }
 
 /* Estilo para la cuadrícula */
@@ -74,7 +82,7 @@ h1 {
 }
 
 .mascota-card {
-  background: linear-gradient(135deg, #ffffff, #f9f9f9);
+  background: linear-gradient(135deg, #ffffffbb, #ffffffd8);
   border: 1px solid #ddd;
   border-radius: 15px;
   padding: 15px;
@@ -98,14 +106,14 @@ h1 {
 }
 
 .mascota-card h3 {
-  font-size: 1.5rem;
-  color: #523f2c;
+  font-size: 1.8rem;
+  color: #000000;
   margin-bottom: 10px;
 }
 
 .mascota-card p {
-  font-size: 1rem;
-  color: #555;
+  font-size: 1.4rem;
+  color: #000000;
   margin: 5px 0;
 }
 
@@ -142,11 +150,15 @@ h1 {
 
 .close {
   position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 24px;
+  top: 5px;
+  right: 9px;
+  font-size: 28px;
   cursor: pointer;
-  color: #4caf50;
+  color: #313131;
+}
+.close:hover{
+  color: rgb(0, 0, 0);
+  transition: 0.3s;
 }
 
 .boton-adoptar {
@@ -167,14 +179,14 @@ h1 {
 
 /* Mensaje de "No hay mascotas" */
 .parrafo {
-  font-size: 1.5rem;
-  color: #555;
+  font-size: 1.8rem;
+  color: #272727;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.9);
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 15px;
   max-width: 500px;
-  margin: 20px auto;
+  margin: 70px auto;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }

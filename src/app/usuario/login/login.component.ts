@@ -18,6 +18,7 @@ export class LoginComponent {
   private formBuilder: FormBuilder = inject(FormBuilder)
   private auth: UsuarioServicioService = inject(UsuarioServicioService)
   private router: Router = inject(Router)
+  mostrarContrasena = false;
 
   formulario: FormGroup = this.formBuilder.group({
     email: ['', Validators.required],
@@ -39,6 +40,9 @@ export class LoginComponent {
     }
 
     this.auth.loginUser(user.user, user.password) */
+  }
+  togglePasswordVisibility() {
+    this.mostrarContrasena = !this.mostrarContrasena;
   }
 }
 

@@ -1,89 +1,150 @@
-/* Estilo general del contenedor */
-.profile-container {
+/* General */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background: url('https://images.unsplash.com/photo-1558528420-eb6a6d490c97?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    min-height: 100vh;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(to right, #4e4e4e, #2f2f2f);
-    color:white;
-}
-
-.titulo-adopcion
-{
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .profile-container {
+    height: calc(100vh - 3); 
+    display: flex;
+    flex-direction: column;
+    min-width: 150vh;
+    margin: 30px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1.2s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .profile-card {
     text-align: center;
-    margin-bottom: 5px;
-}
-/* Estilo de la tarjeta de perfil */
-.profile-card {
-    background-color: #333; 
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    max-width: 400px;
-    text-align: center;
-    width: 100%;
-}
+    padding: 20px;
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .profile-card h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  }
+  
+  .profile-info p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #fff;
+  }
+  
 
-/* Título del perfil */
-.profile-card h2 {
+  /* Mascotas */
+  .mascotas-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .titulo-adopcion {
     font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: #ffd700;
-}
-
-/* Información de perfil */
-.profile-info p {
-    font-size: 1.1rem;
-    margin: 0.5rem 0;
-}
-
-.profile-info strong {
-    color: #ffd700;
-}
-
-/* Botón de editar */
-.edit-button {
-    margin-top: 1.5rem;
-    padding: 0.7rem 1.5rem;
-    font-size: 1rem;
-    color: #333;
-    background-color: #ffd700;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.edit-button:hover {
-    background-color: #ffcc00;
-}
-.mascotas-container {
-    margin-top: 2rem;
-    
-}
-
-.mascota-list {
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .mascota-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
     list-style: none;
     padding: 0;
-    display: flex;
-    /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
-    gap: 1rem;
-    flex-direction: row;
-}
-
-.mascota-item {
-    background-color: #444;
-    padding: 1rem;
-    border-radius: 8px;
+  }
+  
+  .mascota-item {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
     text-align: center;
-    color: #fff;
-}
-
-.mascota-imagen {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: bounceIn 1s ease-in-out;
+  }
+  
+  @keyframes bounceIn {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .mascota-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+  }
+  
+  .mascota-imagen {
     width: 100%;
-    height: auto;
-    max-height: 150px;
-    border-radius: 8px;
-    margin-bottom: 0.5rem;
-}
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid #6d582b;
+  }
+  
+  .mascota-item p {
+    margin: 10px;
+    font-size: 1.5rem;
+    color: #fff;
+  }
+  
+  .noMascotas p {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #ccc;
+    margin-top: 20px;
+  }
+  
+  /* Botón de Estado */
+  .mascota-item .estado {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    color: #fff;
+    background: linear-gradient(90deg, #28a745, #218838);
+    border-radius: 15px;
+    display: inline-block;
+    margin-top: 10px;
+  }
+  
+  .mascota-item .solicitada {
+    background: linear-gradient(90deg, #ffc1079d, #d39e009d);
+  }
+  
+  .mascota-item .aceptada {
+    background: linear-gradient(90deg, #28a746b2, #218837a9);
+  }
+  

@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
 })
 export class MyProfileComponent {
   userData: any;
-  userId!: string|undefined;
+  userId =localStorage.getItem("token");
   mascotas: solicitudMascota[] = [];
   userService = inject(UsuarioServicioService);
   mascotaService = inject(MascotaService);
@@ -23,7 +23,7 @@ export class MyProfileComponent {
   ngOnInit() {
       // Obtener los datos del usuario
      
-      this.userId=this.userService.getUserID();
+      
       console.log("USUARIO ID"+this.userId);
       if (this.userId) {
         this.obtenerMascotas();

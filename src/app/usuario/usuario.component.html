@@ -1,41 +1,58 @@
 <app-nav></app-nav>
-<h2>Seleccione su rol</h2>
+<div class="bodyregistro">
+  <fieldset class="formulario-registro">
+    <legend>Regístrate</legend>
+    <form [formGroup]="usuarioForm" (ngSubmit)="agregarUsuario()">
+      <div class="rol-select">
+        <label>
+          <input type="radio" formControlName="rol" value="adoptivo" />
+          <span>Soy un Usuario que Carga Adopciones</span>
+        </label>
+        <label>
+          <input type="radio" formControlName="rol" value="adoptante" />
+          <span>Soy un Usuario que Adopta</span>
+        </label>
+      </div>
 
-<form [formGroup]="usuarioForm" (ngSubmit)="agregarUsuario()">
-  <label>
-    <input type="radio" formControlName="rol" value="adoptivo" />
-    Soy un Usuario que Carga Adopciones
-  </label>
-  <label>
-    <input type="radio" formControlName="rol" value="adoptante" />
-    Soy un Usuario que Adopta
-  </label>
+      <div *ngIf="usuarioForm.get('rol')?.invalid && usuarioForm.get('rol')?.touched" class="error">
+        Por favor, selecciona un rol antes de continuar.
+      </div>
 
-  <div *ngIf="usuarioForm.get('rol')?.invalid && usuarioForm.get('rol')?.touched" class="error">
-    Por favor, seleccione un rol antes de continuar.
-  </div>
-  <div>
-    <label for="nombre">Nombre:</label>
-    <input id="nombre" formControlName="nombre" />
-  </div>
-  <div>
-    <label for="apellido">Apellido:</label>
-    <input id="apellido" formControlName="apellido" />
-  </div>
-  <div>
-    <label for="email">Email:</label>
-    <input id="email"type="email" formControlName="email" />
-  </div>
-  <div>
-    <label for ="contraseña">Contraseña:</label>
-    <input id="contraseña" [type]="mostrarContrasena ? '' : 'password'" formControlName="contraseña"/>
-    <button type="button" (click)="togglePasswordVisibility()">
-        {{ mostrarContrasena ? 'Ocultar' : 'Mostrar' }}
-    </button>
-  </div>
-  <button type="submit" [disabled]="usuarioForm.invalid" routerLink="/login">Continuar</button>
-  <div *ngIf="mensajeError" class="error">
-    {{ mensajeError }}
-  </div>
-</form>
+      <div class="campo">
+        <label for="nombre">Nombre:</label>
+        <input id="nombre" formControlName="nombre" placeholder="Tu nombre" />
+      </div>
+
+      <div class="campo">
+        <label for="apellido">Apellido:</label>
+        <input id="apellido" formControlName="apellido" placeholder="Tu apellido" />
+      </div>
+
+      <div class="campo">
+        <label for="email">Email:</label>
+        <input id="email" type="email" formControlName="email" placeholder="Tu email" />
+      </div>
+
+      <div class="campo">
+        <label for="contraseña">Contraseña:</label>
+        <div class="password-field">
+          <input
+            id="contraseña"
+            [type]="mostrarContrasena ? 'text' : 'password'"
+            formControlName="contraseña"
+            placeholder="Crea una contraseña"
+          />
+          <button type="button" class="toggle-password" (click)="togglePasswordVisibility()">
+            {{ mostrarContrasena ? 'Ocultar' : 'Mostrar' }}
+          </button>
+        </div>
+      </div>
+
+      <input type="submit" value="Continuar" [disabled]="usuarioForm.invalid" />
+    </form>
+    <div class="logo">
+      <img src="/assets/logosincollar.png" alt="Logo Animado" />
+    </div>
+  </fieldset>
+</div>
 <app-footer></app-footer>

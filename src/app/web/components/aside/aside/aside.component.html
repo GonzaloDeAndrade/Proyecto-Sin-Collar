@@ -1,14 +1,14 @@
 <aside>
     <div class="aside-content">
-        <h3>Cachorro en adopción</h3>
+        <h3>¿Qué esperas para adoptar a tu nuevo mejor amigo?</h3>
         <div *ngIf="imagen">
-          <img [src]="imagen?.message" alt="Imagen aleatoria de un perro" />
+          <img [src]="imagen?.message" class="imagen-perro" alt="Imagen aleatoria de un perro" />
         </div>
         <!-- Si no se ha cargado la imagen, muestra un mensaje o un loader -->
         <div *ngIf="!imagen">
           <p>Cargando imagen...</p>
         </div>
-        
+        <span class="spansito">Estas a tan solo un click!</span>
         <button class="view-pets-button" onclick="window.location.href='/ruta-mascotas'">Ver Mascotas</button>
       </div>
 </aside>

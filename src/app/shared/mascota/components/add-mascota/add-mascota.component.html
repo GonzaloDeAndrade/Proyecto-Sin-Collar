@@ -1,5 +1,11 @@
 <app-nav/>
+
+<body>
+<section class="form-padre">
+  
 <section class="form-container">
+  <h1 class="title-form">Dejalo en nuestras manos</h1>
+  <h1 class="title-form">Ingresa los datos de tu compañero peludo</h1>
   <form [formGroup]="formulario" (ngSubmit)="addMascota()">
 
     <div class="form-field">
@@ -103,4 +109,6 @@
     <button type="submit" [disabled]="formulario.invalid" class="submit-btn">Agregar</button>
   </form>
 </section>
+</section>
+</body>
 <app-footer/>

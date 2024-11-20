@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 html{
     box-sizing: border-box; /*genera border de tipo BOX*/
-    font-size: 70.5%; /* con esta configuracion manejamos que 10 pixeles sean 1REM*/
+    font-size: 70.5%; overflow-x: hidden;/* con esta configuracion manejamos que 10 pixeles sean 1REM*/
 }
 *,
 *:after,/*manejamos la herencia de la configuracion de arriba */
@@ -10,7 +10,7 @@ html{
 }
 body{/*margin 0 al margen de la configuracion*/
     margin: 0;
-    padding: 0;
+    padding: 0;overflow-x: hidden;
 }
 * {
     margin: 0;

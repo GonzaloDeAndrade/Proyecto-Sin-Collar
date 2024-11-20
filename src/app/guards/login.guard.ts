@@ -2,6 +2,7 @@ import { inject } from '@angular/core';
 import { UsuarioServicioService } from '../usuario/service/usuario-servicio.service';
 import { Router} from '@angular/router';
 import { Observable, map, tap } from 'rxjs';
+import Swal from 'sweetalert2';
 
 function checkAuthStatus(): boolean | Observable<boolean>{
   
@@ -16,6 +17,7 @@ function checkAuthStatus(): boolean | Observable<boolean>{
                         }
                       }),
                       map(estaAutenticado => !estaAutenticado)
+                      
                     );
 }
 
