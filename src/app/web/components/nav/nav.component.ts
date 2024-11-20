@@ -18,7 +18,7 @@ export class NavComponent {
   usuarioService = inject(UsuarioServicioService);
   autenticado$ = this.usuarioService.getAuthStatus();
   estaAutenticado:Observable<boolean> = this.usuarioService.getAuthStatus();
-
+  email = localStorage.getItem('emailusuario');
   rol = localStorage.getItem('rol');
   menuOpen = false;
   
@@ -50,8 +50,8 @@ export class NavComponent {
   ngOnDestroy() {
     // Cancela la suscripción cuando el componente se destruye para evitar fugas de memoria
     this.usuarioSubscription.unsubscribe();
-  }
-    toggleMenu() {
+  }   
+   toggleMenu() {
       this.menuOpen = !this.menuOpen;
     }
     onCerrarSesion()
@@ -59,6 +59,5 @@ export class NavComponent {
       this.usuarioService.logout();
      
     }
-    
     
 }

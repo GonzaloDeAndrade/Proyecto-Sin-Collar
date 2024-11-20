@@ -229,12 +229,14 @@ export class ListarMascotasComponent implements OnInit{
   }
 
   // Método para solicitar adopción
-  solicitarAdopcion() {
-    const mascotaActual = this.obtenerMascotaActual();
-    if (!mascotaActual) {
-      alert('No hay mascota seleccionada');
-      return;
-    }
+  solicitarAdopcion(idMascota: string) {
+     const mascotaActual = this.listaFiltradaMascotas.find((mascota) => mascota.id === idMascota);
+
+  if (!mascotaActual) {
+    alert('No se encontró la mascota seleccionada.');
+    return;
+  }
+
 
     const id_usuario_adoptante: string | undefined = this.us.getUserID();
     const solicitudAdopcion: solicitudMascota = {
@@ -269,11 +271,6 @@ export class ListarMascotasComponent implements OnInit{
     cerrarModal(): void {
       this.mostrarModal = false;
       this.mascotaSeleccionada = null;
-    }
-  
-    adoptarMascota(mascota: solicitudMascota): void {
-      console.log(`Adoptando a la mascota: ${mascota.nombre}`);
-      this.cerrarModal();
     }
   }
   

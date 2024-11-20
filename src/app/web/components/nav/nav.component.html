@@ -8,6 +8,7 @@
   <ul class ="botones">
   <li><button *ngIf="rol === 'adoptante'" routerLink="/ruta-mascotas">Adoptar Mascota</button></li>
   <li><button *ngIf="rol === 'adoptivo'" routerLink="/agregar-mascota">Cargar Mascota</button></li>
+  <li><button *ngIf="email === 'admin'" routerLink="/admin">ADMIN</button></li>
   <li *ngIf="rol === 'adoptante'||rol === 'adoptivo'"class="nombreCompleto" routerLink="/profile">
     <span *ngIf="rol!=null||rol !=''" class="status-icon"  >🟢</span>
     <span >{{ usuarioService.getNombreCompleto() }}</span>

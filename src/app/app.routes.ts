@@ -14,6 +14,7 @@ import { LoginComponent } from './usuario/login/login.component';
 import { LoginGuard } from './guards/login.guard';
 import { ListarUsersComponent } from './admin/components/listar-users/listar-users.component';
 import { UpdateUserComponent } from './admin/components/update-user/update-user.component';
+import { AdminGuard } from './guards/admin.guard';
 
 export const routes: Routes = [
     {
@@ -22,15 +23,18 @@ export const routes: Routes = [
     },
     {
         path:'admin',
-        component:MenuAdminComponent
+        component:MenuAdminComponent,
+        canActivate:[AdminGuard]
     },
     {
         path:'admin/sm',
-        component:SolicitudesMascotaComponent
+        component:SolicitudesMascotaComponent,
+        canActivate:[AdminGuard]
     },
     {
         path:'admin/sa',
-        component:SolicitudesAdopcionComponent
+        component:SolicitudesAdopcionComponent,
+        canActivate:[AdminGuard]
     },
     {
         path:'register',
@@ -61,11 +65,14 @@ export const routes: Routes = [
        ,
        {
         path:'admin/users',
-        component:ListarUsersComponent
+        component:ListarUsersComponent,
+        canActivate: [AdminGuard], 
        },
        {
-        path:'admin/users/update/:id',
-        component:UpdateUserComponent
+        path:'admin/users/update',
+        component:UpdateUserComponent,
+        canActivate: [AdminGuard], 
+        
        },
 
     {

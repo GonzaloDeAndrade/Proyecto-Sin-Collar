@@ -83,8 +83,10 @@
 <button class="botonmascota" (click)="solicitarAdopcion()">Solicitar adopción</button>
 <app-footer/> -->
 <!-- FILTRO ANIMALES -->
+ <body>
+  <div class="main-container">
 <section class="filter-container">
-  <h1>Filtrar Mascotas</h1>
+  <h1>Encuentra tu compañero perfecto</h1>
 
   <div class="filter-group">
     <label for="raza">Raza:</label>
@@ -162,7 +164,10 @@
     <p><strong>Edad:</strong> {{ mascotaSeleccionada?.edad }} años</p>
     <p><strong>Tamaño:</strong> {{ mascotaSeleccionada?.tamanio }}</p>
     <p><strong>Color:</strong> {{ mascotaSeleccionada?.color }}</p>
-    <button class="boton-adoptar" (click)="adoptarMascota(mascotaSeleccionada)">Adoptar Mascota</button>
+    <button class="boton-adoptar" (click)=" solicitarAdopcion(mascotaSeleccionada.id)">Adoptar Mascota</button>
   </div>
 </div>
+  </div>
+  
+  </body>
 <app-footer/>
