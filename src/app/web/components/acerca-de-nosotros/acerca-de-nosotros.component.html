@@ -1,0 +1,39 @@
+<app-nav></app-nav>
+<!-- AcercaDeNosotrosComponent HTML -->
+<div class="acerca-de-nosotros-container">
+    <!-- Título de la sección -->
+    <h2 class="titulo-acerca-de">Acerca de Nosotros</h2>
+  
+    <!-- Contenedor de la información general -->
+    <div class="informacion-general">
+      
+      <!-- Sección de dueños -->
+      <div class="informacion">
+        <h3>Dueños:</h3>
+        <p>Tu Nombre Aquí</p> <!-- Aquí pondrás tu nombre -->
+      </div>
+  
+      <!-- Sección de dirección -->
+      <div class="informacion">
+        <h3>Dirección:</h3>
+        <p>Dirección de tu negocio o donde te encuentras</p>
+      </div>
+  
+      <!-- Sección de contacto -->
+      <div class="informacion">
+        <h3>Contacto:</h3>
+        <p>Correo: contactotudominio.com</p>
+        <p>Teléfono: +123 456 7890</p>
+      </div>
+  
+      <!-- Sección de imagen de la mascota (si es necesario) -->
+      <div class="informacion">
+        <h3>Conoce a nuestra mascota</h3>
+        <img *ngIf="imagen" [src]="imagen" alt="Mascota" class="imagen-mascota" />
+      </div>
+  
+    </div>
+  </div>
+  
+
+<app-footer></app-footer>

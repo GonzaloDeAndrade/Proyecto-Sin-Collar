@@ -15,6 +15,7 @@ import { LoginGuard } from './guards/login.guard';
 import { ListarUsersComponent } from './admin/components/listar-users/listar-users.component';
 import { UpdateUserComponent } from './admin/components/update-user/update-user.component';
 import { AdminGuard } from './guards/admin.guard';
+import
 
 export const routes: Routes = [
     {
@@ -73,6 +74,10 @@ export const routes: Routes = [
         component:UpdateUserComponent,
         canActivate: [AdminGuard], 
         
+       },
+       {
+        path:'acerca-de-nosotros',
+        component:AcercaDeNosotrosComponent
        },
 
     {
