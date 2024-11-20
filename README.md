@@ -31,6 +31,7 @@ npm i notiflix
 npm i uuid  
 npm i @emailjs/browser  
 npm i sweetalert2  
+npm install @angular/material para la carpeta de modulos  
 
 Levantamiento de servidor  
 ng s -o  
