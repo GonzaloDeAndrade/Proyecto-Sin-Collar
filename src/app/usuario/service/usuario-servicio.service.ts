@@ -107,6 +107,8 @@ export class UsuarioServicioService {
     return user ? JSON.parse(user) : null;
   }
 
-
+  updateUserAdmin(id:string|undefined,user:cargaUsuario|null): Observable<void>{
+    return this.http.put<void>(`${this.url}`+id,user);
+  }
 
 }

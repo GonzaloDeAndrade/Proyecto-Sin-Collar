@@ -12,6 +12,8 @@ import { AddMascotaComponent } from './shared/mascota/components/add-mascota/add
 import { MyProfileComponent } from './usuario/myprofile/myprofile.component';
 import { LoginComponent } from './usuario/login/login.component';
 import { LoginGuard } from './guards/login.guard';
+import { ListarUsersComponent } from './admin/components/listar-users/listar-users.component';
+import { UpdateUserComponent } from './admin/components/update-user/update-user.component';
 
 export const routes: Routes = [
     {
@@ -57,6 +59,15 @@ export const routes: Routes = [
                 component: MyProfileComponent
         }
        ,
+       {
+        path:'admin/users',
+        component:ListarUsersComponent
+       },
+       {
+        path:'admin/users/update',
+        component:UpdateUserComponent
+       },
+
     {
         path:'**',
         component:HomeComponent

@@ -1,0 +1,36 @@
+<div class="container mt-5">
+    <h2>Lista de Usuarios</h2>
+    
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuario of listaUsuarios">
+            <td>{{ usuario.id }}</td>
+            <td>{{ usuario.nombre }}</td>
+            <td>{{ usuario.apellido }}</td>
+            <td>{{ usuario.email || 'No disponible' }}</td>
+            <td>{{ usuario.rol || 'No asignado' }}</td>
+            <td>
+              <button class="btn btn-primary btn-sm" (click)="editarUsuario(usuario.id)">
+                Editar
+              </button>
+              <button class="btn btn-danger btn-sm ml-2" (click)="eliminarUsuario(usuario.id)">
+                Eliminar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
