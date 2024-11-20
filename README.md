@@ -25,3 +25,20 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+Instalaciones necesarias
+npm i notiflix
+npm i uuid
+npm i @emailjs/browser
+npm i sweetalert2
+
+Levantamiento de servidor
+ng s -o
+json-server db/db.json --watch
+Una vez hecho esto podemos utilizar la pagina para las pruebas necesarias.
+La idea del proyecto es que un usuario pueda registrarse como adoptivo o adoptante.
+Las solicitudes de adopcion y de mascota las va a manejar el admin.
+Para ingresar al menu del admin van a tener que crear un usuario que tenga como mail "Admin" solamente, sin arrobas ni nada.
+Una vez ingresado sesion con dicho admin les figurara un boton para llevarlos al menu y realizar el ABM de usuarios y aceptas o rechazar solicitudes.
+Por otro lado los usuarios van a tener que enviar informacion de las mascotas, el admin las tendria que aceptar y asi una vez aceptadas el usuario adoptante las veria en el perfil para poder adoptar y luego el admin nuevamente tendria que aceptar la solicitud.
+Cuando se aceptan o rechazan solicitudes, las mismas se notifican por mail.

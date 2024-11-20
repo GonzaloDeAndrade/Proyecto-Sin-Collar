@@ -20,12 +20,7 @@ export class AcercaDeNosotrosComponent implements OnInit{
       imagen :ApiResponse[]=[]
       http = inject(HttpClient);
   ngOnInit(): void {
-    for(var i = 0; i < 3; i++)
-    {
       this.generarImagen()
-      setTimeout(()=>{},2000)
-    }
-  
   }
   obtenerImagenApi(): Observable<ApiResponse> {
     return this.http.get<ApiResponse>('https://dog.ceo/api/breeds/image/random');

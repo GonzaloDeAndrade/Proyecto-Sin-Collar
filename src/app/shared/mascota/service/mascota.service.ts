@@ -5,8 +5,7 @@ import { solicitudMascota } from '../Interface/solicitudMascota.interface';
 import { environment } from '../../../../environments/environment.development';
 import { HttpClient } from '@angular/common/http';
 import { UsuarioServicioService } from '../../../usuario/service/usuario-servicio.service';
-import {cargaUsuario} from '../Interface/cargaUsuario.interface';
-import Notiflix from 'notiflix';
+
 
 
 @Injectable({

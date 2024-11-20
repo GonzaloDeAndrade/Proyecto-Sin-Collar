@@ -1,40 +1,39 @@
-/* Contenedor del menú */
+/* Contenedor del menu */
   .menu-container {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 80%;              /* Ancho del menú */
-    max-width: 500px;        /* Limita el tamaño máximo */
+    width: 80%;            
+    max-width: 500px;       
     text-align: center;
     margin: auto;
   }
   
   
-  /* Estilo del menú (lista) */
+
   .menu {
-    list-style-type: none;  /* Elimina los puntos de la lista */
+    list-style-type: none; 
     padding: 0;
     margin: 0;
   }
   
   .menu li {
-    margin: 10px 0;        /* Espacio entre los elementos del menú */
+    margin: 10px 0;  
   }
   
   .menu a {
-    text-decoration: none; /* Elimina el subrayado por defecto */
-    color: #007BFF;        /* Color de los enlaces */
-    font-size: 16px;        /* Tamaño de fuente */
-    display: block;         /* Hace que el enlace ocupe todo el ancho disponible */
+    text-decoration: none;
+    color: #007BFF;      
+    font-size: 16px;        
+    display: block;         
     padding: 10px;
-    border-radius: 4px;     /* Bordes redondeados */
-    transition: background-color 0.3s; /* Transición para el efecto hover */
+    border-radius: 4px;     
+    transition: background-color 0.3s; 
   }
-  
   .menu a:hover {
-    background-color: #007BFF; /* Color de fondo al pasar el mouse */
-    color: white;               /* Color del texto al pasar el mouse */
+    background-color: #007BFF;
+    color: white;              
   }
   button{
     padding: .5rem 3rem;

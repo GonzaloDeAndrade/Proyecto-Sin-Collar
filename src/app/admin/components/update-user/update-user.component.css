@@ -1,4 +1,4 @@
-/* Estilos del contenedor y formulario */
+
 .container {
     max-width: 600px;
     margin: 0 auto;
@@ -16,7 +16,7 @@
     margin-bottom: 30px;
   }
   
-  /* Estilo de los campos del formulario */
+
   .form-group {
     margin-bottom: 20px;
   }
@@ -40,7 +40,7 @@
     outline: none;
   }
   
-  /* Botones */
+ 
   .btn {
     padding: 10px 20px;
     font-size: 16px;
@@ -68,7 +68,7 @@
     transform: scale(1.05);
   }
   
-  /* Estilo para los botones juntos */
+
   .ml-2 {
     margin-left: 10px;
   }
