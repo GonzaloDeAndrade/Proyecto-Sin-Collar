@@ -26,11 +26,11 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 
-Instalaciones necesarias
-npm i notiflix
-npm i uuid
-npm i @emailjs/browser
-npm i sweetalert2
+Instalaciones necesarias  
+npm i notiflix  
+npm i uuid  
+npm i @emailjs/browser  
+npm i sweetalert2  
 
 Levantamiento de servidor
 ng s -o
