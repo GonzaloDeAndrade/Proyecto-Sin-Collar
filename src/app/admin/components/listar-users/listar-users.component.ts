@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { UsuarioServicioService } from '../../../usuario/service/usuario-servicio.service';
 import { cargaUsuario } from '../../../shared/mascota/Interface/cargaUsuario.interface';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listar-users',
@@ -14,6 +15,7 @@ export class ListarUsersComponent implements OnInit{
     ngOnInit(): void {
       this.cargarLista()
     }
+    router = inject(Router)
       us = inject(UsuarioServicioService)
       listaUsuarios: cargaUsuario[]|null = null;
       cargarLista(){
@@ -29,22 +31,17 @@ export class ListarUsersComponent implements OnInit{
         })
       }
        userUpdate:cargaUsuario|null = null;
-  editarUsuario(id: string|undefined): void {
-   
-      this.us.getUsuarioByIdUser(id).subscribe({
-        next:(user:cargaUsuario)=>{
-          this.userUpdate = user;
-        }
-      })
-      this.us.updateUserAdmin(id,this.userUpdate).subscribe({
-        next:()=>{
-          console.log(`${this.userUpdate?.nombre} fue actualizado!`);
-        }
-      })
-  }
 
+       editarUsuario(id: string|undefined): void {
+        this.router.navigate([`/admin/users/update/${id}`]);
+      }
   eliminarUsuario(id: string|undefined): void {
-    
+    this.us.deleteUserById(id).subscribe({
+      next:()=>{
+        console.log("Borrado con exito.");
+        this.router.navigate(['/admin/users']);
+      }
+    })
   }
 }
 

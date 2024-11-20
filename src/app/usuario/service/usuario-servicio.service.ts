@@ -107,8 +107,11 @@ export class UsuarioServicioService {
     return user ? JSON.parse(user) : null;
   }
 
-  updateUserAdmin(id:string|undefined,user:cargaUsuario|null): Observable<void>{
-    return this.http.put<void>(`${this.url}`+id,user);
+  updateUserAdmin(id:string|undefined,user:cargaUsuario): Observable<cargaUsuario>{
+    return this.http.put<cargaUsuario>(`${this.url}/${id}`,user);
   }
-
+  deleteUserById(id:string|undefined):Observable<void>
+  {
+    return this.http.delete<void>(`${this.url}/${id}`);
+  }
 }
