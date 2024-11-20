@@ -64,7 +64,7 @@ export const routes: Routes = [
         component:ListarUsersComponent
        },
        {
-        path:'admin/users/update',
+        path:'admin/users/update/:id',
         component:UpdateUserComponent
        },
 
