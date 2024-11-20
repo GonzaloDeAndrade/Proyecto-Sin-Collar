@@ -171,10 +171,12 @@ h1 {
   font-size: 1.2rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  transition: font-size 0.3s ease;
 }
 
 .boton-adoptar:hover {
-  background-color: #388e3c;
+  background-color: #aa7142;
+  font-size: 1.5rem;
 }
 
 /* Mensaje de "No hay mascotas" */

@@ -164,7 +164,8 @@
     <p><strong>Edad:</strong> {{ mascotaSeleccionada?.edad }} años</p>
     <p><strong>Tamaño:</strong> {{ mascotaSeleccionada?.tamanio }}</p>
     <p><strong>Color:</strong> {{ mascotaSeleccionada?.color }}</p>
-    <button class="boton-adoptar" (click)=" solicitarAdopcion(mascotaSeleccionada.id)">Adoptar Mascota</button>
+    <button class="boton-adoptar" (click)=" solicitarAdopcion(mascotaSeleccionada.id)"*ngIf="rol === 'adoptante'">Adoptar Mascota</button>
+    <button class="boton-adoptar" *ngIf="rol === 'adoptivo'">Quiero cargar mi mascota</button>
   </div>
 </div>
   </div>

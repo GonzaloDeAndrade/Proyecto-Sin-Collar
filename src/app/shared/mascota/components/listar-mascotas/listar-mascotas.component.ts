@@ -150,6 +150,7 @@ export class ListarMascotasComponent implements OnInit{
   tamanoFilter: number = 0;
   colorFilter: string = '';
   mostrarModal: boolean = false;
+  rol=localStorage.getItem('rol');
   mascotaSeleccionada: any = null;
 
   // Servicios
