@@ -11,6 +11,7 @@ import { UsuarioServicioService } from '../../../../usuario/service/usuario-serv
 import { MyProfileComponent } from '../../../../usuario/myprofile/myprofile.component';
 import { FormsModule } from '@angular/forms';
 
+
 @Component({
   selector: 'app-listar-mascotas',
   standalone: true,
@@ -148,6 +149,8 @@ export class ListarMascotasComponent implements OnInit{
   edadFilter: number | null = null;
   tamanoFilter: number = 0;
   colorFilter: string = '';
+  mostrarModal: boolean = false;
+  mascotaSeleccionada: any = null;
 
   // Servicios
   ms = inject(MascotaService);
@@ -208,17 +211,17 @@ export class ListarMascotasComponent implements OnInit{
   }
 
   // Métodos para navegar entre las mascotas
-  siguienteMascota(): void {
-    if (this.contador < this.listaFiltradaMascotas.length - 1) {
-      this.contador++;
-    }
-  }
+  // siguienteMascota(): void {
+  //   if (this.contador < this.listaFiltradaMascotas.length - 1) {
+  //     this.contador++;
+  //   }
+  // }
 
-  anteriorMascota(): void {
-    if (this.contador > 0) {
-      this.contador--;
-    }
-  }
+  // anteriorMascota(): void {
+  //   if (this.contador > 0) {
+  //     this.contador--;
+  //   }
+  // }
 
   // Método para obtener la mascota actual según el contador
   obtenerMascotaActual(): solicitudMascota | null {
@@ -257,5 +260,22 @@ export class ListarMascotasComponent implements OnInit{
       }
     });
   }
-}
+  
+    abrirModal(mascota: solicitudMascota): void {
+      this.mostrarModal = true;
+      this.mascotaSeleccionada = mascota;
+    }
+  
+    cerrarModal(): void {
+      this.mostrarModal = false;
+      this.mascotaSeleccionada = null;
+    }
+  
+    adoptarMascota(mascota: solicitudMascota): void {
+      console.log(`Adoptando a la mascota: ${mascota.nombre}`);
+      this.cerrarModal();
+    }
+  }
+  
+
 

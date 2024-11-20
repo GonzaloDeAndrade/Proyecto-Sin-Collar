@@ -1,6 +1,6 @@
 <app-nav></app-nav>
 
-<!-- FILTRO ANIMALES-->
+<!-- 
 <h1>Filtrar Masncotas</h1>
   
 
@@ -55,8 +55,6 @@
   </select>
 </div>
 
-<!-- Fin filtro ANIMALES-->
-
 <section class="mascotas-container">
 
   <div *ngIf="listaFiltradaMascotas.length > 0">
@@ -83,4 +81,87 @@
 
 <button class="botonmascota" routerLink="/agregar-mascota">Agregar Mascota</button>
 <button class="botonmascota" (click)="solicitarAdopcion()">Solicitar adopción</button>
-<app-footer/>
+<app-footer/> -->
+<!-- FILTRO ANIMALES -->
+<section class="filter-container">
+  <h1>Filtrar Mascotas</h1>
+
+  <div class="filter-group">
+    <label for="raza">Raza:</label>
+    <input
+      id="raza"
+      type="search"
+      placeholder="Buscar raza..."
+      [(ngModel)]="razaFilter"
+      (input)="onRazaChange($event)"
+      list="razasList"
+      class="filter-input"
+    />
+    <datalist id="razasList">
+      <option *ngFor="let raza of razas" [value]="raza">{{ raza }}</option>
+    </datalist>
+  </div>
+
+  <div class="filter-group">
+    <label for="edad">Edad:</label>
+    <select id="edad" [(ngModel)]="edadFilter" (change)="onEdadChange($event)" class="filter-select">
+      <option value="">Selecciona una Edad</option>
+      <option *ngFor="let edad of edades" [value]="edad">{{ edad }}</option>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label for="tamaño">Tamaño:</label>
+    <select id="tamaño" [(ngModel)]="tamanoFilter" (change)="onTamanoChange($event)" class="filter-select">
+      <option value="">Selecciona un Tamaño</option>
+      <option value="pequeño">Pequeño</option>
+      <option value="mediano">Mediano</option>
+      <option value="grande">Grande</option>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label for="color">Color:</label>
+    <select id="color" [(ngModel)]="colorFilter" (change)="onColorChange($event)" class="filter-select">
+      <option value="">Selecciona un Color</option>
+      <option value="blanco">Blanco</option>
+      <option value="negro">Negro</option>
+      <option value="marrón">Marrón</option>
+      <option value="gris">Gris</option>
+      <option value="amarillo">Amarillo</option>
+      <option value="beige">Beige</option>
+      <option value="naranja">Naranja</option>
+      <option value="azul">Azul</option>
+    </select>
+  </div>
+</section>
+
+<section class="mascotas-grid" *ngIf="listaFiltradaMascotas.length > 0">
+ 
+    <div class="mascota-card" *ngFor="let mascota of listaFiltradaMascotas" (click)="abrirModal(mascota)">
+      <img [src]="mascota.imagen" alt="Imagen de {{ mascota.nombre }}" class="mascota-img" />
+      <h3>{{ mascota.nombre }}</h3>
+      <p><strong>Raza:</strong> {{ mascota.raza }}</p>
+      <p><strong>Edad:</strong> {{ mascota.edad }} años</p>
+   
+  </div>
+  
+</section>
+<div *ngIf="listaFiltradaMascotas.length === 0">
+  <p class="parrafo">No hay mascotas registradas.</p>
+</div>
+ 
+
+
+<div class="modal" *ngIf="mostrarModal">
+  <div class="modal-content">
+    <span class="close" (click)="cerrarModal()">&times;</span>
+    <img [src]="mascotaSeleccionada?.imagen" alt="Imagen de {{ mascotaSeleccionada?.nombre }}" class="modal-img" />
+    <h2>{{ mascotaSeleccionada?.nombre }}</h2>
+    <p><strong>Raza:</strong> {{ mascotaSeleccionada?.raza }}</p>
+    <p><strong>Edad:</strong> {{ mascotaSeleccionada?.edad }} años</p>
+    <p><strong>Tamaño:</strong> {{ mascotaSeleccionada?.tamanio }}</p>
+    <p><strong>Color:</strong> {{ mascotaSeleccionada?.color }}</p>
+    <button class="boton-adoptar" (click)="adoptarMascota(mascotaSeleccionada)">Adoptar Mascota</button>
+  </div>
+</div>
