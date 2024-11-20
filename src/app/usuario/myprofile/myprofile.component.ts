@@ -6,6 +6,8 @@ import { solicitudMascota } from '../../shared/mascota/Interface/solicitudMascot
 import { FooterComponent } from '../../web/components/footer/footer.component';
 import { NavComponent } from '../../web/components/nav/nav.component';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-myprofile',
   standalone: true,
@@ -17,6 +19,8 @@ export class MyProfileComponent {
   userData: any;
   userId =localStorage.getItem("token");
   mascotas: solicitudMascota[] = [];
+  router= inject(Router);
+ 
   userService = inject(UsuarioServicioService);
   mascotaService = inject(MascotaService);
   rol = localStorage.getItem("rol");
@@ -24,8 +28,13 @@ export class MyProfileComponent {
   ngOnInit() {
       // Obtener los datos del usuario
      
+      const token = localStorage.getItem('token');
+      if (!token) {
+        // Redirige al login si no hay token
+        this.router.navigate(['/login']);
+        return;
+      }
       
-      console.log("USUARIO ID"+this.userId);
       if (this.userId) {
         this.obtenerMascotas();
         this.userService.getUsuarioByIdUser(this.userId).subscribe(data => {
@@ -33,22 +42,36 @@ export class MyProfileComponent {
             
         });
     } else {
+      this.obtenerMascotas();
+      
         console.warn("userId es undefined o null, no se pueden obtener las mascotas.");
     }
       // Obtener las solicitudes de mascota del usuario
      
   }
   obtenerMascotas() {
+    this.mascotas = [];
     // Llama al servicio para obtener las mascotas del usuario
     if(this.rol =='adoptante')
     {
     if(this.userId)
     {
-    console.log("USUARIO ID"+this.userId);
-    this.mascotaService.getSolicitudesAdopcionByUser().subscribe({
+   
+    this.mascotaService.getSolicitudAdopcionUser().subscribe({
       next:(mascotas:solicitudMascota[])=>{
-        this.mascotas = mascotas.filter(mascota => mascota.id_usuario_adoptante === this.userId);
        
+        this.mascotas = mascotas.filter(mascota => mascota.id_usuario_adoptante === this.userId);
+        
+        this.mascotaService.getSolicitudesAdopcionByUser().subscribe({
+          next:(mascotasList:solicitudMascota[])=>{
+            mascotasList = mascotasList.filter(mascota => mascota.id_usuario_adoptante === this.userId);
+            mascotasList.forEach(mascota => {
+              if(mascota)
+              {
+              this.mascotas.push(mascota);
+              }
+             });
+            }});
       },
         error:(error:Error) => {
             console.error("Error al obtener las mascotas:", error);
@@ -65,7 +88,7 @@ else
 {
   if(this.userId)
     {
-    console.log("USUARIO ID"+this.userId);
+    
     this.mascotaService.getMascotasUser().subscribe(
         (mascotas) => {
           this.mascotas = mascotas.filter(mascota => mascota.id_Usuario === this.userId);
@@ -85,7 +108,7 @@ else
       },
       error(e:Error)
       {
-        console.log("ERROR ANDRU");
+        console.log(e);
       }
     })
   }

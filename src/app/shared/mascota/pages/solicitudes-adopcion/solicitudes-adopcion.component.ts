@@ -64,6 +64,7 @@ export class SolicitudesAdopcionComponent implements OnInit {
     {
       next:()=>
         {
+          console.log("Delete",mascota.id);
           // window.location.reload()
         },
         error:(e:Error)=>{

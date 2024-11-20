@@ -32,6 +32,7 @@
         <label for="email">Email:</label>
         <input id="email" type="email" formControlName="email" placeholder="Tu email" />
       </div>
+      <span (input)="mensajeError">{{mensajeError}}</span>
 
       <div class="campo">
         <label for="contraseña">Contraseña:</label>

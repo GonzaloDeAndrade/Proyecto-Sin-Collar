@@ -161,6 +161,7 @@ export class ListarMascotasComponent implements OnInit{
     this.obtenerMascotas();  // Cargar las mascotas al iniciar el componente
   }
 
+
   // Obtener las mascotas desde el servicio
   obtenerMascotas(): void {
     this.ms.getMascotasUser().subscribe(
@@ -232,6 +233,7 @@ export class ListarMascotasComponent implements OnInit{
   // Método para solicitar adopción
   solicitarAdopcion(idMascota: string) {
      const mascotaActual = this.listaFiltradaMascotas.find((mascota) => mascota.id === idMascota);
+     console.log(mascotaActual);
 
   if (!mascotaActual) {
     alert('No se encontró la mascota seleccionada.');
@@ -250,9 +252,10 @@ export class ListarMascotasComponent implements OnInit{
       sexo: mascotaActual.sexo || 'Desconocido',
       tamanio: mascotaActual.tamanio || 0,
       color: mascotaActual.color || 'Color desconocido',
-      resultado: mascotaActual.resultado || false,
+      resultado:false,
       imagen: mascotaActual.imagen || '',
     };
+   
 
     this.ms.postSolicitudAdopcionUser(solicitudAdopcion).subscribe({
       next: () => {
