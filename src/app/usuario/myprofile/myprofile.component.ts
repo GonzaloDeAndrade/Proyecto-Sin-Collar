@@ -20,6 +20,7 @@ export class MyProfileComponent {
   userService = inject(UsuarioServicioService);
   mascotaService = inject(MascotaService);
   rol = localStorage.getItem("rol");
+  user:any= this.userService.getUsuarioByIdUser(this.userId);
   ngOnInit() {
       // Obtener los datos del usuario
      
@@ -29,6 +30,7 @@ export class MyProfileComponent {
         this.obtenerMascotas();
         this.userService.getUsuarioByIdUser(this.userId).subscribe(data => {
             this.userData = data;
+            
         });
     } else {
         console.warn("userId es undefined o null, no se pueden obtener las mascotas.");
@@ -46,6 +48,7 @@ export class MyProfileComponent {
     this.mascotaService.getSolicitudesAdopcionByUser().subscribe({
       next:(mascotas:solicitudMascota[])=>{
         this.mascotas = mascotas.filter(mascota => mascota.id_usuario_adoptante === this.userId);
+       
       },
         error:(error:Error) => {
             console.error("Error al obtener las mascotas:", error);
