@@ -1,4 +1,8 @@
-
+.principal{
+  background-color: #fff3d3;
+  padding: 10px 20px;
+  
+}
 
 .footer {
  
@@ -43,6 +47,29 @@
   font-size: 0.9rem;
   color: #333;
 }
+.enlaces ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.enlaces ul li a{
+  text-decoration: none;
+  color: brown;
+  font-size: 1.6rem;
+  padding: 1rem 0;
+  display: inline-block;
+
+}
+.enlaces {
+  text-align: center;
+}
+.enlaces a:hover {
+  color: #007bff; /* Cambia el color del texto cuando el usuario pasa el mouse */
+  transform: scale(1.1); /* Aumenta ligeramente el tamaño del enlace cuando pasa el mouse */
+}
+
+
+
 .footer-address
 {
     font-size: auto;
@@ -50,4 +77,25 @@
     display: block;
     max-height: 50px;
     max-width: 300px;
+}
+.redes{
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+}
+.redes .fa-brands
+{
+    color: rgb(27, 94, 94);
+}
+.fa-brands{
+  font-size:  3rem;
+}
+.fa-solid{
+  font-size:  3rem;
+}
+.grid-footer{
+  display: grid;
+  grid-template-columns: repeat(3, 3fr);
+  align-items: center;
+  justify-items: center;
 }
