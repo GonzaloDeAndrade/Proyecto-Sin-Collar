@@ -82,6 +82,10 @@ export class MascotaService {
   {
     return this.http.delete<void>(`${this.urlBaseStandBySA}/${id}`);
   }
+  deleteMascota(id:string):Observable<void>
+  {
+    return this.http.delete<void>(`${this.urlBaseAceptadasSM}/${id}`);
+  }
   getSolicitudesMascotasAdmin():Observable<solicitudMascota[]>
   {
     return this.http.get<solicitudMascota[]>(this.urlBaseAceptadasSM)

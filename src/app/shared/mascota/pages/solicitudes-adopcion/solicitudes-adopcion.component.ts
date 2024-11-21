@@ -72,6 +72,17 @@ export class SolicitudesAdopcionComponent implements OnInit {
         }
     }
   );
+  this.ms.deleteMascota(mascota.id).subscribe(
+    {
+      next:()=>
+        {
+          //window.location.reload()
+        },
+        error:(e:Error)=>{
+          console.log(e.message);
+        }
+    }
+  );
  }
  rechazarAdopcion(mascota:solicitudMascota)
  {
@@ -100,6 +111,7 @@ export class SolicitudesAdopcionComponent implements OnInit {
         }
     }
   );
+ 
 
  }
 enviarCorreoSA():void 

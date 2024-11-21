@@ -47,7 +47,7 @@ export class UsuarioServicioService {
             this.router.navigate(['/home'])
           }
           else
-          {
+          {console.log("ASD");
             Swal.fire({
               icon: 'error',
               title: 'Email o contraseña incorrecta',

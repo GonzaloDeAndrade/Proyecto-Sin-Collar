@@ -166,6 +166,7 @@
     <p><strong>Color:</strong> {{ mascotaSeleccionada?.color }}</p>
     <button class="boton-adoptar" (click)=" solicitarAdopcion(mascotaSeleccionada.id)"*ngIf="rol === 'adoptante'">Adoptar Mascota</button>
     <button class="boton-adoptar" *ngIf="rol === 'adoptivo'" routerLink="/agregar-mascota">Quiero cargar mi mascota</button>
+    <button class="boton-adoptar" *ngIf="rol === null || undefined" routerLink="/login">Ingresa para adoptar</button>
   </div>
 </div>
   </div>
